@@ -15,3 +15,9 @@ export type Request<T> = {
   payload?: T;
   timeout?: number;
 };
+
+export interface Response<ResData = {}> {
+  status: 'success' | 'failed';
+  data: ResData;
+  msg?: string;
+}
