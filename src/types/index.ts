@@ -8,3 +8,10 @@ export type HTTPMethods =
   | 'HEAD'
   | 'CONNECT'
   | 'TRACE';
+
+export type Request<T> = {
+  url: string;
+  method: HTTPMethods;
+  payload?: T;
+  timeout?: number;
+};
