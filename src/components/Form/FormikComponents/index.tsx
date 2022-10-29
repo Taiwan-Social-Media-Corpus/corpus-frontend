@@ -1,3 +1,4 @@
 import TextInput from './TextInput';
+import CheckboxGroup from './CheckboxGroup';
 
-export default TextInput;
+export { TextInput, CheckboxGroup };
