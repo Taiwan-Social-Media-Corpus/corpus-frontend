@@ -21,3 +21,9 @@ export interface Response<ResData = {}> {
   data: ResData;
   msg?: string;
 }
+
+// -------- helpers --------
+
+export type PickAsOrNull<T, K extends keyof T> = Omit<T, K> & {
+  [P in K]: T[P] | null;
+};
