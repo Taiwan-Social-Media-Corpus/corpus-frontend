@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import {
   ColProps,
   SwitchProps as MantineSwitchProps,
@@ -183,6 +184,13 @@ export type ControllerProps =
 
 export type ControllerPropsWithCol = {
   controllers: (ControllerProps & { col?: ColProps })[];
+};
+
+export type SimpleFormControllerProps<FormikContextType> = {
+  controllers: (ControllerProps & {
+    col?: ColProps;
+    after?: ReactNode | ((formikContext: FormikContextType) => ReactNode);
+  })[];
 };
 
 // -------- helpers --------
