@@ -30,6 +30,10 @@ function FormikController(props: ControllerProps) {
       const NumberInput = dynamic(() => import('./FormikComponents/NumberInput'));
       return <NumberInput {...props} />;
     }
+    case 'checkbox-group': {
+      const CheckboxGroup = dynamic(() => import('./FormikComponents/CheckboxGroup'));
+      return <CheckboxGroup {...props} />;
+    }
 
     default:
       return null;
