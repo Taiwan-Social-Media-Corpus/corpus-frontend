@@ -1,0 +1,14 @@
+FROM node:16-bullseye-slim
+
+RUN npm i -g pnpm
+
+RUN pnpm config set auto-install-peers true
+
+WORKDIR /app
+
+COPY package.json /app
+COPY pnpm-lock.yaml /app
+
+RUN pnpm i
+
+COPY . /app
