@@ -22,6 +22,10 @@ function FormikController(props: ControllerProps) {
       const RadioGroup = dynamic(() => import('./FormikComponents/RadioGroup'));
       return <RadioGroup {...props} />;
     }
+    case 'multi-select': {
+      const MultiSelect = dynamic(() => import('./FormikComponents/MultiSelect'));
+      return <MultiSelect {...props} />;
+    }
 
     default:
       return null;
