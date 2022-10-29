@@ -26,6 +26,11 @@ export interface Response<ResData = {}> {
 
 // ----- API response -----
 
+export type Boards = {
+  ptt: string[];
+  dcard: string[];
+};
+
 export interface BlacklabResponse {
   summary: Summary;
   hits: Hit[];
