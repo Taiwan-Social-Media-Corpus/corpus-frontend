@@ -11,6 +11,19 @@ export type HTTPMethods =
   | 'CONNECT'
   | 'TRACE';
 
+export interface RequestBody {
+  word: string;
+  media: string;
+  cqlEnable: boolean;
+  postType: string;
+  boards: string;
+  start: string;
+  end: string;
+  windowSize: string;
+  page: number;
+  fetchNumber: number;
+}
+
 export type Request<T> = {
   url: string;
   method: HTTPMethods;
