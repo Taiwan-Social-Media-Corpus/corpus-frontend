@@ -1,3 +1,4 @@
 import Loader from './Loader';
+import ColorSchemeToggle from './ColorSchemeToggle';
 
-export default Loader;
+export { Loader, ColorSchemeToggle };
