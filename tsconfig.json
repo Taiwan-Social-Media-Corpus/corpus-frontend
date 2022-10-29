@@ -19,7 +19,8 @@
       "types": ["./src/types/index.ts"],
       "@components/*": ["./src/components/*"],
       "@containers/*": ["./src/containers/*"],
-      "@config/*": ["./src/config/*"]
+      "@config/*": ["./src/config/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
