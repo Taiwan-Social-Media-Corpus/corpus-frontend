@@ -26,6 +26,10 @@ function FormikController(props: ControllerProps) {
       const MultiSelect = dynamic(() => import('./FormikComponents/MultiSelect'));
       return <MultiSelect {...props} />;
     }
+    case 'number-input': {
+      const NumberInput = dynamic(() => import('./FormikComponents/NumberInput'));
+      return <NumberInput {...props} />;
+    }
 
     default:
       return null;
