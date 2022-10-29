@@ -34,7 +34,10 @@ function FormikController(props: ControllerProps) {
       const CheckboxGroup = dynamic(() => import('./FormikComponents/CheckboxGroup'));
       return <CheckboxGroup {...props} />;
     }
-
+    case 'segmented-control': {
+      const SegmentedControl = dynamic(() => import('./FormikComponents/SegmentedControl'));
+      return <SegmentedControl {...props} />;
+    }
     default:
       return null;
   }
