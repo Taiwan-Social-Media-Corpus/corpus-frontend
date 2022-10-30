@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import { Menu as MantineMenu, Burger } from '@mantine/core';
 import links from './links';
@@ -41,4 +41,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default memo(Menu);
