@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import type { NextPage } from 'next';
+import { ReactElement, ReactNode } from 'react';
 import {
   ColProps,
   SwitchProps as MantineSwitchProps,
@@ -200,3 +201,9 @@ export type PickAsOrNull<T, K extends keyof T> = Omit<T, K> & {
 };
 
 export type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+// -------- NextJs --------
+
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
