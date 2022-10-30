@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Group, Tooltip } from '@mantine/core';
 import { Github, Facebook, ColorScheme } from './Icons';
 
@@ -21,4 +22,4 @@ function HeaderControls() {
   );
 }
 
-export default HeaderControls;
+export default memo(HeaderControls);
