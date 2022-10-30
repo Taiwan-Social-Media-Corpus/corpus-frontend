@@ -18,7 +18,16 @@ function ColorSchemeToggle() {
   );
 
   return (
-    <ActionIcon variant="outline" color={color} onClick={() => toggleColorScheme()}>
+    <ActionIcon
+      variant="outline"
+      color={color}
+      onClick={() => toggleColorScheme()}
+      sx={(theme) => ({
+        [theme.fn.largerThan('sm')]: {
+          display: 'none',
+        },
+      })}
+    >
       {icon}
     </ActionIcon>
   );
