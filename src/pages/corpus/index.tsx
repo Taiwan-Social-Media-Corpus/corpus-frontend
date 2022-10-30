@@ -1,11 +1,13 @@
-import { memo } from 'react';
 import { useRouter } from 'next/router';
+import type { ReactElement } from 'react';
+import { NextPageWithLayout } from 'types';
 import getBoards from '@services/boards';
 import { Container } from '@mantine/core';
 import Loader from '@components/UI/Loader';
 import CorpusForm from '@components/Corpus/Form';
+import CorpusLayout from '@components/UI/Layout/Corpus';
 
-function Corpus() {
+const Corpus: NextPageWithLayout = () => {
   const router = useRouter();
   const { boards, isError, isLoading } = getBoards();
 
@@ -23,6 +25,10 @@ function Corpus() {
       <CorpusForm boards={boards.data} />
     </Container>
   );
-}
+};
 
-export default memo(Corpus);
+Corpus.getLayout = function getLayout(page: ReactElement) {
+  return <CorpusLayout>{page}</CorpusLayout>;
+};
+
+export default Corpus;
