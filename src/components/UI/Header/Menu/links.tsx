@@ -1,3 +1,4 @@
+import Route from '@config/routes';
 import { IconBook2, IconReportSearch, IconInfoCircle } from '@tabler/icons';
 
 type Links = {
@@ -9,17 +10,17 @@ type Links = {
 
 const links: Links = [
   {
-    link: '/corpus',
+    link: Route.CORPUS,
     label: 'Corpus',
     icon: <IconReportSearch />,
   },
   {
-    link: '/about',
+    link: Route.ABOUT,
     label: 'About',
     icon: <IconInfoCircle />,
   },
   {
-    link: '/guide',
+    link: Route.GUIDE,
     label: 'Guide',
     icon: <IconBook2 />,
   },
