@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { MantineLogo } from '@mantine/ds';
 import { Header as MantineHeader, Group } from '@mantine/core';
+import Route from '@config/routes';
 import Menu from './Menu';
 import NavItems from './NavItem';
 import useStyles from './Header.styles';
@@ -9,15 +10,15 @@ import ColorSchemeToggle from '../ColorSchemeToggle';
 
 const links = [
   {
-    link: '/corpus',
+    link: Route.CORPUS,
     label: 'Corpus',
   },
   {
-    link: '/about',
+    link: Route.ABOUT,
     label: 'About',
   },
   {
-    link: '/guide',
+    link: Route.GUIDE,
     label: 'Guide',
   },
 ];
