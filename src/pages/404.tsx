@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import Link from 'next/link';
 import { createStyles, Title, Text, Button, Container, Group } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -51,11 +50,9 @@ function NotFoundTitle() {
         been moved to another URL.
       </Text>
       <Group position="center">
-        <Link href="/" passHref>
-          <Button component="a" variant="outline" size="md">
-            Take me back to home page
-          </Button>
-        </Link>
+        <Button component="a" href="/" variant="outline" size="md">
+          Take me back to home page
+        </Button>
       </Group>
     </Container>
   );
