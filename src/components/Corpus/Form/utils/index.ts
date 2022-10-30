@@ -1,3 +1,4 @@
+import testWord from './word';
 import resetBoardsField from './boards';
 
-export default resetBoardsField;
+export { testWord, resetBoardsField };
