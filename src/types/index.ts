@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
 import {
   ColProps,
@@ -206,4 +207,8 @@ export type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
+};
+
+export type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
 };
