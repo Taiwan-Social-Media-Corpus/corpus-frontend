@@ -1,15 +1,16 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import type { AppProps } from 'next/app';
 import { getCookie } from 'cookies-next';
-import Header from '@components/UI/Header';
+import { AppPropsWithLayout } from 'types';
 import { ColorScheme } from '@mantine/core';
+import Header from '@components/UI/Layout/App';
 import { GetServerSidePropsContext } from 'next';
 import DarkThemeContext from '@contexts/DarkTheme';
 
-function App(props: AppProps & { colorScheme: ColorScheme }) {
+function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
   const { Component, pageProps, colorScheme } = props;
   const router = useRouter();
+  const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
     <>
@@ -31,7 +32,7 @@ function App(props: AppProps & { colorScheme: ColorScheme }) {
       </Head>
       <DarkThemeContext colorScheme={colorScheme}>
         <Header />
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
       </DarkThemeContext>
     </>
   );
