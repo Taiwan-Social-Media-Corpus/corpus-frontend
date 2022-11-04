@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { IconProps } from './types';
+import { IconProps } from 'types';
 
 function FacebookIcon(props: IconProps) {
-  const { size, ...others } = props;
+  const { size, ...rest } = props;
 
   return (
     <svg
@@ -12,7 +12,7 @@ function FacebookIcon(props: IconProps) {
       fill="none"
       width={size}
       height={size}
-      {...others}
+      {...rest}
     >
       <path
         fill="currentColor"

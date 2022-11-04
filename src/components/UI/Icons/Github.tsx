@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { IconProps } from './types';
+import { IconProps } from 'types';
 
 function GithubIcon(props: IconProps) {
-  const { size, ...others } = props;
+  const { size, ...rest } = props;
 
   return (
     <svg
@@ -11,7 +11,7 @@ function GithubIcon(props: IconProps) {
       width={size}
       height={size}
       fill="currentColor"
-      {...others}
+      {...rest}
     >
       <path
         fillRule="evenodd"
