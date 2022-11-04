@@ -31,7 +31,7 @@ export interface RequestBody {
   media: string;
   cqlEnable: boolean;
   postType: string;
-  boards: string;
+  boards: string[];
   start: string;
   end: string;
   windowSize: string;
