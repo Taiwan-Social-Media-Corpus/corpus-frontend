@@ -195,6 +195,10 @@ export type SimpleFormControllerProps<FormikContextType> = {
   })[];
 };
 
+export interface IconProps extends React.ComponentPropsWithoutRef<'svg'> {
+  size?: number;
+}
+
 // -------- helpers --------
 
 export type PickAsOrNull<T, K extends keyof T> = Omit<T, K> & {
