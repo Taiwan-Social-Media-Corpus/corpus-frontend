@@ -14,6 +14,7 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    position: 'fixed',
   },
 
   logo: {
