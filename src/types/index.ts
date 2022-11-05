@@ -220,3 +220,9 @@ export type AppPropsWithLayout = AppProps & {
 export type ConcordancePageProps = {
   payload: RequestBody;
 };
+
+export type ConcordanceParams = {
+  e: string;
+  pos: string;
+  page: string;
+};
