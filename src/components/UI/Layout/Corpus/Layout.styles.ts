@@ -1,6 +1,12 @@
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
+  wrapper: {
+    height: '100vh',
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
+    paddingTop: 140,
+  },
+
   title: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 900,
