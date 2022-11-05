@@ -1,11 +1,13 @@
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import type { ReactElement } from 'react';
 import { NextPageWithLayout } from 'types';
 import getBoards from '@services/boards';
 import { Container } from '@mantine/core';
 import Loader from '@components/UI/Loader';
-import CorpusForm from '@components/Corpus/Form';
 import CorpusLayout from '@components/UI/Layout/Corpus';
+
+const CorpusForm = dynamic(() => import('@components/Corpus/Form'));
 
 const Corpus: NextPageWithLayout = () => {
   const router = useRouter();
