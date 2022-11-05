@@ -1,13 +1,14 @@
 import { ReactNode } from 'react';
-import { Container, Title, Text } from '@mantine/core';
+import { Container, Title, Text, useMantineTheme } from '@mantine/core';
 import useStyles from './Layout.styles';
 
 function CorpusLayout({ children }: { children: ReactNode }) {
   const { classes } = useStyles();
+  const theme = useMantineTheme();
 
   return (
-    <>
-      <Container size={700} my={45}>
+    <div className={classes.wrapper}>
+      <Container size={700}>
         <Title className={classes.title}>Taiwan Social Media Corpus</Title>
         <Container size={560} p={0}>
           <Text size="sm" className={classes.description}>
@@ -15,8 +16,14 @@ function CorpusLayout({ children }: { children: ReactNode }) {
           </Text>
         </Container>
       </Container>
-      <main>{children}</main>
-    </>
+      <main
+        style={{
+          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
+        }}
+      >
+        {children}
+      </main>
+    </div>
   );
 }
 
