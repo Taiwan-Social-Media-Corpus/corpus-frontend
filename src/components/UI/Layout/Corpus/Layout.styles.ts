@@ -4,7 +4,7 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     height: '100vh',
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
-    paddingTop: 140,
+    paddingTop: 115,
   },
 
   title: {
