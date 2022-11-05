@@ -1,4 +1,4 @@
-function createPosColor(pos: string) {
+export function createPosColor(pos: string) {
   if (pos.length > 4) return 'rgb(102, 102, 102)';
 
   const posColorFactories: { [key in string]: any } = {
@@ -16,5 +16,3 @@ function createPosColor(pos: string) {
 
   return posColorFactories[pos[0]];
 }
-
-export default createPosColor;
