@@ -1,3 +1,4 @@
+import Redirect from './redirect';
 import getRedirectURL from './url';
 
-export default getRedirectURL;
+export { Redirect, getRedirectURL };
