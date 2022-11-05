@@ -3,8 +3,12 @@ import { createStyles, Title, Text, Button, Container, Group } from '@mantine/co
 
 const useStyles = createStyles((theme) => ({
   root: {
-    paddingTop: 80,
+    paddingTop: 180,
     paddingBottom: 80,
+
+    [theme.fn.smallerThan('sm')]: {
+      paddingTop: 140,
+    },
   },
 
   label: {
