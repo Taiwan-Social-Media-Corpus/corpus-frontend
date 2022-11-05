@@ -21,6 +21,7 @@ function Pagination(props: Props) {
       total={Math.round(numberOfHits / fetchNumber) || 1}
       initialPage={Number(page)}
       withEdges
+      mb={50}
       size={setPaginationSize()}
       onChange={async (value) => {
         const pushUrl = `${Route.CONCORDANCE}?page=${value}&pos=${showPos}&e=${e}`;
