@@ -26,6 +26,7 @@ function ColorSchemeToggle() {
         [theme.fn.largerThan('sm')]: {
           display: 'none',
         },
+        marginRight: theme.spacing.md,
       })}
     >
       {icon}
