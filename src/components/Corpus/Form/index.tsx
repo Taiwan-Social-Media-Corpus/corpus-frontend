@@ -79,7 +79,7 @@ function CorpusForm(props: CorpusFormProps) {
   };
 
   return (
-    <Paper shadow="md" mt={20} p={45} radius="md" withBorder>
+    <Paper shadow="md" p={45} radius="md" withBorder>
       <Formik initialValues={initialValue} onSubmit={onSubmit} validationSchema={validationSchema}>
         {(formik) => (
           <Form>
@@ -128,7 +128,10 @@ function CorpusForm(props: CorpusFormProps) {
                       })
                     )}
                     withAsterisk
+                    searchable
+                    nothingFound="Nothing found"
                     placeholder="Pick board"
+                    clearable
                   />
                 </Grid.Col>
               )}
