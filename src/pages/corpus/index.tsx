@@ -4,9 +4,9 @@ import type { ReactElement } from 'react';
 import { NextPageWithLayout } from 'types';
 import getBoards from '@services/boards';
 import { Container } from '@mantine/core';
-import Loader from '@components/UI/Loader';
 import CorpusLayout from '@components/UI/Layout/Corpus';
 
+const Loader = dynamic(() => import('@components/UI/Loader'));
 const CorpusForm = dynamic(() => import('@components/Corpus/Form'));
 
 const Corpus: NextPageWithLayout = () => {
