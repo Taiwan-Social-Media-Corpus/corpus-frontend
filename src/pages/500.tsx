@@ -1,7 +1,9 @@
 import { memo } from 'react';
+import dynamic from 'next/dynamic';
 import { Button } from '@mantine/core';
 import { useRouter } from 'next/router';
-import ErrorPage from '@components/ErrorPage';
+
+const ErrorPage = dynamic(() => import('@components/ErrorPage'));
 
 function ServerError() {
   const router = useRouter();

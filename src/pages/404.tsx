@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { memo } from 'react';
 import Route from '@config/routes';
+import dynamic from 'next/dynamic';
 import { Button } from '@mantine/core';
-import ErrorPage from '@components/ErrorPage';
+
+const ErrorPage = dynamic(() => import('@components/ErrorPage'));
 
 function NotFoundTitle() {
   return (
