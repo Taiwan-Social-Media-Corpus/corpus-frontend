@@ -1,6 +1,10 @@
 import { memo } from 'react';
+import dynamic from 'next/dynamic';
 import { Group, Tooltip } from '@mantine/core';
-import { Github, Facebook, ColorScheme } from './Icons';
+
+const Github = dynamic(() => import('./Icons').then((module) => module.Github));
+const Facebook = dynamic(() => import('./Icons').then((module) => module.Facebook));
+const ColorScheme = dynamic(() => import('./Icons').then((module) => module.ColorScheme));
 
 function HeaderControls() {
   return (
