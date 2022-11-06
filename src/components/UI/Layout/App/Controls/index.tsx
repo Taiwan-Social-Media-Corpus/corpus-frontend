@@ -19,7 +19,7 @@ function HeaderControls() {
         })}
       >
         <Facebook link="https://www.facebook.com/groups/174362969268953" />
-        <Github link="https://github.com/Taiwan-Social-Media-Corpus" tooltip="Source code" />
+        <Github link="https://github.com/Taiwan-Social-Media-Corpus" tooltip="Organization" />
         <ColorScheme />
       </Group>
     </Tooltip.Group>
