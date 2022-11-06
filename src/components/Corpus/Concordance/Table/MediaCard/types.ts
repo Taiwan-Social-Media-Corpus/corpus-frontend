@@ -11,4 +11,5 @@ export type MediaCardProps = {
   media: string;
   year: string;
   title: string;
+  dataNumber: number;
 };
