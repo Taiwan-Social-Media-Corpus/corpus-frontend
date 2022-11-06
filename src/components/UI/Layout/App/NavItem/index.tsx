@@ -1,9 +1,11 @@
 import { memo } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { Text } from '@mantine/core';
 import { LinksTypes } from './types';
-import NestedItems from './NestedItems';
 import useStyles from './NavItem.styles';
+
+const NestedItems = dynamic(() => import('./NestedItems'));
 
 function NavItems({ links }: LinksTypes) {
   const { classes } = useStyles();
