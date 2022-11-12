@@ -4,8 +4,8 @@ import { getCookie } from 'cookies-next';
 import { AppPropsWithLayout } from 'types';
 import { ColorScheme } from '@mantine/core';
 import Header from '@components/UI/Layout/App';
+import DarkThemeContext from '@contexts/Theme';
 import { GetServerSidePropsContext } from 'next';
-import DarkThemeContext from '@contexts/DarkTheme';
 
 function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
   const { Component, pageProps, colorScheme } = props;
