@@ -72,7 +72,7 @@ export interface DocInfos {
     author: string[];
     media: string[];
     title: string[];
-    doc_id: string[];
+    docId: string[];
     board: string[];
     lengthInTokens: number;
     mayView: boolean;
@@ -124,7 +124,7 @@ export interface DocFields {
 export interface MetadataFieldDisplayNames {
   author: string;
   board: string;
-  doc_id: string;
+  docId: string;
   fromInputFile: string;
   media: string;
   title: string;
