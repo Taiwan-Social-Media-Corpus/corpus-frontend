@@ -29,3 +29,7 @@ export type ConcordanceContextType = {
   mutate: KeyedMutator<any>;
   dispatch: React.Dispatch<ActionType>;
 };
+
+export type ContextProviderProps = {
+  children: React.ReactNode;
+};
