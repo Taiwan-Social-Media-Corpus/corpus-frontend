@@ -4,7 +4,7 @@ import Route from '@config/routes';
 import dynamic from 'next/dynamic';
 import { Button } from '@mantine/core';
 
-const ErrorPage = dynamic(() => import('@components/ErrorPage'));
+const ErrorPage = dynamic(() => import('@components/pages/Error'));
 
 function NotFoundTitle() {
   return (

@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { Button } from '@mantine/core';
 import { useRouter } from 'next/router';
 
-const ErrorPage = dynamic(() => import('@components/ErrorPage'));
+const ErrorPage = dynamic(() => import('@components/pages/Error'));
 
 function ServerError() {
   const router = useRouter();
