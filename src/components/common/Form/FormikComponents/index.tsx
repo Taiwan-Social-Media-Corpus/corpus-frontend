@@ -1,3 +1,4 @@
+import MultiSelect from './MultiSelect';
 import CheckboxGroup from './CheckboxGroup';
 
-export default CheckboxGroup;
+export { MultiSelect, CheckboxGroup };
