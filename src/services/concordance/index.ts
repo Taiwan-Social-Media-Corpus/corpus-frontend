@@ -10,7 +10,7 @@ const getConcordance = (payload: RequestBody) => {
     request({ url, method: 'POST', payload })
   );
 
-  return { data, isLoading: !error && !data, isError: error, mutate };
+  return { concordance: data, isLoading: !error && !data, isError: error, mutate };
 };
 
 export default getConcordance;
