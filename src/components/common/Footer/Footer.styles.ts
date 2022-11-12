@@ -128,7 +128,7 @@ const useStyles = createStyles((theme) => ({
       flex: 1,
       width: '100%',
       marginLeft: 0,
-      marginTop: theme.spacing.md,
+      marginTop: theme.spacing.xs,
     },
   },
 }));
