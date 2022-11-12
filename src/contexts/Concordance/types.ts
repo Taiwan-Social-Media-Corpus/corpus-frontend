@@ -1,4 +1,5 @@
 import { BlacklabResponse } from 'types';
+import { KeyedMutator } from 'swr';
 import Action from './actions';
 
 export type InitialState = {
@@ -22,3 +23,9 @@ type PendingAction = {
 };
 
 export type ActionType = FetchSuccessAction | FetchErrorAction | PendingAction;
+
+export type ConcordanceContextType = {
+  concordance: InitialState;
+  mutate: KeyedMutator<any>;
+  dispatch: React.Dispatch<ActionType>;
+};
