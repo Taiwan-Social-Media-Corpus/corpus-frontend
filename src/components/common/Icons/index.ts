@@ -1,3 +1,4 @@
-import Dcard from './Dcard';
+import DcardIcon from './Dcard';
+import FacebookIcon from './Facebook';
 
-export default Dcard;
+export { DcardIcon, FacebookIcon };
