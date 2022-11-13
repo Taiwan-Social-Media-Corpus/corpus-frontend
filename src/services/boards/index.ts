@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import API from '@config/api';
+import { API } from '@config/api';
 import request from '@utils/request';
 import { Response, Boards } from 'types';
 
