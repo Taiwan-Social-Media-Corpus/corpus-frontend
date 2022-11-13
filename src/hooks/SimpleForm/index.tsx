@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { useId } from '@mantine/hooks';
-import FormikController from '@components/Form';
 import { SimpleFormControllerProps } from 'types';
+import FormikController from '@components/common/Form';
 import { Form, Formik, FormikConfig, FormikContextType } from 'formik';
 import { Button, Grid, ButtonProps, useMantineTheme } from '@mantine/core';
 
