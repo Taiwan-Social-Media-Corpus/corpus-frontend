@@ -1,7 +1,7 @@
 import urlJoin from 'url-join';
 
 const domain = process.env.NEXT_PUBLIC_API_SERVICE;
-const blacklabDomain = process.env.BLACKLAB_URL;
+const blacklabDomain = process.env.NEXT_PUBLIC_BLACKLAB_URL;
 
 if (!domain) {
   throw new Error('API_SERVICE undefined');
