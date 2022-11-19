@@ -13,7 +13,7 @@ function LopenIcon(props: LopenIconProps) {
         ? theme.colors.dark[8]
         : theme.colors.gray[0]
       : theme.colorScheme === 'dark'
-      ? theme.colors.dark[8]
+      ? theme.colors.dark[7]
       : theme.white;
 
   return (
