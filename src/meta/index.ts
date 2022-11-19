@@ -18,6 +18,13 @@ const meta = {
       frontend: 'https://github.com/Taiwan-Social-Media-Corpus/corpus-frontend/releases',
     },
   },
+
+  layout: {
+    mdx: { breakpoint: 1080 },
+    header: { height: 60 },
+    navbar: { width: 260, breakpoint: 760 },
+    footer: { height: 400, heightTablet: 460, heightMobile: 320 },
+  },
 };
 
 export default meta;
