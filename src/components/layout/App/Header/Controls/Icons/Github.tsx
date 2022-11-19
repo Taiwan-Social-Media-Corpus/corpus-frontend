@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { GithubIcon } from '@components/UI/Icons';
+import { GithubIcon } from '@components/common/Icons';
 import HeaderControl from './utils';
 
 interface GithubControlProps {
