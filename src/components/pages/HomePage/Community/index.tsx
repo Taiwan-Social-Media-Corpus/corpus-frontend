@@ -1,8 +1,16 @@
 import meta from 'meta';
-import { FacebookIcon, GithubIcon } from '@components/common/Icons';
+import { memo } from 'react';
+import dynamic from 'next/dynamic';
 import { SimpleGrid, Group, Text, Card, Space } from '@mantine/core';
 import useStyles from './Community.styles';
-import PageSection from '../utils/PageSecion';
+
+const PageSection = dynamic(() => import('../utils/PageSecion'));
+const GithubIcon = dynamic(() =>
+  import('@components/common/Icons').then((module) => module.GithubIcon)
+);
+const FacebookIcon = dynamic(() =>
+  import('@components/common/Icons').then((module) => module.FacebookIcon)
+);
 
 function Community() {
   const { classes, cx } = useStyles();
@@ -61,4 +69,4 @@ function Community() {
   );
 }
 
-export default Community;
+export default memo(Community);
