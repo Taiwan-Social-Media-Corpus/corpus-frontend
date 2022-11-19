@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { MantineLogo } from '@mantine/ds';
 import { Header as MantineHeader, Group, Code } from '@mantine/core';
 import Route from '@config/routes';
 import useStyles from './Header.styles';
@@ -10,7 +9,10 @@ import corePackageJson from '../../../../../package.json';
 const Menu = dynamic(() => import('./Menu'));
 const NavItems = dynamic(() => import('./NavItem'));
 const HeaderControls = dynamic(() => import('./Controls'));
-const ColorSchemeToggle = dynamic(() => import('@components/UI/ColorSchemeToggle'));
+const ColorSchemeToggle = dynamic(() => import('@components/common/ColorSchemeToggle'));
+const LopenIcon = dynamic(() =>
+  import('@components/common/Icons/index').then((module) => module.LopenIcon)
+);
 
 const links = [
   {
@@ -36,7 +38,9 @@ function Header() {
       <Group>
         <div className={classes.logoWrapper}>
           <Link href="/" className={classes.logo} aria-label="Mantine">
-            <MantineLogo size={28} />
+            <Group mb={10}>
+              <LopenIcon size={55} type="header" />
+            </Group>
           </Link>
 
           <Link
