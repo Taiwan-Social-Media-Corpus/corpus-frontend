@@ -2,9 +2,12 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    height: '100vh',
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
     paddingTop: 115,
+
+    [theme.fn.largerThan('sm')]: {
+      height: '100vh',
+    },
   },
 
   title: {
