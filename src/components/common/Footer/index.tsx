@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
-import { MantineLogo } from '@mantine/ds';
 import { Container, Text, Group } from '@mantine/core';
 import useStyles from './Footer.styles';
 import { FOOTER_LINKS_DATA } from './LinksGroup';
@@ -10,6 +9,9 @@ const FacebookButton = dynamic(() =>
   import('./SocialButtons').then((module) => module.FacebookButton)
 );
 const GithubButton = dynamic(() => import('./SocialButtons').then((module) => module.GithubButton));
+const LopenIcon = dynamic(() =>
+  import('@components/common/Icons/index').then((module) => module.LopenIcon)
+);
 
 type Props = { withNavbar?: boolean };
 
@@ -31,7 +33,12 @@ function Footer(props: Props) {
         <Container size={1100}>
           <div className={classes.inner}>
             <div className={classes.logoSection}>
-              <MantineLogo size={28} />
+              <Group>
+                <LopenIcon size={80} type="footer" />
+                <Text ff="Monaco,Courier,monospace" size="md">
+                  LOPEN
+                </Text>
+              </Group>
               <Text className={classes.description} size="sm">
                 Build fully functional accessible corpus faster than ever
               </Text>
