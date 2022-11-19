@@ -1,3 +1,4 @@
+import meta from 'meta';
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -14,19 +15,14 @@ const useStyles = createStyles((theme) => ({
     paddingBottom: theme.spacing.lg,
   },
 
-  discord: {
-    backgroundColor: theme.fn.darken('#5865f2', theme.colorScheme === 'dark' ? 0.25 : 0),
+  facebook: {
+    backgroundColor: theme.fn.darken(meta.facebook.color, theme.colorScheme === 'dark' ? 0.25 : 0),
     color: theme.white,
     ...theme.fn.hover({
-      backgroundColor: theme.fn.lighten('#5865f2', theme.colorScheme === 'dark' ? -0.1 : 0.1),
-    }),
-  },
-
-  twitter: {
-    backgroundColor: theme.fn.darken('#1C8CD8', theme.colorScheme === 'dark' ? 0.15 : 0),
-    color: theme.white,
-    ...theme.fn.hover({
-      backgroundColor: theme.fn.lighten('#1C8CD8', theme.colorScheme === 'dark' ? -0.1 : 0.1),
+      backgroundColor: theme.fn.lighten(
+        meta.facebook.color,
+        theme.colorScheme === 'dark' ? -0.1 : 0.1
+      ),
     }),
   },
 
