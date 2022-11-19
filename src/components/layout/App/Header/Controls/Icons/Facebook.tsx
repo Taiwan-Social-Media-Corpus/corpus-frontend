@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { FacebookIcon } from '@components/UI/Icons';
+import { FacebookIcon } from '@components/common/Icons';
 import HeaderControl from './utils';
 
 interface FacebookControlProps {
