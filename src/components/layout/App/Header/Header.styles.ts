@@ -1,3 +1,4 @@
+import meta from 'meta';
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -5,12 +6,12 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: theme.spacing.md,
     paddingRight: 'var(--removed-scroll-width, 0px)',
     borderBottom: `1px solid ${
-      theme.colorScheme === 'dark' ? theme.colors.gray[8] : theme.colors.gray[2]
+      theme.colorScheme === 'dark' ? theme.colors.gray[8] : theme.colors.gray[3]
     }`,
     top: 0,
     left: 0,
     right: 0,
-    height: 60,
+    height: meta.layout.header.height,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -20,7 +21,7 @@ const useStyles = createStyles((theme) => ({
   logo: {
     paddingRight: theme.spacing.md,
     paddingLeft: theme.spacing.md,
-    height: 60,
+    height: meta.layout.header.height,
     paddingTop: 6,
     display: 'flex',
     alignItems: 'center',
