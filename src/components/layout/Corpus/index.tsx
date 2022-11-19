@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { Container, Title, Text, useMantineTheme } from '@mantine/core';
-import useStyles from './Layout.styles';
+import useStyles from './Corpus.styles';
 
 function CorpusLayout({ children }: { children: ReactNode }) {
   const { classes } = useStyles();
@@ -27,4 +27,4 @@ function CorpusLayout({ children }: { children: ReactNode }) {
   );
 }
 
-export default CorpusLayout;
+export default memo(CorpusLayout);
