@@ -35,7 +35,7 @@ function Footer(props: Props) {
             <div className={classes.logoSection}>
               <Group>
                 <LopenIcon size={80} type="footer" />
-                <Text ff="Monaco,Courier,monospace" size="md">
+                <Text ff="Monaco,Courier,monospace" size="md" weight={600}>
                   LOPEN
                 </Text>
               </Group>
