@@ -20,7 +20,7 @@ function Community() {
           p="lg"
           component="a"
           radius="md"
-          href="https://github.com/mantinedev/mantine/discussions"
+          href={meta.facebook.link}
           className={cx(classes.card, classes.facebook)}
         >
           <Group noWrap>
