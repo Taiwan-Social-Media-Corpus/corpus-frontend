@@ -1,24 +1,16 @@
+import meta from 'meta';
 import { createStyles } from '@mantine/core';
-import {
-  NAVBAR_WIDTH,
-  NAVBAR_BREAKPOINT,
-  MDX_PAGE_BREAKPOINT,
-} from '@components/layout/App/Header/Header.styles';
-
-export const FOOTER_HEIGHT = 400;
-export const FOOTER_HEIGHT_TABLET = 460;
-export const FOOTER_HEIGHT_MOBILE = 320;
 
 const useStyles = createStyles((theme) => ({
   spacer: {
-    height: FOOTER_HEIGHT,
+    height: meta.layout.footer.height,
 
     '@media (max-width: 800px)': {
-      height: FOOTER_HEIGHT_TABLET,
+      height: meta.layout.footer.heightTablet,
     },
 
     '@media (max-width: 640px)': {
-      height: FOOTER_HEIGHT_MOBILE,
+      height: meta.layout.footer.heightMobile,
     },
   },
 
@@ -28,27 +20,27 @@ const useStyles = createStyles((theme) => ({
     bottom: 0,
     left: 0,
     right: 0,
-    height: FOOTER_HEIGHT,
+    height: meta.layout.footer.height,
 
     '@media (max-width: 800px)': {
-      height: FOOTER_HEIGHT_TABLET,
+      height: meta.layout.footer.heightTablet,
     },
 
     '@media (max-width: 640px)': {
-      height: FOOTER_HEIGHT_MOBILE,
+      height: meta.layout.footer.heightMobile,
     },
   },
 
   withNavbar: {
-    paddingLeft: NAVBAR_WIDTH + theme.spacing.md * 2,
+    paddingLeft: meta.layout.navbar.width + theme.spacing.md * 2,
     paddingRight: theme.spacing.md * 2,
 
-    [`@media (max-width: ${MDX_PAGE_BREAKPOINT}px)`]: {
-      paddingLeft: NAVBAR_WIDTH + theme.spacing.md,
+    [`@media (max-width: ${meta.layout.mdx.breakpoint}px)`]: {
+      paddingLeft: meta.layout.navbar.width + theme.spacing.md,
       paddingRight: theme.spacing.md,
     },
 
-    [`@media (max-width: ${NAVBAR_BREAKPOINT}px)`]: {
+    [`@media (max-width: ${meta.layout.navbar.breakpoint}px)`]: {
       paddingLeft: theme.spacing.md,
       paddingRight: theme.spacing.md,
     },
