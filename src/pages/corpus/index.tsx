@@ -4,10 +4,10 @@ import type { ReactElement } from 'react';
 import { NextPageWithLayout } from 'types';
 import getBoards from '@services/boards';
 import { Container } from '@mantine/core';
-import CorpusLayout from '@components/UI/Layout/Corpus';
+import CorpusLayout from '@components/layout/Corpus';
 
-const Loader = dynamic(() => import('@components/UI/Loader'));
-const CorpusForm = dynamic(() => import('@components/Corpus/Form'));
+const Loader = dynamic(() => import('@components/common/Loader'));
+const CorpusForm = dynamic(() => import('@components/pages/Corpus/Form'));
 
 const Corpus: NextPageWithLayout = () => {
   const router = useRouter();
