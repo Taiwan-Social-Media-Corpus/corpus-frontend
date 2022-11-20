@@ -8,6 +8,7 @@ specifiers:
   '@mantine/ds': ^5.8.2
   '@mantine/hooks': ^5.8.2
   '@mantine/next': ^5.8.2
+  '@mantine/prism': ^5.8.2
   '@mantine/utils': ^5.8.2
   '@next/bundle-analyzer': ^13.0.4
   '@next/eslint-plugin-next': ^13.0.4
@@ -54,6 +55,7 @@ dependencies:
   '@mantine/core': 5.8.2_4w5hdbg5y6uwqootei7qegfsme
   '@mantine/hooks': 5.8.2_react@18.2.0
   '@mantine/next': 5.8.2_ae6fqzw2xsl3x7be62hhoqcim4
+  '@mantine/prism': 5.8.2_mg4am4smyspjkl6dnttcswxx6a
   '@mantine/utils': 5.8.2_react@18.2.0
   '@next/bundle-analyzer': 13.0.4
   '@tabler/icons': 1.112.0_biqbaboplfbrettd7655fr4n2y
@@ -589,7 +591,6 @@ packages:
       prism-react-renderer: 1.3.5_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    dev: true
 
   /@mantine/ssr/5.8.2_vavbdtuajfyku5chqvt5ands7q:
     resolution: {integrity: sha512-D1QDIL0fGUTa2lvga4mr3P2sA8viJX22YxI9sUc97of4NOaXYvM4iWOip0TBXL9ijlZ1+R0wZaGMypj0xNJPXQ==}
@@ -4235,7 +4236,6 @@ packages:
       react: '>=0.14.9'
     dependencies:
       react: 18.2.0
-    dev: true
 
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
