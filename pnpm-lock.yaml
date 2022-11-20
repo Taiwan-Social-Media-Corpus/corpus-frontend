@@ -30,6 +30,7 @@ specifiers:
   eslint-plugin-react: ^7.31.11
   eslint-plugin-react-hooks: ^4.6.0
   formik: ^2.2.9
+  github-slugger: ^2.0.0
   husky: ^8.0.2
   lint-staged: ^13.0.3
   next: 13.0.0
@@ -58,6 +59,7 @@ dependencies:
   cookies-next: 2.1.1
   date-fns: 2.29.3
   formik: 2.2.9_react@18.2.0
+  github-slugger: 2.0.0
   next: 13.0.0_mqvh5p7ejg4taogoj6tpk3gd5a
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -2542,7 +2544,6 @@ packages:
 
   /github-slugger/2.0.0:
     resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
-    dev: true
 
   /glob-parent/5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
