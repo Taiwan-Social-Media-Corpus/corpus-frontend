@@ -19,6 +19,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.43.0
   babel-loader: ^9.1.0
   cookies-next: ^2.1.1
+  date-fns: ^2.29.3
   eslint: 8.26.0
   eslint-config-airbnb: ^19.0.4
   eslint-config-airbnb-typescript: ^17.0.0
@@ -55,6 +56,7 @@ dependencies:
   '@next/bundle-analyzer': 13.0.4
   '@tabler/icons': 1.112.0_biqbaboplfbrettd7655fr4n2y
   cookies-next: 2.1.1
+  date-fns: 2.29.3
   formik: 2.2.9_react@18.2.0
   next: 13.0.0_mqvh5p7ejg4taogoj6tpk3gd5a
   react: 18.2.0
@@ -1713,6 +1715,11 @@ packages:
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
     dev: true
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
