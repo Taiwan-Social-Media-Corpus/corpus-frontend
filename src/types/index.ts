@@ -226,3 +226,8 @@ export type ConcordanceParams = {
   pos: string;
   page: string;
 };
+
+export interface Frontmatter {
+  title: string;
+  description?: string;
+}
