@@ -11,4 +11,14 @@ const getPostFilesPath = (page: Page) => {
   return fs.readdirSync(postPath).filter((file) => /\.mdx?$/.test(file));
 };
 
-export { getPostDirPath, getPostFilesPath };
+async function getHeadings(content: string) {
+  const headingLines = content.split('\n').filter((line) => line.match(/^###*\s/));
+
+  return headingLines.map((raw) => {
+    const text = raw.replace(/^###*\s/, '');
+    const level = raw.slice(0, 3) === '###' ? 3 : 2;
+    return { text, level };
+  });
+}
+
+export { getPostDirPath, getPostFilesPath, getHeadings };
