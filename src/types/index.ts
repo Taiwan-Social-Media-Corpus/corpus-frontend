@@ -12,6 +12,7 @@ import {
   CheckboxGroupProps as MantineCheckboxGroupProps,
   SegmentedControlProps as MantineSegmentedControlProps,
 } from '@mantine/core';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 // ---------- API ----------
 
@@ -231,3 +232,9 @@ export interface Frontmatter {
   title: string;
   description?: string;
 }
+
+export type MdxPageProps = {
+  source: MDXRemoteSerializeResult;
+  frontMatter: Frontmatter;
+  headings: { depth: number; value: string }[];
+};
