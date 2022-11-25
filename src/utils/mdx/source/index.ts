@@ -1,3 +1,9 @@
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import serializeConfig from '@config/mdx';
+import { serialize } from 'next-mdx-remote/serialize';
+
 async function getHeadings(content: string) {
   const headingLines = content.split('\n').filter((line) => line.match(/^###*\s/));
 
@@ -8,4 +14,21 @@ async function getHeadings(content: string) {
   });
 }
 
-export default getHeadings;
+async function createMdxSource(params: { slug: string }, postsDir: string) {
+  const postFilePath = path.join(postsDir, `${params.slug}.mdx`);
+  const source = fs.readFileSync(postFilePath);
+  const { content, data } = matter(source);
+
+  const [mdxSource, headings] = await Promise.all([
+    await serialize(content, serializeConfig(data)),
+    await getHeadings(content),
+  ]);
+
+  return {
+    source: mdxSource,
+    frontMatter: data,
+    headings,
+  };
+}
+
+export default createMdxSource;
