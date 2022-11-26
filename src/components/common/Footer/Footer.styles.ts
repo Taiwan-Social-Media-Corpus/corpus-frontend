@@ -53,10 +53,12 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'space-between',
 
     '@media (max-width: 1000px)': {
+      paddingTop: theme.spacing.lg,
       flexDirection: 'column',
     },
 
     '@media (max-width: 640px)': {
+      paddingTop: theme.spacing.sm,
       paddingBottom: theme.spacing.md,
     },
   },
