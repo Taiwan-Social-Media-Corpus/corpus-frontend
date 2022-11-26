@@ -11,7 +11,7 @@ if (!blacklabDomain) {
   throw new Error('BLACKLAB_URL undefined');
 }
 
-const api = process.env.NODE_ENV === 'production' ? '/api' : domain;
+const api = process.env.NODE_ENV === 'production' ? '/api/v1' : domain;
 
 const corpus = urlJoin(api, 'corpus');
 
