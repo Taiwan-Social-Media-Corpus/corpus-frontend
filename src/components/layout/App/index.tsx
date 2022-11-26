@@ -11,12 +11,16 @@ const Navbar = dynamic(() => import('./Navbar'));
 
 function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
   const navbarCollapsed = useMediaQuery(`(max-width: ${meta.layout.navbar.breakpoint}px)`);
   const shouldRenderNavbar = shouldIncludeNavbar(router.pathname) || navbarCollapsed;
 
   return (
-    <div className={classes.withNavbar}>
+    <div
+      className={cx({
+        [classes.withNavbar]: shouldRenderNavbar,
+      })}
+    >
       <Header />
       {shouldRenderNavbar ? <Navbar /> : null}
       <main className={classes.main}>
