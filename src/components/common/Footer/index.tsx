@@ -50,7 +50,8 @@ function Footer(props: Props) {
           <div className={classes.afterFooter}>
             <Group position="apart">
               <Text size="xs" className={classes.afterFooterNote}>
-                Built by <a href="https://github.com/Retr0327">Lixing Yang</a>
+                Built by <a href="https://github.com/Retr0327">Lixing Yang</a> and{' '}
+                <a href="https://github.com/loperntu">Shu-Kai Hsieh</a>
               </Text>
               <div className={classes.social}>
                 <FacebookButton className={classes.socialButton} />
