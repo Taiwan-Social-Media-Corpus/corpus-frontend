@@ -1,11 +1,12 @@
 import meta from 'meta';
+import Route from '@config/routes';
 import { LinksGroupProps } from './types';
 
 const FOOTER_LINKS_DATA: LinksGroupProps[] = [
   {
     title: 'About',
     data: [
-      { label: 'About Corpus', link: '/about' },
+      { label: 'About Corpus', link: `${Route.ABOUT}/intro` },
       { label: 'Releases (frontend)', link: meta.github.releases.frontend },
       { label: 'Releases (backend)', link: meta.github.releases.frontend },
     ],
