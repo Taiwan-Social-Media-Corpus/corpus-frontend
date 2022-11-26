@@ -2,7 +2,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Header as MantineHeader, Group, Code } from '@mantine/core';
-import Route from '@config/routes';
+import links from '../links';
 import useStyles from './Header.styles';
 import corePackageJson from '../../../../../package.json';
 
@@ -13,21 +13,6 @@ const ColorSchemeToggle = dynamic(() => import('@components/common/ColorSchemeTo
 const LopenIcon = dynamic(() =>
   import('@components/common/Icons/index').then((module) => module.LopenIcon)
 );
-
-const links = [
-  {
-    link: Route.CORPUS,
-    label: 'Corpus',
-  },
-  {
-    link: `${Route.ABOUT}/corpus`,
-    label: 'About',
-  },
-  {
-    link: Route.GUIDE,
-    label: 'Guide',
-  },
-];
 
 function Header() {
   const { classes } = useStyles();
@@ -53,7 +38,7 @@ function Header() {
       </Group>
       <Group>
         <Group spacing={5} className={classes.links}>
-          <NavItems links={links} />
+          <NavItems links={links.header} />
         </Group>
         <HeaderControls />
         <ColorSchemeToggle />
