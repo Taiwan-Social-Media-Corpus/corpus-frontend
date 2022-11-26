@@ -20,7 +20,7 @@ const links = [
     label: 'Corpus',
   },
   {
-    link: Route.ABOUT,
+    link: `${Route.ABOUT}/corpus`,
     label: 'About',
   },
   {
