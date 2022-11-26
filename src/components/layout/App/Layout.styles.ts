@@ -16,12 +16,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  withoutHeader: {
-    '& $main': {
-      paddingTop: 0,
-    },
-  },
-
   main: {
     scrollMarginTop: meta.layout.header.height,
     flex: 1,
