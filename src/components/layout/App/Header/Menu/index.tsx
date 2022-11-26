@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { memo, useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import { Menu as MantineMenu, Burger } from '@mantine/core';
-import links from './links';
+import links from '../../links';
 import useStyles from './Menu.styles';
 
 function Menu() {
@@ -25,13 +25,12 @@ function Menu() {
       </MantineMenu.Target>
 
       <MantineMenu.Dropdown>
-        {links.map((value) => (
+        {links.menu.map((value) => (
           <MantineMenu.Item
             key={value.label}
             component={Link}
-            icon={value.icon}
+            icon={<value.icon />}
             href={value.link}
-            sx={{ display: value.display }}
           >
             {value.label}
           </MantineMenu.Item>
