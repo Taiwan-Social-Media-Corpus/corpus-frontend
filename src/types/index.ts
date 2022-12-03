@@ -230,7 +230,7 @@ export type ConcordanceParams = {
 
 export interface Frontmatter {
   title: string;
-  description?: string;
+  date: string;
 }
 
 export type MdxPageProps = {
