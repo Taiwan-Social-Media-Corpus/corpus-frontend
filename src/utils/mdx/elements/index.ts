@@ -14,21 +14,21 @@ async function getHeadings(content: string) {
   });
 }
 
-async function createMdxSource(params: { slug: string }, postsDir: string) {
+async function createMdxElements(params: { slug: string }, postsDir: string) {
   const postFilePath = path.join(postsDir, `${params.slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
-  const { content, data } = matter(source);
+  const { content, data: frontMatter } = matter(source);
 
   const [mdxSource, headings] = await Promise.all([
-    await serialize(content, serializeConfig(data)),
+    await serialize(content, serializeConfig(frontMatter)),
     await getHeadings(content),
   ]);
 
   return {
     source: mdxSource,
-    frontMatter: data,
+    frontMatter,
     headings,
   };
 }
 
-export default createMdxSource;
+export default createMdxElements;
