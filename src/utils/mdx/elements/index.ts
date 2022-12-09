@@ -17,8 +17,8 @@ async function createMdxElements(params: { slug: string }, postDir: MdxFolder) {
   const posts = getSortedPosts(postDir);
   const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === params.slug);
   const { frontMatter, content } = posts[postIndex];
-  const previousPost = posts[postIndex + 1];
-  const nextPost = posts[postIndex - 1];
+  const nextPost = posts[postIndex + 1];
+  const previousPost = posts[postIndex - 1];
 
   const [mdxSource, headings] = await Promise.all([
     await serialize(content, serializeConfig(frontMatter)),
