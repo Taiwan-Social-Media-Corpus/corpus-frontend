@@ -21,9 +21,11 @@ function getSortedPosts(folder: MdxFolder) {
       const filePath = path.join(dirPath, filename);
       const source = fs.readFileSync(filePath);
       const { content, data } = matter(source);
+      const slug = filename.replace('.mdx', '');
 
       return {
         content,
+        slug,
         frontMatter: data,
       };
     })
