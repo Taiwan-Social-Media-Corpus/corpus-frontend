@@ -1,8 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { MdxFolder } from 'types';
 import serializeConfig from '@config/mdx';
 import { serialize } from 'next-mdx-remote/serialize';
+import { getSortedPosts } from '../path';
 
 async function getHeadings(content: string) {
   const headingLines = content.split('\n').filter((line) => line.match(/^###*\s/));
@@ -14,10 +13,12 @@ async function getHeadings(content: string) {
   });
 }
 
-async function createMdxElements(params: { slug: string }, postsDir: string) {
-  const postFilePath = path.join(postsDir, `${params.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath);
-  const { content, data: frontMatter } = matter(source);
+async function createMdxElements(params: { slug: string }, postDir: MdxFolder) {
+  const posts = getSortedPosts(postDir);
+  const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === params.slug);
+  const { frontMatter, content } = posts[postIndex];
+  const previousPost = posts[postIndex + 1];
+  const nextPost = posts[postIndex - 1];
 
   const [mdxSource, headings] = await Promise.all([
     await serialize(content, serializeConfig(frontMatter)),
@@ -25,9 +26,12 @@ async function createMdxElements(params: { slug: string }, postsDir: string) {
   ]);
 
   return {
-    source: mdxSource,
+    post: { source: mdxSource, headings },
     frontMatter,
-    headings,
+    siblings: {
+      next: nextPost,
+      prev: previousPost,
+    },
   };
 }
 
