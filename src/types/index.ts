@@ -234,9 +234,15 @@ export interface Frontmatter {
 }
 
 export type MdxPageProps = {
-  source: MDXRemoteSerializeResult;
+  post: {
+    source: MDXRemoteSerializeResult;
+    headings: { depth: number; value: string }[];
+  };
   frontMatter: Frontmatter;
-  headings: { depth: number; value: string }[];
+  siblings: {
+    next: Frontmatter | null;
+    prev: Frontmatter | null;
+  };
 };
 
 export type MdxFolder = 'about' | 'guide';
