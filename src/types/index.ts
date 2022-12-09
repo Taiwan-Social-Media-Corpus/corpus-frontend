@@ -238,3 +238,5 @@ export type MdxPageProps = {
   frontMatter: Frontmatter;
   headings: { depth: number; value: string }[];
 };
+
+export type MdxFolder = 'about' | 'guide';
