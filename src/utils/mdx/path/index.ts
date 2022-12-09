@@ -1,17 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { MdxFolder } from 'types';
 
-type Folder = 'about' | 'guide';
-
-function getPostDirPath(folder: Folder) {
+function getPostDirPath(folder: MdxFolder) {
   return path.join(
     process.cwd(),
     `src/components/pages/${folder.charAt(0).toUpperCase() + folder.slice(1)}`
   );
 }
 
-function getSortedPosts(folder: Folder) {
+function getSortedPosts(folder: MdxFolder) {
   const dirPath = getPostDirPath(folder);
   const posts = fs.readdirSync(dirPath).map((filename) => ({
     filename,
@@ -31,7 +30,7 @@ function getSortedPosts(folder: Folder) {
     .sort((a, b) => a.frontMatter.order - b.frontMatter.order);
 }
 
-function getPostSlug(folder: Folder) {
+function getPostSlug(folder: MdxFolder) {
   const dirPath = getPostDirPath(folder);
   const postsPath = fs.readdirSync(dirPath).filter((file) => /\.mdx?$/.test(file));
 
