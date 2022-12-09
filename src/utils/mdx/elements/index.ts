@@ -29,8 +29,8 @@ async function createMdxElements(params: { slug: string }, postDir: MdxFolder) {
     post: { source: mdxSource, headings },
     frontMatter,
     siblings: {
-      next: nextPost?.frontMatter,
-      prev: previousPost?.frontMatter,
+      next: nextPost === undefined ? null : nextPost.frontMatter,
+      prev: previousPost === undefined ? null : previousPost.frontMatter,
     },
   };
 }
