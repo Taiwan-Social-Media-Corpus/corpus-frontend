@@ -1,18 +1,22 @@
 import fs from 'fs';
 import path from 'path';
 
-type Page = 'about' | 'guide';
+type Folder = 'about' | 'guide';
 
-const getPostDirPath = (page: Page) =>
-  path.join(process.cwd(), `src/components/pages/${page.charAt(0).toUpperCase() + page.slice(1)}`);
+function getPostDirPath(folder: Folder) {
+  return path.join(
+    process.cwd(),
+    `src/components/pages/${folder.charAt(0).toUpperCase() + folder.slice(1)}`
+  );
+}
 
-const getPostDir = (page: Page) => {
-  const postPath = getPostDirPath(page);
-  const postFilePaths = fs.readdirSync(postPath).filter((file) => /\.mdx?$/.test(file));
+function getPostSlug(folder: Folder) {
+  const dirPath = getPostDirPath(folder);
+  const postsPath = fs.readdirSync(dirPath).filter((file) => /\.mdx?$/.test(file));
 
-  return postFilePaths
+  return postsPath
     .map((filePath) => filePath.replace(/\.mdx?$/, ''))
     .map((slug) => ({ params: { slug } }));
-};
+}
 
-export { getPostDirPath, getPostDir };
+export { getPostDirPath, getPostSlug };
