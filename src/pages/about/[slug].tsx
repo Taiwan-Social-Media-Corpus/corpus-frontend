@@ -1,17 +1,15 @@
-import dynamic from 'next/dynamic';
 import { MdxPageProps } from 'types';
+import { getPostSlug } from '@utils/mdx/path';
+import MdxPage from '@components/pages/MdxPage';
 import createMdxElements from '@utils/mdx/elements';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { getPostDirPath, getPostFilesPath } from '@utils/mdx/path';
-
-const MdxPage = dynamic(() => import('@components/pages/MdxPage'));
 
 function About(props: MdxPageProps) {
-  const { source, frontMatter, headings } = props;
+  const { post, frontMatter, siblings } = props;
 
   return (
     <article>
-      <MdxPage source={source} frontMatter={frontMatter} headings={headings} />
+      <MdxPage post={post} frontMatter={frontMatter} siblings={siblings} />
     </article>
   );
 }
@@ -20,20 +18,20 @@ export default About;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context as { params: { slug: string } };
-  const postsDir = getPostDirPath('about');
-  const { source, frontMatter, headings } = await createMdxElements(params, postsDir);
+  const { post, frontMatter, siblings } = await createMdxElements(params, 'about');
 
   return {
     props: {
-      source,
+      post,
       frontMatter,
-      headings,
+      siblings,
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const paths = getPostFilesPath('about');
+  const paths = getPostSlug('about');
+
   return {
     paths,
     fallback: false,
