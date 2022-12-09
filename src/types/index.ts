@@ -231,6 +231,7 @@ export type ConcordanceParams = {
 export interface Frontmatter {
   title: string;
   date: string;
+  slug: string;
   order: number;
 }
 
