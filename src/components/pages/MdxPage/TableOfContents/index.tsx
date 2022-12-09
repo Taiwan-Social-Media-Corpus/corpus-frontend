@@ -5,7 +5,9 @@ import { IconList } from '@tabler/icons';
 import { Text, ScrollArea, useMantineTheme } from '@mantine/core';
 import useStyles from './TableOfContents.styles';
 
-type TableOfContentsProps = Pick<MdxPageProps, 'headings'>;
+type TableOfContentsProps = {
+  headings: MdxPageProps['post']['headings'];
+};
 
 function TableOfContents(props: TableOfContentsProps) {
   const { headings } = props;
