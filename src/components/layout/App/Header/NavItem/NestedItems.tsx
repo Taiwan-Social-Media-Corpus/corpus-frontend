@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import { NextLink } from '@mantine/next';
+import Link from 'next/link';
+import { memo, useMemo } from 'react';
 import { Menu, Center } from '@mantine/core';
 import { IconChevronDown } from '@tabler/icons';
 import { LinkItemProps } from './types';
@@ -8,21 +8,27 @@ import useStyles from './NavItem.styles';
 function NestedItems({ link }: LinkItemProps) {
   const { classes } = useStyles();
 
-  const menuItems = link.links?.map((value) => (
-    <Menu.Item key={value.link} component={NextLink} href={value.link}>
-      {value.label}
-    </Menu.Item>
-  ));
+  const menuItems = useMemo(
+    () =>
+      link.links?.map((value) => (
+        <Menu.Item key={value.link}>
+          <Link href={value.link} prefetch>
+            {value.label}
+          </Link>
+        </Menu.Item>
+      )),
+    [link.links]
+  );
 
   return (
     <Menu key={link.label} trigger="hover" exitTransitionDuration={0}>
       <Menu.Target>
-        <a href={link.link} className={classes.link}>
+        <Link href={link.link} className={classes.link} prefetch>
           <Center>
             <span className={classes.linkLabel}>{link.label}</span>
             <IconChevronDown size={12} />
           </Center>
-        </a>
+        </Link>
       </Menu.Target>
       <Menu.Dropdown>{menuItems}</Menu.Dropdown>
     </Menu>
