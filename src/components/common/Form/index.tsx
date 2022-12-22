@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import dynamic from 'next/dynamic';
-import { ControllerProps } from 'types';
+import { ControllerProps } from 'types/mantine';
 
 function FormikController(props: ControllerProps) {
   const { control } = props;

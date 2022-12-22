@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { IconProps } from 'types';
+import { IconProps } from 'types/mantine';
 import { useMantineTheme } from '@mantine/core';
 
 type LopenIconProps = IconProps & { type: 'footer' | 'header' };

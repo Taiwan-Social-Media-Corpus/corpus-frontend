@@ -1,4 +1,4 @@
-import { SelectProps } from 'types';
+import { SelectProps } from 'types/mantine';
 import useCustomFormik from '@hooks/Formik';
 import { IconChevronDown } from '@tabler/icons';
 import { Select as MantineSelect } from '@mantine/core';

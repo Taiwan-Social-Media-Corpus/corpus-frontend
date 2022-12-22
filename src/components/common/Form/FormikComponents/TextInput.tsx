@@ -1,5 +1,5 @@
-import { TextInputProps } from 'types';
 import useCustomFormik from '@hooks/Formik';
+import { TextInputProps } from 'types/mantine';
 import { TextInput as MantineTextInput } from '@mantine/core';
 
 function TextInput(props: TextInputProps) {

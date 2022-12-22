@@ -1,4 +1,4 @@
-import { SwitchProps } from 'types';
+import { SwitchProps } from 'types/mantine';
 import useCustomFormik from '@hooks/Formik';
 import { Switch as MantineSwitch } from '@mantine/core';
 

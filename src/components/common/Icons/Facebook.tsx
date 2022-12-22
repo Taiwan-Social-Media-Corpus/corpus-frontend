@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { IconProps } from 'types';
+import { IconProps } from 'types/mantine';
 
 function FacebookIcon(props: IconProps) {
   const { size, ...rest } = props;

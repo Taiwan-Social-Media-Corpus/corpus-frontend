@@ -1,5 +1,5 @@
-import { NumberInputProps } from 'types';
 import useCustomFormik from '@hooks/Formik';
+import { NumberInputProps } from 'types/mantine';
 import { NumberInput as MantineNumberInput } from '@mantine/core';
 
 function NumberInput(props: NumberInputProps) {

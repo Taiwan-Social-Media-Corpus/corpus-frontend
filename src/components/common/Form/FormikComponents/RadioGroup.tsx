@@ -1,6 +1,6 @@
 import { Radio } from '@mantine/core';
-import { RadioGroupProps } from 'types';
 import useCustomFormik from '@hooks/Formik';
+import { RadioGroupProps } from 'types/mantine';
 
 function RadioGroup(props: RadioGroupProps) {
   const { label, name, options, ...rest } = props;

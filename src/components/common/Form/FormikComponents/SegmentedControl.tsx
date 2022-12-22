@@ -1,5 +1,5 @@
 import useCustomFormik from '@hooks/Formik';
-import { SegmentedControlProps } from 'types';
+import { SegmentedControlProps } from 'types/mantine';
 import { createStyles, SegmentedControl as MantineSegmentedControl } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({

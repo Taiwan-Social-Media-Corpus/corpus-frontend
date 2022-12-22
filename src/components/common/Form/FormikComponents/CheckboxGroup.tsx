@@ -1,5 +1,5 @@
-import { CheckboxGroupProps } from 'types';
 import useCustomFormik from '@hooks/Formik';
+import { CheckboxGroupProps } from 'types/mantine';
 import { Checkbox as MantineCheckbox } from '@mantine/core';
 
 function CheckboxGroup(props: CheckboxGroupProps) {

@@ -1,5 +1,5 @@
-import { MultiSelectProps } from 'types';
 import useCustomFormik from '@hooks/Formik';
+import { MultiSelectProps } from 'types/mantine';
 import { MultiSelect as MantineMultiSelect } from '@mantine/core';
 
 function MultiSelect(props: MultiSelectProps) {
