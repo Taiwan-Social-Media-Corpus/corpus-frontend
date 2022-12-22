@@ -1,11 +1,17 @@
 import urlJoin from 'url-join';
 
-const recovery = '/recovery';
+const about = '/about';
 const corpus = '/corpus';
+const recovery = '/recovery';
 
 const Route = {
   home: '/',
-  about: '/about',
+  about: {
+    root: about,
+    intro: urlJoin(about, 'intro'),
+    media: urlJoin(about, 'media'),
+    blacklab: urlJoin(about, 'blacklab'),
+  },
   guide: '/guide',
   login: '/login',
   logout: '/logout',
