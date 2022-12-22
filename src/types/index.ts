@@ -44,7 +44,8 @@ export type Request<T> = {
   url: string;
   method: HTTPMethods;
   payload?: T;
-  timeout?: number;
+  authToken?: string;
+  toJson?: boolean;
 };
 
 export interface Response<ResData = {}> {
