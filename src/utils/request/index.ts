@@ -1,26 +1,34 @@
 import { Request } from 'types';
 
-async function request<T>({ url, method, payload, timeout = 5 * 1000 }: Request<T>) {
+async function request<T>({ url, method, payload, authToken, toJson = true }: Request<T>) {
   const _payload = payload ?? {};
   const body = method !== 'GET' ? JSON.stringify(_payload) : null;
-  const _headers = new Headers({
+  const headers = new Headers({
     Accept: 'application/json',
     'Content-Type': 'application/json',
   });
 
+  if (authToken) {
+    headers.append('Authorization', authToken);
+  }
+
   // Request Timeout
   const controller = new AbortController();
-  const id = setTimeout(() => controller.abort(), timeout);
+  const id = setTimeout(() => controller.abort(), 5 * 1000);
 
   const response = await fetch(url, {
     credentials: 'include',
     method,
     body,
-    headers: _headers,
+    headers,
     signal: controller.signal,
   });
 
   clearTimeout(id);
+
+  if (!toJson) {
+    return response;
+  }
 
   return response.json();
 }
