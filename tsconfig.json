@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "meta": ["./src/meta/index.ts"], 
+      "types/*": ["./src/types/*"],
       "types": ["./src/types/index.ts"],
       "@components/*": ["./src/components/*"],
       "@config/*": ["./src/config/*"],
