@@ -4,34 +4,29 @@ const mediaOptions = [
   { label: 'Dcard', value: 'dcard', image: '/dcard-logo.png' },
 ];
 
-function createPostTypeOptions(media: string) {
-  const options = [
-    { label: 'All', value: 'all' },
-    { label: 'Title', value: 'title' },
-    { label: 'Body', value: 'body' },
-    { label: 'Comment', value: 'comment' },
-  ];
+const postTypeOptions = [
+  { label: 'All', value: 'all' },
+  { label: 'Title', value: 'title' },
+  { label: 'Body', value: 'body' },
+  { label: 'Comment', value: 'comment' },
+];
 
-  switch (media) {
-    case 'ptt': {
-      const pttOptions = [
-        { label: 'commentPos', value: 'commentPos' },
-        { label: 'commentNeg', value: 'commentNeg' },
-        { label: 'commentNeu', value: 'commentNeu' },
-      ];
-      return options.concat(pttOptions);
-    }
-    case 'dcard': {
-      const dcardOptions = [
-        { label: 'commentPos', value: 'commentPos' },
-        { label: 'commentMale', value: 'commentMale' },
-        { label: 'commentFemale', value: 'commentFemale' },
-      ];
-      return options.concat(dcardOptions);
-    }
-    default:
-      return options;
-  }
+const postTypeFactories = {
+  ptt: [
+    { label: 'commentPos', value: 'commentPos' },
+    { label: 'commentNeg', value: 'commentNeg' },
+    { label: 'commentNeu', value: 'commentNeu' },
+  ],
+  dcard: [
+    { label: 'commentPos', value: 'commentPos' },
+    { label: 'commentMale', value: 'commentMale' },
+    { label: 'commentFemale', value: 'commentFemale' },
+  ],
+};
+
+function createPostTypeOptions(media: string) {
+  const additionalOptions = postTypeFactories[media as keyof typeof postTypeFactories] || [];
+  return postTypeOptions.concat(additionalOptions);
 }
 
 export { mediaOptions, createPostTypeOptions };
