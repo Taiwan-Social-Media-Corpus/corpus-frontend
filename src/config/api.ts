@@ -10,6 +10,7 @@ if (!API_URL) {
 }
 
 const api = process.env.NODE_ENV === 'production' ? `/api/${V1}` : API_URL;
+const externalAPI = process.env.NODE_ENV === 'production' ? `http://service/api/${V1}` : API_URL;
 
 // ----- user service -----
 const user = urlJoin(api, 'user');
@@ -18,8 +19,8 @@ const recovery = urlJoin(user, 'recovery');
 const email = urlJoin(user, 'email');
 
 // ---- corpus service ----
-
 const corpus = urlJoin(api, 'corpus');
+const externalCorpus = urlJoin(externalAPI, 'corpus');
 
 const API = {
   V1: {
@@ -47,7 +48,7 @@ const API = {
     corpus: {
       root: corpus,
       media: urlJoin(corpus, 'media'),
-      boards: urlJoin(corpus, 'boards'),
+      boards: urlJoin(externalCorpus, 'boards'),
       concordance: {
         root: urlJoin(corpus, 'concordance'),
         csv: urlJoin(corpus, 'concordance', 'csv'),
