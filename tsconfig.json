@@ -22,7 +22,8 @@
       "@config/*": ["./src/config/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@contexts/*": ["./src/contexts/*"],
-      "@utils/*": ["./src/utils/*"],
+      "@utils/*": ["src/api/utils/*"],
+      "@utils": ["src/api/utils/index.ts"],
       "@services/*": ["./src/services/*"]
     }
   },
