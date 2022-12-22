@@ -1,4 +1,4 @@
-import { MdxPageProps } from 'types';
+import { MdxPageProps } from 'types/mdx';
 import { getPostSlug } from '@utils/mdx/path';
 import MdxPage from '@components/pages/MdxPage';
 import createMdxElements from '@utils/mdx/elements';
