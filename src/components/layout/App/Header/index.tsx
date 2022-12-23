@@ -2,17 +2,15 @@ import { memo } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Header as MantineHeader, Group, Code } from '@mantine/core';
+import corePackageJson from 'package.json';
+import IconController from '@components/common/Icons';
 import links from '../links';
 import useStyles from './Header.styles';
-import corePackageJson from '../../../../../package.json';
 
 const Menu = dynamic(() => import('./Menu'));
 const NavItems = dynamic(() => import('./NavItem'));
 const HeaderControls = dynamic(() => import('./Controls'));
 const ColorSchemeToggle = dynamic(() => import('@components/common/ColorSchemeToggle'));
-const LopenIcon = dynamic(() =>
-  import('@components/common/Icons/index').then((module) => module.LopenIcon)
-);
 
 function Header() {
   const { classes } = useStyles();
@@ -24,7 +22,7 @@ function Header() {
         <div className={classes.logoWrapper}>
           <Link href="/" className={classes.logo} aria-label="Mantine">
             <Group mb={10}>
-              <LopenIcon size={55} type="header" />
+              <IconController control="lopen" size={55} renderType="header" />
             </Group>
           </Link>
 
