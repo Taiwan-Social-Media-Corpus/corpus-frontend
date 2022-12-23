@@ -1,16 +1,19 @@
 import urlJoin from 'url-join';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 // ----- version tag -----
 const V1 = 'v1';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const EXTERNAL_API_URL = process.env.NEXT_PUBLIC_EXTERNAL_API_URL;
 
-if (!API_URL) {
-  throw new Error('API_SERVICE undefined');
+if (!API_URL || !EXTERNAL_API_URL) {
+  throw new Error('api urls undefined');
 }
 
-const api = process.env.NODE_ENV === 'production' ? `/api/${V1}` : API_URL;
-const externalAPI = process.env.NODE_ENV === 'production' ? `http://service/api/${V1}` : API_URL;
+const api = isProduction ? `/service/api/${V1}` : API_URL;
+const externalAPI = isProduction ? `http://service/api/${V1}` : EXTERNAL_API_URL;
 
 // ----- user service -----
 const user = urlJoin(api, 'user');
