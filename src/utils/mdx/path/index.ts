@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { MdxFolder } from 'types';
+import { MdxFolder } from 'types/mdx';
 
 function getPostDirPath(folder: MdxFolder) {
   return path.join(

@@ -1,4 +1,4 @@
-import { MdxFolder } from 'types';
+import { MdxFolder } from 'types/mdx';
 import serializeConfig from '@config/mdx';
 import { serialize } from 'next-mdx-remote/serialize';
 import { getSortedPosts } from '../path';
