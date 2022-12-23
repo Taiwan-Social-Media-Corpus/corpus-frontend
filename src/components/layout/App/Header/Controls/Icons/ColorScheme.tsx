@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { useMantineColorScheme } from '@mantine/core';
 import { IconSunHigh, IconMoon } from '@tabler/icons';
-import HeaderControl from './utils';
+import ControlBase from './Base';
 
 function ColorScheme() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -18,12 +18,12 @@ function ColorScheme() {
   );
 
   return (
-    <HeaderControl
+    <ControlBase
       onClick={() => toggleColorScheme()}
       tooltip={`${colorScheme === 'dark' ? 'Light' : 'Dark'} mode`}
     >
       {icon}
-    </HeaderControl>
+    </ControlBase>
   );
 }
 
