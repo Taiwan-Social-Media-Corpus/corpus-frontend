@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { GithubIcon } from '@components/common/Icons';
-import HeaderControl from './utils';
+import IconController from '@components/common/Icons';
+import ControlBase from '../Base';
 
 interface GithubControlProps {
   link: string;
@@ -11,9 +11,9 @@ function Github(props: GithubControlProps) {
   const { link, tooltip } = props;
 
   return (
-    <HeaderControl tooltip={tooltip} component="a" href={link}>
-      <GithubIcon size={22} />
-    </HeaderControl>
+    <ControlBase tooltip={tooltip} component="a" href={link}>
+      <IconController control="github" size={22} />
+    </ControlBase>
   );
 }
 
