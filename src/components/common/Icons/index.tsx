@@ -1,31 +1,25 @@
 import { memo } from 'react';
-import dynamic from 'next/dynamic';
 import { IconControllerProps } from 'types/mantine';
+import PttIcon from './Ptt';
+import LopenIcon from './Lopen';
+import DcardIcon from './Dcard';
+import GithubIcon from './Github';
+import FacebookIcon from './Facebook';
 
 function IconController(props: IconControllerProps) {
   const { control, ...rest } = props;
 
   switch (control) {
-    case 'ptt': {
-      const PttIcon = dynamic(() => import('./Ptt'));
+    case 'ptt':
       return <PttIcon {...rest} />;
-    }
-    case 'dcard': {
-      const DcardIcon = dynamic(() => import('./Dcard'));
+    case 'dcard':
       return <DcardIcon {...rest} />;
-    }
-    case 'facebook': {
-      const FacebookIcon = dynamic(() => import('./Facebook'));
+    case 'facebook':
       return <FacebookIcon {...rest} />;
-    }
-    case 'github': {
-      const GithubIcon = dynamic(() => import('./Github'));
+    case 'github':
       return <GithubIcon {...rest} />;
-    }
-    case 'lopen': {
-      const LopenIcon = dynamic(() => import('./Lopen'));
+    case 'lopen':
       return <LopenIcon {...rest} renderType={props.renderType} />;
-    }
     default:
       return null;
   }
