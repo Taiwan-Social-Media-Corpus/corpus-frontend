@@ -1,13 +1,13 @@
 import { createPolymorphicComponent } from '@mantine/utils';
 import { UnstyledButton, Tooltip, DefaultProps } from '@mantine/core';
-import useStyles from './HeaderControl.styles';
+import useStyles from './ControlBase.styles';
 
-interface HeaderControlProps extends DefaultProps {
+interface ControlBaseProps extends DefaultProps {
   tooltip: string;
   children: React.ReactNode;
 }
 
-function _HeaderControl({ tooltip, className, ...others }: HeaderControlProps) {
+function _ControlBase({ tooltip, className, ...others }: ControlBaseProps) {
   const { classes, cx } = useStyles();
 
   return (
@@ -17,6 +17,6 @@ function _HeaderControl({ tooltip, className, ...others }: HeaderControlProps) {
   );
 }
 
-const HeaderControl = createPolymorphicComponent<'button', HeaderControlProps>(_HeaderControl);
+const ControlBase = createPolymorphicComponent<'button', ControlBaseProps>(_ControlBase);
 
-export default HeaderControl;
+export default ControlBase;
