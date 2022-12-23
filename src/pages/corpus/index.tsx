@@ -1,36 +1,37 @@
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
+import { Boards } from 'types/corpus';
+import { Container } from '@mantine/core';
+import { GetServerSideProps } from 'next';
 import type { ReactElement } from 'react';
 import { NextPageWithLayout } from 'types';
-import getBoards from '@services/boards';
-import { Container } from '@mantine/core';
+import getBoards from '@services/corpus/boards';
 import CorpusLayout from '@components/layout/Corpus';
+import CorpusForm from '@components/pages/Corpus/Form';
 
-const Loader = dynamic(() => import('@components/common/Loader'));
-const CorpusForm = dynamic(() => import('@components/pages/Corpus/Form'));
+type Props = { boards: Boards };
 
-const Corpus: NextPageWithLayout = () => {
-  const router = useRouter();
-  const { boards, isError, isLoading } = getBoards();
-
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  if (isError || !boards) {
-    router.push('/500', { pathname: router.pathname });
-    return null;
-  }
+const Corpus: NextPageWithLayout<Props> = (props) => {
+  const { boards } = props;
 
   return (
     <Container size={700} my={40}>
-      <CorpusForm boards={boards.data} />
+      <CorpusForm boards={boards} />
     </Container>
   );
 };
 
 Corpus.getLayout = function getLayout(page: ReactElement) {
   return <CorpusLayout>{page}</CorpusLayout>;
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const redirect = { redirect: { permanent: false, destination: '/500' } };
+  const [result, error] = await getBoards();
+
+  if (error || result == null || result.status === 'failed') {
+    return redirect;
+  }
+
+  return { props: { boards: result.data } };
 };
 
 export default Corpus;
