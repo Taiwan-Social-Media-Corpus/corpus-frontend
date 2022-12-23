@@ -1,14 +1,14 @@
 import { memo } from 'react';
-import { IconProps } from 'types/mantine';
 import { useMantineTheme } from '@mantine/core';
+import { IconControllerProps } from 'types/mantine';
 
-type LopenIconProps = IconProps & { type: 'footer' | 'header' };
+type LopenIconProps = Omit<Extract<IconControllerProps, { control: 'lopen' }>, 'control'>;
 
 function LopenIcon(props: LopenIconProps) {
-  const { size, type, ...rest } = props;
+  const { size, renderType, ...rest } = props;
   const theme = useMantineTheme();
   const backgroundColor =
-    type === 'footer'
+    renderType === 'footer'
       ? theme.colorScheme === 'dark'
         ? theme.colors.dark[8]
         : theme.colors.gray[0]
