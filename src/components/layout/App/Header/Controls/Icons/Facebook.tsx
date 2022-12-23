@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import IconController from '@components/common/Icons';
-import ControlBase from '../Base';
+import ControlBase from './Base';
 
 interface FacebookControlProps {
   link: string;
