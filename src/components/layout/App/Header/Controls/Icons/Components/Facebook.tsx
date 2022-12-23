@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { FacebookIcon } from '@components/common/Icons';
-import HeaderControl from './utils';
+import IconController from '@components/common/Icons';
+import ControlBase from '../Base';
 
 interface FacebookControlProps {
   link: string;
@@ -10,7 +10,7 @@ function Facebook(props: FacebookControlProps) {
   const { link } = props;
 
   return (
-    <HeaderControl
+    <ControlBase
       tooltip="Facebook"
       component="a"
       href={link}
@@ -23,8 +23,8 @@ function Facebook(props: FacebookControlProps) {
         }),
       })}
     >
-      <FacebookIcon size={22} />
-    </HeaderControl>
+      <IconController control="facebook" size={22} />
+    </ControlBase>
   );
 }
 
