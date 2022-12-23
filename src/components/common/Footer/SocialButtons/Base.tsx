@@ -1,7 +1,7 @@
 import { Button } from '@mantine/core';
 import { SocialButtonProps } from './types';
 
-function SocialButton(props: SocialButtonProps) {
+function ButtonBase(props: SocialButtonProps) {
   const { icon, ...others } = props;
 
   return (
@@ -26,4 +26,4 @@ function SocialButton(props: SocialButtonProps) {
   );
 }
 
-export default SocialButton;
+export default ButtonBase;
