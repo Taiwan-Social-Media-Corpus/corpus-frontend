@@ -1,14 +1,14 @@
 import meta from 'meta';
 import { packSx } from '@mantine/utils';
-import { FacebookIcon, GithubIcon } from '@components/common/Icons';
-import SocialButton from './Button';
+import IconController from '@components/common/Icons';
+import ButtonBase from './Base';
 import { SocialButtonProps } from './types';
 
 function FacebookButton(props: SocialButtonProps) {
   const { sx, ...others } = props;
 
   return (
-    <SocialButton
+    <ButtonBase
       sx={[
         (theme) => ({
           backgroundColor: meta.facebook.color,
@@ -16,12 +16,12 @@ function FacebookButton(props: SocialButtonProps) {
         }),
         ...packSx(sx),
       ]}
-      icon={<FacebookIcon size={16} />}
+      icon={<IconController control="facebook" size={16} />}
       href={meta.facebook.link}
       {...others}
     >
       Follow Corpus on Facebook
-    </SocialButton>
+    </ButtonBase>
   );
 }
 
@@ -29,7 +29,7 @@ function GithubButton(props: SocialButtonProps) {
   const { sx, ...others } = props;
 
   return (
-    <SocialButton
+    <ButtonBase
       sx={[
         (theme) => ({
           backgroundColor: '#000',
@@ -39,12 +39,12 @@ function GithubButton(props: SocialButtonProps) {
         }),
         ...packSx(sx),
       ]}
-      icon={<GithubIcon size={16} />}
+      icon={<IconController control="github" size={16} />}
       href={meta.github.organization}
       {...others}
     >
       Follow Corpus on Github
-    </SocialButton>
+    </ButtonBase>
   );
 }
 
