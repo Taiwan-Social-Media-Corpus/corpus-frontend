@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from 'react';
-import { MdxPageProps } from 'types';
 import Slugger from 'github-slugger';
 import { IconList } from '@tabler/icons';
+import { MdxPageProps } from 'types/mdx';
 import { Text, ScrollArea, useMantineTheme } from '@mantine/core';
 import useStyles from './TableOfContents.styles';
 
