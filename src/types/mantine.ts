@@ -67,3 +67,10 @@ export type SimpleFormControllerProps<FormikContextType> = {
 export interface IconProps extends React.ComponentPropsWithoutRef<'svg'> {
   size?: number;
 }
+
+export type IconControllerProps =
+  | ({ control: 'ptt' } & IconProps)
+  | ({ control: 'dcard' } & IconProps)
+  | ({ control: 'github' } & IconProps)
+  | ({ control: 'facebook' } & IconProps)
+  | ({ control: 'lopen' } & IconProps & { renderType: 'footer' | 'header' });
