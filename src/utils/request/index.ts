@@ -8,6 +8,13 @@ async function request<T>({ url, method, payload, authToken, toJson = true }: Re
     'Content-Type': 'application/json',
   });
 
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+
+  if (!API_KEY) {
+    throw new Error('API_KEY undefined');
+  }
+  headers.append('X-API-KEY', API_KEY);
+
   if (authToken) {
     headers.append('Authorization', authToken);
   }
