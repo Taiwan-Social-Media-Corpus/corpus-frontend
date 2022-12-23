@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { useMantineColorScheme } from '@mantine/core';
 import { IconSunHigh, IconMoon } from '@tabler/icons';
-import ControlBase from '../Base';
+import ControlBase from './Base';
 
 function ColorScheme() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
