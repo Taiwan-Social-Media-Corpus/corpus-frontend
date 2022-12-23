@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Frontmatter } from 'types';
 import { Text } from '@mantine/core';
+import { Frontmatter } from 'types/mdx';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons';
 import useStyles from './MdxSibling.styles';
 
