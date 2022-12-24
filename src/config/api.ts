@@ -5,6 +5,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 // ----- version tag -----
 const V1 = 'v1';
 
+// ------ api urls ------
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const EXTERNAL_API_URL = process.env.NEXT_PUBLIC_EXTERNAL_API_URL;
 
