@@ -3,11 +3,12 @@ import dynamic from 'next/dynamic';
 import { ReactElement } from 'react';
 import { GetServerSideProps } from 'next';
 import { Container } from '@mantine/core';
-import getConcordancePayload from '@utils/url/query';
-import CorpusLayout from '@components/UI/Layout/Corpus';
-import { NextPageWithLayout, ConcordancePageProps } from 'types';
+import { NextPageWithLayout } from 'types';
+import { ConcordancePageProps } from 'types/corpus';
+import CorpusLayout from '@components/layout/Corpus';
+import getConcordancePayload from '@utils/url/corpus';
 
-const ConcordancePage = dynamic(() => import('@components/Corpus/Concordance'));
+const ConcordancePage = dynamic(() => import('@components/pages/Corpus/Concordance'));
 
 const Concordance: NextPageWithLayout<ConcordancePageProps> = (props) => {
   const { payload } = props;
@@ -25,7 +26,7 @@ Concordance.getLayout = function getLayout(page: ReactElement) {
 
 export const getServerSideProps: GetServerSideProps<ConcordancePageProps> = async (context) => {
   const { query } = context;
-  const redirect = { redirect: { permanent: false, destination: Route.CORPUS } };
+  const redirect = { redirect: { permanent: false, destination: Route.corpus.root } };
   const { page, pos, e } = query as { page?: string; pos?: string; e?: string };
   const invalidQuery = page === undefined || pos === undefined || e === undefined;
 
