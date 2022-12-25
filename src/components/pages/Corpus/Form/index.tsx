@@ -44,9 +44,11 @@ function CorpusForm(props: CorpusFormProps) {
     } = values;
 
     const base64 = window.btoa(
-      `m=${media}&w=${encodeURI(
+      `m=${media === 'all' ? '' : media}&w=${encodeURI(
         word.replaceAll('&', '%26')
-      )}&b=${selectedBoards}&p=${postType}&c=${cqlEnable}&s=${start}&e=${end}&win=${windowSize}&f=${fetchNumber}`
+      )}&b=${selectedBoards}&p=${
+        postType === 'all' ? '' : postType
+      }&c=${cqlEnable}&s=${start}&e=${end}&win=${windowSize}&f=${fetchNumber}`
     );
 
     const e = encodeURIComponent(base64);
