@@ -2,12 +2,12 @@ import { memo } from 'react';
 import Route from '@config/routes';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@mantine/hooks';
-import SelectItem from '@components/common/Form/utils';
-import FormikController from '@components/common/Form';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { Paper, Button, Grid, Group } from '@mantine/core';
-import { object, string, number, boolean, array } from 'yup';
-import { testWord, resetBoardsField } from './utils';
+import FormikController from '@components/common/ui/Form';
+import SelectItem from '@components/common/ui/Form/utils';
+import validationSchema from './schema';
+import { resetBoardsField } from './utils';
 import { FormValues, CorpusFormProps } from './types';
 import { mediaOptions, createPostTypeOptions } from './options';
 
@@ -30,29 +30,6 @@ function CorpusForm(props: CorpusFormProps) {
     fetchNumber: 20,
   };
 
-  const validationSchema = object({
-    media: string().required('Required').nullable(),
-    word: string()
-      .required('Required')
-      .test('word', 'please disable cql query', testWord('cql'))
-      .test('word', 'please enable cql query', testWord('default')),
-    cqlEnable: boolean(),
-    boards: array().of(string()).required('請至少選擇一個看板').nullable(),
-    start: number()
-      .required('Required')
-      .test('start', '起始年份不得晚於結束年份！', (start, context) => {
-        const end = context.parent.end as number;
-        if (start && start > end) {
-          return false;
-        }
-        return true;
-      }),
-    end: number().required('Required'),
-    postType: string().required('Required').nullable(),
-    windowSize: number().required('Required'),
-    fetchNumber: number().required('Required'),
-  });
-
   const onSubmit = async (values: FormValues, actions: FormikHelpers<FormValues>) => {
     const {
       media,
@@ -73,7 +50,7 @@ function CorpusForm(props: CorpusFormProps) {
     );
 
     const e = encodeURIComponent(base64);
-    const pushUrl = `${Route.CONCORDANCE}?page=1&pos=false&e=${e}`;
+    const pushUrl = `${Route.corpus.concordance}?page=1&pos=false&e=${e}`;
     router.push(pushUrl);
     actions.setSubmitting(false);
   };
@@ -103,7 +80,7 @@ function CorpusForm(props: CorpusFormProps) {
                 <FormikController control="text-input" name="word" label="Word" withAsterisk />
               </Grid.Col>
 
-              <Grid.Col xs={4} sm={4} md={4} lg={4} mt={smallScreen ? -5 : 15}>
+              <Grid.Col xs={4} sm={4} md={4} lg={4} mt={smallScreen ? -5 : 28}>
                 <FormikController
                   control="switch"
                   name="cqlEnable"
