@@ -73,4 +73,5 @@ export type IconControllerProps =
   | ({ control: 'dcard' } & IconProps)
   | ({ control: 'github' } & IconProps)
   | ({ control: 'facebook' } & IconProps)
+  | ({ control: 'no-result' } & IconProps)
   | ({ control: 'lopen' } & IconProps & { renderType: 'footer' | 'header' });
