@@ -2,11 +2,11 @@ import API from '@config/api';
 import { Response } from 'types';
 import request from '@utils/request';
 import { Concordance, ConcordanceRequestBody } from 'types/corpus';
-import { UseQueryOptions } from '@tanstack/react-query';
+import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 
 type ResponseType = Response<Concordance>;
 
-export function buildOptions(payload: ConcordanceRequestBody, prefetch: boolean = false) {
+function buildOptions(payload: ConcordanceRequestBody, prefetch: boolean = false) {
   const page = prefetch ? payload.page + 1 : payload.page;
 
   const options: UseQueryOptions<ResponseType> = {
@@ -26,3 +26,10 @@ export function buildOptions(payload: ConcordanceRequestBody, prefetch: boolean 
 
   return options;
 }
+
+const useConcordance = (payload: ConcordanceRequestBody) => {
+  const options = buildOptions(payload);
+  return useQuery<ResponseType, any>(options);
+};
+
+export default useConcordance;
