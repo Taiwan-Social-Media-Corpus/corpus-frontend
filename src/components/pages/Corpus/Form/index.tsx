@@ -52,7 +52,7 @@ function CorpusForm(props: CorpusFormProps) {
     );
 
     const e = encodeURIComponent(base64);
-    const pushUrl = `${Route.corpus.concordance}?page=1&pos=false&e=${e}`;
+    const pushUrl = `${Route.corpus.concordance}?pos=false&e=${e}`;
     router.push(pushUrl);
     actions.setSubmitting(false);
   };
