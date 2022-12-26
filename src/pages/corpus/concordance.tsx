@@ -27,12 +27,12 @@ Concordance.getLayout = function getLayout(page: ReactElement) {
 export const getServerSideProps: GetServerSideProps<ConcordancePageProps> = async (context) => {
   const { query } = context;
   const redirect = { redirect: { permanent: false, destination: Route.corpus.root } };
-  const { page, pos, e } = query as { page?: string; pos?: string; e?: string };
-  const invalidQuery = page === undefined || pos === undefined || e === undefined;
+  const { pos, e } = query as { pos?: string; e?: string };
+  const invalidQuery = pos === undefined || e === undefined;
 
   if (invalidQuery) return redirect;
 
-  const payload = getConcordancePayload(page, e);
+  const payload = getConcordancePayload(e);
 
   if (payload === false) return redirect;
 
