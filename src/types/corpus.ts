@@ -7,7 +7,6 @@ export type ConcordancePageProps = {
 export type ConcordanceParams = {
   e: string;
   pos: string;
-  page: string;
 };
 
 // ---------- API ----------
