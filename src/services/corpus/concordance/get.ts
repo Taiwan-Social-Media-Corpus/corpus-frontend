@@ -2,7 +2,7 @@ import API from '@config/api';
 import { Response } from 'types';
 import request from '@utils/request';
 import { Concordance, ConcordanceRequestBody } from 'types/corpus';
-import { useQuery, UseQueryOptions } from '@tanstack/react-query';
+import { QueryClient, useQuery, UseQueryOptions } from '@tanstack/react-query';
 
 type ResponseType = Response<Concordance>;
 
@@ -32,4 +32,9 @@ const useConcordance = (payload: ConcordanceRequestBody) => {
   return useQuery<ResponseType, any>(options);
 };
 
-export default useConcordance;
+const usePrefetchConcordance = (client: QueryClient, payload: ConcordanceRequestBody) => {
+  const options = buildOptions(payload, true);
+  return client.prefetchQuery(options);
+};
+
+export { useConcordance, usePrefetchConcordance };
