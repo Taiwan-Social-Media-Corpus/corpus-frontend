@@ -22,6 +22,8 @@
     "@mantine/utils": "^5.9.5",
     "@next/bundle-analyzer": "^13.1.1",
     "@tabler/icons": "^1.118.0",
+    "@tanstack/react-table": "^8.7.4",
+    "@tanstack/react-virtual": "3.0.0-alpha.0",
     "cookies-next": "^2.1.1",
     "date-fns": "^2.29.3",
     "formik": "^2.2.9",
