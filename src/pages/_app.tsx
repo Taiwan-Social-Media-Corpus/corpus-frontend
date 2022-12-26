@@ -1,10 +1,12 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { getCookie } from 'cookies-next';
 import { AppPropsWithLayout } from 'types';
 import { ColorScheme } from '@mantine/core';
 import { GetServerSidePropsContext } from 'next';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const Layout = dynamic(() => import('@components/layout/App'));
 const DarkThemeContext = dynamic(() => import('@contexts/DarkThemeContext'));
@@ -12,6 +14,7 @@ const DarkThemeContext = dynamic(() => import('@contexts/DarkThemeContext'));
 function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
   const { Component, pageProps, colorScheme } = props;
   const router = useRouter();
+  const [queryClient] = useState(() => new QueryClient());
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
@@ -32,9 +35,11 @@ function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
           sizes="any"
         />
       </Head>
-      <DarkThemeContext colorScheme={colorScheme}>
-        <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
-      </DarkThemeContext>
+      <QueryClientProvider client={queryClient}>
+        <DarkThemeContext colorScheme={colorScheme}>
+          <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
+        </DarkThemeContext>
+      </QueryClientProvider>
     </>
   );
 }
