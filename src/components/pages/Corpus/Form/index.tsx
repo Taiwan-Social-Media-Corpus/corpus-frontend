@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import Route from '@config/routes';
 import { useRouter } from 'next/router';
+import { encodeURL } from '@utils/url/corpus';
 import { useMediaQuery } from '@mantine/hooks';
 import { Form, Formik, FormikHelpers } from 'formik';
 import { Paper, Button, Grid, Group } from '@mantine/core';
@@ -31,27 +32,7 @@ function CorpusForm(props: CorpusFormProps) {
   };
 
   const onSubmit = async (values: FormValues, actions: FormikHelpers<FormValues>) => {
-    const {
-      media,
-      start,
-      end,
-      windowSize,
-      word,
-      boards: selectedBoards,
-      postType,
-      cqlEnable,
-      fetchNumber,
-    } = values;
-
-    const base64 = window.btoa(
-      `m=${media === 'all' ? '' : media}&w=${encodeURI(
-        word.replaceAll('&', '%26')
-      )}&b=${selectedBoards}&p=${
-        postType === 'all' ? '' : postType
-      }&c=${cqlEnable}&s=${start}&e=${end}&win=${windowSize}&f=${fetchNumber}`
-    );
-
-    const e = encodeURIComponent(base64);
+    const e = encodeURL(values);
     const pushUrl = `${Route.corpus.concordance}?pos=false&e=${e}`;
     router.push(pushUrl);
     actions.setSubmitting(false);
