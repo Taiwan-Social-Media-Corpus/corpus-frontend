@@ -1,3 +1,4 @@
 import SelectItem from './SelectItem';
+import ErrorMessage from './ErrorMessage';
 
-export default SelectItem;
+export { SelectItem, ErrorMessage };
