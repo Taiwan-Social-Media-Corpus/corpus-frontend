@@ -7,6 +7,7 @@ const serializeConfig = (data: { [key: string]: any }): SerializeOptions => ({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeSlug],
     format: 'mdx',
+    development: false,
   },
   scope: data,
 });
