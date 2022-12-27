@@ -6,7 +6,7 @@ const useStyles = createStyles((theme) => ({
     paddingTop: 90,
 
     [theme.fn.largerThan('sm')]: {
-      height: '100vh',
+      height: '96.5vh',
     },
   },
 
