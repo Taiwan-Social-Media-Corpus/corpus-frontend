@@ -1,46 +1,36 @@
 import { memo } from 'react';
-import dynamic from 'next/dynamic';
 import { ControllerProps } from 'types/mantine';
+import {
+  Select,
+  Switch,
+  TextInput,
+  RadioGroup,
+  MultiSelect,
+  NumberInput,
+  CheckboxGroup,
+} from './components';
 
-function FormikController(props: ControllerProps) {
+function FormController(props: ControllerProps) {
   const { control } = props;
 
   switch (control) {
-    case 'select': {
-      const Select = dynamic(() => import('./FormikComponents/Select'));
+    case 'select':
       return <Select {...props} />;
-    }
-    case 'switch': {
-      const Switch = dynamic(() => import('./FormikComponents/Switch'));
+    case 'switch':
       return <Switch {...props} />;
-    }
-    case 'text-input': {
-      const TextInput = dynamic(() => import('./FormikComponents/TextInput'));
+    case 'text-input':
       return <TextInput {...props} />;
-    }
-    case 'radio-group': {
-      const RadioGroup = dynamic(() => import('./FormikComponents/RadioGroup'));
+    case 'radio-group':
       return <RadioGroup {...props} />;
-    }
-    case 'multi-select': {
-      const MultiSelect = dynamic(() => import('./FormikComponents/MultiSelect'));
+    case 'multi-select':
       return <MultiSelect {...props} />;
-    }
-    case 'number-input': {
-      const NumberInput = dynamic(() => import('./FormikComponents/NumberInput'));
+    case 'number-input':
       return <NumberInput {...props} />;
-    }
-    case 'checkbox-group': {
-      const CheckboxGroup = dynamic(() => import('./FormikComponents/CheckboxGroup'));
+    case 'checkbox-group':
       return <CheckboxGroup {...props} />;
-    }
-    case 'segmented-control': {
-      const SegmentedControl = dynamic(() => import('./FormikComponents/SegmentedControl'));
-      return <SegmentedControl {...props} />;
-    }
     default:
       return null;
   }
 }
 
-export default memo(FormikController);
+export default memo(FormController);
