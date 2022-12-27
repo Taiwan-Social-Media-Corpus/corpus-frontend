@@ -1,4 +1,5 @@
 import { ConcordanceRequestBody } from 'types/corpus';
+import { FormValues } from '@components/pages/Corpus/Form/types';
 
 function isInvalidPayload(payload: ConcordanceRequestBody) {
   const { boards, cqlEnable, page, ...rest } = payload;
@@ -6,7 +7,7 @@ function isInvalidPayload(payload: ConcordanceRequestBody) {
   return payloadValues.some((value) => value === null);
 }
 
-function getConcordancePayload(e: string) {
+function decodeURL(e: string) {
   try {
     const decoded = decodeURIComponent(Buffer.from(e, 'base64').toString('ascii'));
     const params = new URLSearchParams(decoded);
@@ -35,4 +36,28 @@ function getConcordancePayload(e: string) {
   }
 }
 
-export default getConcordancePayload;
+function encodeURL(values: FormValues) {
+  const {
+    media,
+    start,
+    end,
+    windowSize,
+    word,
+    boards: selectedBoards,
+    postType,
+    cqlEnable,
+    fetchNumber,
+  } = values;
+
+  const base64 = window.btoa(
+    `m=${media === 'all' ? '' : media}&w=${encodeURI(
+      word.replaceAll('&', '%26')
+    )}&b=${selectedBoards}&p=${
+      postType === 'all' ? '' : postType
+    }&c=${cqlEnable}&s=${start}&e=${end}&win=${windowSize}&f=${fetchNumber}`
+  );
+
+  return encodeURIComponent(base64);
+}
+
+export { encodeURL, decodeURL };
