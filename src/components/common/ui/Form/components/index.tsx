@@ -1,3 +1,4 @@
+import Select from './Select';
 import TextInput from './TextInput';
 
-export default TextInput;
+export { Select, TextInput };
