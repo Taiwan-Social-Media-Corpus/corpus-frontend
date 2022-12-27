@@ -4,9 +4,9 @@ import { ReactElement } from 'react';
 import { GetServerSideProps } from 'next';
 import { Container } from '@mantine/core';
 import { NextPageWithLayout } from 'types';
+import { decodeURL } from '@utils/url/corpus';
 import { ConcordancePageProps } from 'types/corpus';
 import CorpusLayout from '@components/layout/Corpus';
-import getConcordancePayload from '@utils/url/corpus';
 
 const ConcordancePage = dynamic(() => import('@components/pages/Corpus/Concordance'));
 
@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps<ConcordancePageProps> = asyn
 
   if (invalidQuery) return redirect;
 
-  const payload = getConcordancePayload(e);
+  const payload = decodeURL(e);
 
   if (payload === false) return redirect;
 
