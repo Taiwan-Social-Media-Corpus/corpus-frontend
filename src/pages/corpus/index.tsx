@@ -1,18 +1,25 @@
+import Route from '@config/routes';
+import { useRouter } from 'next/router';
 import { Container } from '@mantine/core';
-import { GetServerSideProps } from 'next';
 import type { ReactElement } from 'react';
 import { NextPageWithLayout } from 'types';
-import { CorpusFormProps } from 'types/corpus';
-import getBoards from '@services/corpus/boards';
 import CorpusLayout from '@components/layout/Corpus';
 import CorpusForm from '@components/pages/Corpus/Form';
+import { QueryClient, dehydrate } from '@tanstack/react-query';
+import { useBoards, usePrefetchBoards } from '@services/corpus/boards';
 
-const Corpus: NextPageWithLayout<CorpusFormProps> = (props) => {
-  const { boards } = props;
+const Corpus: NextPageWithLayout = () => {
+  const router = useRouter();
+  const { boards, isError } = useBoards();
+
+  if (isError || !boards || boards.status === 'failed') {
+    router.push(Route.serverError, { pathname: router.pathname });
+    return null;
+  }
 
   return (
     <Container size={700} my={40}>
-      <CorpusForm boards={boards} />
+      <CorpusForm boards={boards.data} />
     </Container>
   );
 };
@@ -21,15 +28,15 @@ Corpus.getLayout = function getLayout(page: ReactElement) {
   return <CorpusLayout>{page}</CorpusLayout>;
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const redirect = { redirect: { permanent: false, destination: '/500' } };
-  const [result, error] = await getBoards();
+export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+  await usePrefetchBoards(queryClient);
 
-  if (error || result == null || result.status === 'failed') {
-    return redirect;
-  }
-
-  return { props: { boards: result.data } };
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 };
 
 export default Corpus;
