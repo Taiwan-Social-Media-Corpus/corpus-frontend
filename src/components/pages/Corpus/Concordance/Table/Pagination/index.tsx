@@ -1,5 +1,4 @@
 import { Hit } from 'types/corpus';
-import { memo, useMemo } from 'react';
 import { Table } from '@tanstack/react-table';
 import { useMediaQuery } from '@mantine/hooks';
 import { Center, Pagination as MantinePagination } from '@mantine/core';
@@ -15,19 +14,21 @@ function usePaginationSize() {
 function Pagination(props: Props) {
   const { table } = props;
   const size = usePaginationSize();
-  const pageCount = useMemo(() => table.getPageCount(), [table]);
 
   return (
     <Center mt={30}>
       <MantinePagination
-        total={pageCount}
+        total={table.getPageCount()}
         initialPage={table.getState().pagination.pageIndex}
         withEdges
         size={size}
-        onChange={(value) => table.setPageIndex(value)}
+        onChange={(value) => {
+          if (table.getPageCount() === 1) return;
+          table.setPageIndex(value);
+        }}
       />
     </Center>
   );
 }
 
-export default memo(Pagination);
+export default Pagination;
