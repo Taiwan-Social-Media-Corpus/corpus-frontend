@@ -18,8 +18,8 @@ const mediaPostTypes = {
   ],
 };
 
-function createPostTypeOptions(media: string | null) {
-  if (media === null) return defaultOptions;
+function createPostTypeOptions(media: string) {
+  if (media === 'all') return defaultOptions;
   const additionalOptions = mediaPostTypes[media as keyof typeof mediaPostTypes];
   return defaultOptions.concat(additionalOptions);
 }
