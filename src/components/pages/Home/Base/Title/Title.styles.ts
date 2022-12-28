@@ -37,16 +37,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  white: {
-    color: theme.white,
-    textShadow: '1px 2px 2px rgba(0, 0, 0, .3)',
-
-    '&::before, &::after': {
-      filter: 'drop-shadow(1px 2px 2px rgba(0, 0, 0, .3))',
-      borderColor: theme.white,
-    },
-  },
-
   default: {
     '&::before, &::after': {
       borderColor: 'inherit',
