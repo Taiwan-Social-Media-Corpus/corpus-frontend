@@ -6,7 +6,7 @@ import { getCookie } from 'cookies-next';
 import { AppPropsWithLayout } from 'types';
 import { ColorScheme } from '@mantine/core';
 import { GetServerSidePropsContext } from 'next';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const Layout = dynamic(() => import('@components/layout/App'));
 const DarkThemeContext = dynamic(() => import('@contexts/DarkThemeContext'));
@@ -35,10 +35,13 @@ function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
           sizes="any"
         />
       </Head>
+
       <QueryClientProvider client={queryClient}>
-        <DarkThemeContext colorScheme={colorScheme}>
-          <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
-        </DarkThemeContext>
+        <Hydrate state={pageProps.dehydratedState}>
+          <DarkThemeContext colorScheme={colorScheme}>
+            <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
+          </DarkThemeContext>
+        </Hydrate>
       </QueryClientProvider>
     </>
   );
