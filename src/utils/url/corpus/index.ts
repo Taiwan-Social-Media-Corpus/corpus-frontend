@@ -1,5 +1,5 @@
 import { ConcordanceRequestBody } from 'types/corpus';
-import { FormValues } from '@components/pages/Corpus/Form/types';
+import { FieldValues } from '@components/pages/Corpus/Form/types';
 
 function isInvalidPayload(payload: ConcordanceRequestBody) {
   const { boards, cqlEnable, page, ...rest } = payload;
@@ -36,7 +36,7 @@ function decodeURL(e: string) {
   }
 }
 
-function encodeURL(values: FormValues) {
+function encodeURL(values: FieldValues) {
   const {
     media,
     start,
