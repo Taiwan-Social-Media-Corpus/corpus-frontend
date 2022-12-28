@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import {
   ColProps,
   SwitchProps as MantineSwitchProps,
@@ -10,6 +9,8 @@ import {
   CheckboxGroupProps as MantineCheckboxGroupProps,
   SegmentedControlProps as MantineSegmentedControlProps,
 } from '@mantine/core';
+import { ReactNode } from 'react';
+import { FieldValues, UseFormReturn } from 'react-hook-form';
 
 export type Option = {
   label: any;
@@ -53,15 +54,13 @@ export type ControllerProps =
   | ({ control: 'switch' } & SwitchProps)
   | ({ control: 'segmented-control' } & SegmentedControlProps);
 
-export type ControllerPropsWithCol = {
-  controllers: (ControllerProps & { col?: ColProps })[];
-};
-
-export type SimpleFormControllerProps<FormikContextType> = {
-  controllers: (ControllerProps & {
-    col?: ColProps;
-    after?: ReactNode | ((formikContext: FormikContextType) => ReactNode);
-  })[];
+export type FormControllerProps<TFieldValues extends FieldValues = FieldValues, TContext = any> = {
+  controllers: {
+    [key in keyof TFieldValues]: ControllerProps & { name: key } & {
+      col?: ColProps;
+      after?: ReactNode | ((ctx: UseFormReturn<TFieldValues, TContext>) => ReactNode);
+    };
+  };
 };
 
 export interface IconProps extends React.ComponentPropsWithoutRef<'svg'> {
