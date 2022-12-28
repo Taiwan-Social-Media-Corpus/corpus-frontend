@@ -10,7 +10,6 @@ const QUERY_KEY = 'corpusStats';
 
 const fetchCorpusStats = (apiType: 'root' | 'external') => async () => {
   const url = `${API.V1.corpus.stats.corpus[apiType]}?type=word`;
-  console.log('urlurl', url);
   return request({ url, method: 'GET' });
 };
 
