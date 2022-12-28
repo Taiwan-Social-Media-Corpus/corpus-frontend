@@ -28,6 +28,11 @@ export interface ConcordanceRequestBody {
   fetchNumber: number;
 }
 
+export type Media = {
+  ptt: number;
+  dcard: number;
+};
+
 export type Boards = {
   ptt: string[];
   dcard: string[];
