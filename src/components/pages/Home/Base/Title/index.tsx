@@ -1,11 +1,11 @@
 import { memo } from 'react';
-import useStyles from './SectionTitle.styles';
+import useStyles from './Title.styles';
 
-interface SectionTitleProps extends React.ComponentProps<'h1'> {
+interface Props extends React.ComponentProps<'h1'> {
   type?: 'white' | 'default';
 }
 
-function SectionTitle(props: SectionTitleProps) {
+function SectionTitle(props: Props) {
   const { children, className, type = 'default', ...rest } = props;
   const { classes, cx } = useStyles();
 
