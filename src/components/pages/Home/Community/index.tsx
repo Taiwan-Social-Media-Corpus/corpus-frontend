@@ -1,16 +1,9 @@
 import meta from 'meta';
 import { memo } from 'react';
-import dynamic from 'next/dynamic';
+import IconController from '@components/common/ui/Icons';
 import { SimpleGrid, Group, Text, Card, Space } from '@mantine/core';
+import PageSection from '../Base';
 import useStyles from './Community.styles';
-
-const PageSection = dynamic(() => import('../utils/PageSecion'));
-const GithubIcon = dynamic(() =>
-  import('@components/common/Icons').then((module) => module.GithubIcon)
-);
-const FacebookIcon = dynamic(() =>
-  import('@components/common/Icons').then((module) => module.FacebookIcon)
-);
 
 function Community() {
   const { classes, cx } = useStyles();
@@ -32,7 +25,7 @@ function Community() {
           className={cx(classes.card, classes.facebook)}
         >
           <Group noWrap>
-            <FacebookIcon size={24} />
+            <IconController control="facebook" size={24} />
             <Text size="md" weight={600}>
               Follow on Facebook
             </Text>
@@ -48,11 +41,11 @@ function Community() {
           p="lg"
           component="a"
           radius="md"
-          href={meta.github.discussions.backend}
+          href={meta.github.discussions.frontend}
           className={cx(classes.card, classes.github)}
         >
           <Group noWrap>
-            <GithubIcon size={24} />
+            <IconController control="github" size={24} />
             <Text size="md" weight={600}>
               Start a discussion
             </Text>
