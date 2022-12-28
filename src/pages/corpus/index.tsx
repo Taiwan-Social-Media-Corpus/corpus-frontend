@@ -1,15 +1,13 @@
-import { Boards } from 'types/corpus';
 import { Container } from '@mantine/core';
 import { GetServerSideProps } from 'next';
 import type { ReactElement } from 'react';
 import { NextPageWithLayout } from 'types';
+import { CorpusFormProps } from 'types/corpus';
 import getBoards from '@services/corpus/boards';
 import CorpusLayout from '@components/layout/Corpus';
 import CorpusForm from '@components/pages/Corpus/Form';
 
-type Props = { boards: Boards };
-
-const Corpus: NextPageWithLayout<Props> = (props) => {
+const Corpus: NextPageWithLayout<CorpusFormProps> = (props) => {
   const { boards } = props;
 
   return (
