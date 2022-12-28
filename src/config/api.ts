@@ -51,7 +51,11 @@ const API = {
     },
     corpus: {
       root: corpus,
-      media: urlJoin(corpus, 'media'),
+      media: {
+        root: urlJoin(corpus, 'media'),
+        external: urlJoin(externalCorpus, 'media'),
+      },
+
       boards: urlJoin(externalCorpus, 'boards'),
       concordance: {
         root: urlJoin(corpus, 'concordance'),
