@@ -1,3 +1,4 @@
+import PosController from './Pos';
 import ReturnButton from './Return';
 
-export default ReturnButton;
+export { PosController, ReturnButton };
