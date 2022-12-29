@@ -29,7 +29,8 @@ function buildOptions(payload: ConcordanceRequestBody, prefetch: boolean = false
 
 const useConcordance = (payload: ConcordanceRequestBody) => {
   const options = buildOptions(payload);
-  return useQuery<ResponseType, any>(options);
+  const { data, isError, isLoading, isPreviousData } = useQuery<ResponseType, any>(options);
+  return { concordance: data, isError, isLoading, isPreviousData };
 };
 
 const usePrefetchConcordance = (client: QueryClient, payload: ConcordanceRequestBody) => {
