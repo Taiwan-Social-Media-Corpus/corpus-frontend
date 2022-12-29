@@ -1,4 +1,4 @@
-import { memo, ReactNode, useMemo } from 'react';
+import { memo, ReactNode } from 'react';
 import { Container, Title, Text, useMantineTheme } from '@mantine/core';
 import useStyles from './Corpus.styles';
 
@@ -9,17 +9,14 @@ function CorpusLayout(props: Props) {
   const theme = useMantineTheme();
   const { children, description } = props;
 
-  const subTitle = useMemo(
-    () =>
-      typeof description === 'string' ? (
-        <Text size="sm" className={classes.description}>
-          {description}
-        </Text>
-      ) : (
-        description
-      ),
-    [typeof description]
-  );
+  const subTitle =
+    typeof description === 'string' ? (
+      <Text size="sm" className={classes.description}>
+        {description}
+      </Text>
+    ) : (
+      description
+    );
 
   return (
     <div className={classes.wrapper}>
