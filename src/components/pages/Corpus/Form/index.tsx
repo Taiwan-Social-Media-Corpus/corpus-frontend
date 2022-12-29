@@ -86,7 +86,6 @@ function CorpusForm(props: CorpusFormProps) {
                   name="boards"
                   label="看版"
                   options={createBoardOptions(boards, mediaValue)}
-                  withAsterisk
                   searchable
                   nothingFound="Nothing found"
                   placeholder="Pick board"
