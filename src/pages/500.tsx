@@ -14,7 +14,7 @@ function ServerError() {
       title="Something bad just happened..."
       description="Our servers could not handle your request. Don't worry, our development team was already notified. Try refreshing the page."
       button={
-        <Button variant="outline" size="md" onClick={() => router.push(router.asPath)}>
+        <Button variant="outline" size="md" onClick={() => router.reload()}>
           Refresh the page
         </Button>
       }
