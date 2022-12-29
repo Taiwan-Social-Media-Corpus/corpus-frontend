@@ -2,9 +2,12 @@ import { memo, ReactNode } from 'react';
 import { Container, Title, Text, useMantineTheme } from '@mantine/core';
 import useStyles from './Corpus.styles';
 
-function CorpusLayout({ children }: { children: ReactNode }) {
+type Props = { children: ReactNode; description: string };
+
+function CorpusLayout(props: Props) {
   const { classes } = useStyles();
   const theme = useMantineTheme();
+  const { children, description } = props;
 
   return (
     <div className={classes.wrapper}>
@@ -12,7 +15,7 @@ function CorpusLayout({ children }: { children: ReactNode }) {
         <Title className={classes.title}>Taiwan Social Media Corpus</Title>
         <Container size={560} p={0}>
           <Text size="sm" className={classes.description}>
-            A corpus of PTT and Dcard.
+            {description}
           </Text>
         </Container>
       </Container>
