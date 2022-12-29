@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => ({
   inner: {
     position: 'relative',
     paddingTop: 190,
-    paddingBottom: 180,
+    paddingBottom: 300,
 
     [BREAKPOINT]: {
       paddingTop: 50,
