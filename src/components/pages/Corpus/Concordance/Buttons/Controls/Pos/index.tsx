@@ -1,6 +1,7 @@
 import Route from '@config/routes';
 import { useRouter } from 'next/router';
 import { ChangeEvent, memo } from 'react';
+import { ConcordanceParams } from 'types/corpus';
 import { IconCheck, IconX } from '@tabler/icons';
 import { Switch, useMantineTheme } from '@mantine/core';
 import { HelperButtonProps } from '../../types';
@@ -14,8 +15,7 @@ function PosController(props: Props) {
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setShowPos(event.currentTarget.checked);
-    const params = new URLSearchParams(router.asPath);
-    const e = params.get('e');
+    const { e } = router.query as ConcordanceParams;
     const pushUrl = `${Route.corpus.concordance}?pos=${event.currentTarget.checked}&e=${e}`;
     router.push(pushUrl);
   };
