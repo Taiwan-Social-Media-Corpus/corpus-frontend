@@ -21,7 +21,7 @@ const Concordance: NextPageWithLayout<ConcordancePageProps> = (props) => {
 };
 
 Concordance.getLayout = function getLayout(page: ReactElement) {
-  return <CorpusLayout>{page}</CorpusLayout>;
+  return <CorpusLayout description="A corpus of PTT and Dcard.">{page}</CorpusLayout>;
 };
 
 export const getServerSideProps: GetServerSideProps<ConcordancePageProps> = async (context) => {

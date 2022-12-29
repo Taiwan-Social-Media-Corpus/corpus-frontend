@@ -25,7 +25,7 @@ const Corpus: NextPageWithLayout = () => {
 };
 
 Corpus.getLayout = function getLayout(page: ReactElement) {
-  return <CorpusLayout>{page}</CorpusLayout>;
+  return <CorpusLayout description="A corpus of PTT and Dcard.">{page}</CorpusLayout>;
 };
 
 export const getServerSideProps = async () => {
