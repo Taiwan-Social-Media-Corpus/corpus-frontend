@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { getCookie } from 'cookies-next';
@@ -16,6 +16,18 @@ function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
   const router = useRouter();
   const [queryClient] = useState(() => new QueryClient());
   const getLayout = Component.getLayout ?? ((page) => page);
+
+  const hydratedComponent = useMemo(
+    () =>
+      pageProps !== undefined ? (
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
+      ) : (
+        <Component {...pageProps} />
+      ),
+    [pageProps]
+  );
 
   return (
     <>
@@ -37,11 +49,9 @@ function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
       </Head>
 
       <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <DarkThemeContext colorScheme={colorScheme}>
-            <Layout>{getLayout(<Component {...pageProps} />)}</Layout>
-          </DarkThemeContext>
-        </Hydrate>
+        <DarkThemeContext colorScheme={colorScheme}>
+          <Layout>{getLayout(hydratedComponent)}</Layout>
+        </DarkThemeContext>
       </QueryClientProvider>
     </>
   );
