@@ -68,8 +68,6 @@ export interface IconProps extends React.ComponentPropsWithoutRef<'svg'> {
 }
 
 export type IconControllerProps =
-  | ({ control: 'ptt' } & IconProps)
-  | ({ control: 'dcard' } & IconProps)
   | ({ control: 'github' } & IconProps)
   | ({ control: 'facebook' } & IconProps)
   | ({ control: 'no-result' } & IconProps)
