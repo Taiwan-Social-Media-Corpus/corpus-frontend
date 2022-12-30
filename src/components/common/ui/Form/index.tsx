@@ -3,6 +3,7 @@ import { ControllerProps } from 'types/form';
 import {
   Select,
   Switch,
+  PinInput,
   TextInput,
   RadioGroup,
   MultiSelect,
@@ -19,6 +20,8 @@ function FormController(props: ControllerProps) {
       return <Select {...props} />;
     case 'switch':
       return <Switch {...props} />;
+    case 'pin-input':
+      return <PinInput {...props} />;
     case 'text-input':
       return <TextInput {...props} />;
     case 'radio-group':
