@@ -1,7 +1,7 @@
 import { useController } from 'react-hook-form';
-import { MultiSelectProps } from 'types/mantine';
+import { MultiSelectProps } from 'types/form';
 import { MultiSelect as MantineMultiSelect } from '@mantine/core';
-import { ErrorMessage } from './utils';
+import ErrorMessage from './utils/error';
 
 function MultiSelect(props: MultiSelectProps) {
   const { label, name, options, ...rest } = props;

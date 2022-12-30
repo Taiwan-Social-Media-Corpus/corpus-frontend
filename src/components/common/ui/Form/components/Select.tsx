@@ -1,8 +1,8 @@
-import { SelectProps } from 'types/mantine';
+import { SelectProps } from 'types/form';
 import { IconChevronDown } from '@tabler/icons';
 import { useController } from 'react-hook-form';
 import { Select as MantineSelect } from '@mantine/core';
-import { ErrorMessage } from './utils';
+import ErrorMessage from './utils/error';
 
 function Select(props: SelectProps) {
   const { label, options, name, ...rest } = props;

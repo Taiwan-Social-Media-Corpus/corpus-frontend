@@ -1,4 +1,4 @@
-import { SwitchProps } from 'types/mantine';
+import { SwitchProps } from 'types/form';
 import { useController } from 'react-hook-form';
 import { Switch as MantineSwitch } from '@mantine/core';
 

@@ -1,8 +1,8 @@
 import { useController } from 'react-hook-form';
-import { PasswordInputProps } from 'types/mantine';
+import { PasswordInputProps } from 'types/form';
 import { IconEye, IconEyeOff } from '@tabler/icons';
 import { PasswordInput as MantinePasswordInput } from '@mantine/core';
-import { ErrorMessage } from './utils';
+import ErrorMessage from './utils/error';
 
 function PasswordInput(props: PasswordInputProps) {
   const { label, name, ...rest } = props;
