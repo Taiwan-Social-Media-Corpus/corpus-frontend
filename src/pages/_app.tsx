@@ -9,7 +9,7 @@ import { GetServerSidePropsContext } from 'next';
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const Layout = dynamic(() => import('@components/layout/App'));
-const DarkThemeContext = dynamic(() => import('@contexts/DarkThemeContext'));
+const DarkThemeContext = dynamic(() => import('@contexts/DarkTheme'));
 
 function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
   const { Component, pageProps, colorScheme } = props;
