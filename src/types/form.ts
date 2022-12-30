@@ -1,5 +1,6 @@
 import {
   ColProps,
+  PaperProps,
   SwitchProps as MantineSwitchProps,
   SelectProps as MantineSelectProps,
   TextInputProps as MantineTextInputProps,
@@ -11,6 +12,7 @@ import {
   SegmentedControlProps as MantineSegmentedControlProps,
 } from '@mantine/core';
 import { ReactNode } from 'react';
+import { AlertContextType } from '@contexts/Alert/types';
 import { FieldValues, UseFormReturn } from 'react-hook-form';
 
 export type Option = {
@@ -69,3 +71,28 @@ export type FormControllerProps<TFieldValues extends FieldValues = FieldValues, 
 };
 
 export type PinCode = { code: { [key: number]: string } };
+
+export type PinHelperProps = {
+  helper:
+    | JSX.Element
+    | ((
+        alert: AlertContextType['alert'],
+        dispatchAlert: AlertContextType['dispatch']
+      ) => JSX.Element);
+};
+
+export type PinContainerProps<T extends FieldValues = PinCode> = {
+  helper:
+    | JSX.Element
+    | ((
+        alert: AlertContextType['alert'],
+        dispatchAlert: AlertContextType['dispatch']
+      ) => JSX.Element);
+  onSubmit: (
+    context: UseFormReturn<T>,
+    alert: AlertContextType['alert'],
+    dispatchAlert: AlertContextType['dispatch']
+  ) => any | Promise<any>;
+  disableContainerMargin?: boolean;
+  paperProps?: PaperProps;
+};
