@@ -1,6 +1,6 @@
+import { Optional } from 'types';
 import { User } from 'types/user';
 import { KeyedMutator } from 'swr';
-import { Optional, Response } from 'types';
 import { Action } from './actions';
 
 type ResData = Pick<User, 'uid' | 'email' | 'firstName' | 'lastName' | 'enabled'>;
@@ -47,7 +47,6 @@ export type UserContextType = {
   user: InitialState;
   mutate: KeyedMutator<any>;
   dispatch: React.Dispatch<ActionType>;
-  fetchNotification: KeyedMutator<Response<{ count: number }>>;
 };
 
 export type ContextProviderProps = {
