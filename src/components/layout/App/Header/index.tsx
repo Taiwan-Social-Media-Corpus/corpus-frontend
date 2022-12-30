@@ -1,16 +1,16 @@
 import { memo } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { Header as MantineHeader, Group, Code } from '@mantine/core';
 import corePackageJson from 'package.json';
-import IconController from '@components/common/Icons';
+import IconController from '@components/common/ui/Icons';
+import { Header as MantineHeader, Group, Code } from '@mantine/core';
 import links from '../links';
 import useStyles from './Header.styles';
 
 const Menu = dynamic(() => import('./Menu'));
 const NavItems = dynamic(() => import('./NavItem'));
 const HeaderControls = dynamic(() => import('./Controls'));
-const ColorSchemeToggle = dynamic(() => import('@components/common/ColorSchemeToggle'));
+const ColorSchemeToggle = dynamic(() => import('@components/common/ui/ColorSchemeToggle'));
 
 function Header() {
   const { classes } = useStyles();
