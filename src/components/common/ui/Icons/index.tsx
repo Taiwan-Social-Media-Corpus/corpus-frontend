@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { IconControllerProps } from 'types/mantine';
+import { IconControllerProps } from 'types';
 import LopenIcon from './Lopen';
 import GithubIcon from './Github';
 import FacebookIcon from './Facebook';

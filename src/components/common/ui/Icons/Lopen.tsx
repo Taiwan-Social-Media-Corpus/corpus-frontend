@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useMantineTheme } from '@mantine/core';
-import { IconControllerProps } from 'types/mantine';
+import { IconControllerProps } from 'types';
 
 type LopenIconProps = Omit<Extract<IconControllerProps, { control: 'lopen' }>, 'control'>;
 
