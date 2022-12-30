@@ -77,3 +77,5 @@ export type IconControllerProps =
   | ({ control: 'facebook' } & IconProps)
   | ({ control: 'no-result' } & IconProps)
   | ({ control: 'lopen' } & IconProps & { renderType: 'footer' | 'header' });
+
+export type PinCode = { code: { [key: number]: string } };
