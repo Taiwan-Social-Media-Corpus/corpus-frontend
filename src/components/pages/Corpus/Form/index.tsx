@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import FormController from '@components/common/ui/Form';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Paper, Button, Grid, Group } from '@mantine/core';
-import { SelectItem } from '@components/common/ui/Form/components/utils';
+import SelectItem from '@components/common/ui/Form/components/utils/select';
 import { FieldValues } from './types';
 import validationSchema from './schema';
 import { mediaOptions, createPostTypeOptions, createBoardOptions } from './options';
