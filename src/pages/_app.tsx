@@ -1,10 +1,11 @@
 import Head from 'next/head';
-import { useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { getCookie } from 'cookies-next';
+import { useMemo, useState } from 'react';
 import { AppPropsWithLayout } from 'types';
 import { ColorScheme } from '@mantine/core';
+import { UserProvider } from '@contexts/User';
 import { GetServerSidePropsContext } from 'next';
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -48,11 +49,13 @@ function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
         />
       </Head>
 
-      <QueryClientProvider client={queryClient}>
-        <DarkThemeContext colorScheme={colorScheme}>
-          <Layout>{getLayout(hydratedComponent)}</Layout>
-        </DarkThemeContext>
-      </QueryClientProvider>
+      <UserProvider>
+        <QueryClientProvider client={queryClient}>
+          <DarkThemeContext colorScheme={colorScheme}>
+            <Layout>{getLayout(hydratedComponent)}</Layout>
+          </DarkThemeContext>
+        </QueryClientProvider>
+      </UserProvider>
     </>
   );
 }
