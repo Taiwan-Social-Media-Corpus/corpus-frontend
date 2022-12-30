@@ -1,6 +1,5 @@
 import {
   ColProps,
-  PaperProps,
   SwitchProps as MantineSwitchProps,
   SelectProps as MantineSelectProps,
   TextInputProps as MantineTextInputProps,
@@ -93,6 +92,4 @@ export type PinContainerProps<T extends FieldValues = PinCode> = {
     alert: AlertContextType['alert'],
     dispatchAlert: AlertContextType['dispatch']
   ) => any | Promise<any>;
-  disableContainerMargin?: boolean;
-  paperProps?: PaperProps;
 };
