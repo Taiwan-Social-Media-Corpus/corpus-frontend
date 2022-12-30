@@ -68,14 +68,4 @@ export type FormControllerProps<TFieldValues extends FieldValues = FieldValues, 
   };
 };
 
-export interface IconProps extends React.ComponentPropsWithoutRef<'svg'> {
-  size?: number;
-}
-
-export type IconControllerProps =
-  | ({ control: 'github' } & IconProps)
-  | ({ control: 'facebook' } & IconProps)
-  | ({ control: 'no-result' } & IconProps)
-  | ({ control: 'lopen' } & IconProps & { renderType: 'footer' | 'header' });
-
 export type PinCode = { code: { [key: number]: string } };
