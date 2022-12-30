@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { ControllerProps } from 'types/mantine';
+import { ControllerProps } from 'types/form';
 import {
   Select,
   Switch,
