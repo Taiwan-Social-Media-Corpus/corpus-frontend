@@ -5,7 +5,7 @@ import request from '@utils/request';
 
 type PayloadType = Pick<User, 'email'> & { code: string };
 type ResData = { errorCount: number };
-type ResponseType = Response<ResData> | null;
+export type ResponseType = Response<ResData> | null;
 
 const validate = async (payload: PayloadType): Promise<[ResponseType, any]> => {
   try {
