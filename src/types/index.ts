@@ -59,3 +59,15 @@ export type AppPropsWithAuth = AppProps & {
   Component: NextPageWithAuth;
   dehydratedState: DehydratedState;
 };
+
+// ---- miscellaneous ----
+
+export interface IconProps extends React.ComponentPropsWithoutRef<'svg'> {
+  size?: number;
+}
+
+export type IconControllerProps =
+  | ({ control: 'github' } & IconProps)
+  | ({ control: 'facebook' } & IconProps)
+  | ({ control: 'no-result' } & IconProps)
+  | ({ control: 'lopen' } & IconProps & { renderType: 'footer' | 'header' });
