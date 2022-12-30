@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { IconProps } from 'types/mantine';
+import { IconProps } from 'types';
 
 function NoResultIcon(props: IconProps) {
   const { size, ...rest } = props;
