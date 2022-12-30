@@ -1,0 +1,9 @@
+enum Action {
+  LOGOUT = 'LOGOUT',
+  PENDING = 'PENDING',
+  FETCH_ERROR = 'FETCH_ERROR',
+  FETCH_FAILED = 'FETCH_FAILED',
+  FETCH_SUCCESS = 'FETCH_SUCCESS',
+}
+
+export { Action };
