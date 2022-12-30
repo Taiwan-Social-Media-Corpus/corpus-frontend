@@ -45,6 +45,7 @@ export type SegmentedControlProps = Controlled<
   }
 >;
 export type PasswordInputProps = Controlled<MantinePasswordInputProps>;
+export type PinInputProps = Controlled<{ length: number }> & { otp?: boolean };
 
 export type ControllerProps =
   | ({ control: 'text-input' } & TextInputProps)
@@ -55,7 +56,8 @@ export type ControllerProps =
   | ({ control: 'number-input' } & NumberInputProps)
   | ({ control: 'multi-select' } & MultiSelectProps)
   | ({ control: 'switch' } & SwitchProps)
-  | ({ control: 'segmented-control' } & SegmentedControlProps);
+  | ({ control: 'segmented-control' } & SegmentedControlProps)
+  | ({ control: 'pin-input' } & PinInputProps);
 
 export type FormControllerProps<TFieldValues extends FieldValues = FieldValues, TContext = any> = {
   controllers: {
