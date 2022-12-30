@@ -4,10 +4,7 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
     paddingTop: 90,
-
-    [theme.fn.largerThan('sm')]: {
-      height: '96.5vh',
-    },
+    height: '96vh',
   },
 
   title: {
@@ -17,7 +14,7 @@ const useStyles = createStyles((theme) => ({
     textAlign: 'center',
 
     [theme.fn.smallerThan('sm')]: {
-      fontSize: 28,
+      fontSize: 24,
     },
   },
 
