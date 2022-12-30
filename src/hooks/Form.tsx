@@ -10,7 +10,7 @@ import {
 } from 'react-hook-form';
 import { useId } from '@mantine/hooks';
 import React, { ReactNode } from 'react';
-import { FormControllerProps } from 'types/mantine';
+import { FormControllerProps } from 'types/form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import FormController from '@components/common/ui/Form';
 import { Button, Grid, ButtonProps, useMantineTheme } from '@mantine/core';
