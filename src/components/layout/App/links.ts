@@ -1,46 +1,45 @@
+import {
+  IconUser,
+  IconBook2,
+  IconServer,
+  IconSocial,
+  IconInfoCircle,
+  IconReportSearch,
+} from '@tabler/icons';
 import Route from '@config/routes';
 import { DEFAULT_THEME } from '@mantine/core';
-import { IconBook2, IconReportSearch, IconInfoCircle, IconSocial, IconServer } from '@tabler/icons';
+
+const { corpus, login, about, guide } = Route;
+
+const corpusLink = { link: corpus.root, label: 'Corpus' };
+const loginLink = { link: login, label: 'Developer' };
+const aboutLink = { link: about.intro, label: 'About' };
+const guideLink = { link: guide, label: 'Guide' };
 
 const links = {
-  header: [
-    { link: Route.CORPUS, label: 'Corpus' },
-    { link: `${Route.ABOUT}/intro`, label: 'About' },
-    { link: Route.GUIDE, label: 'Guide' },
-  ],
+  header: [corpusLink, aboutLink, guideLink, loginLink],
   menu: [
-    {
-      link: Route.CORPUS,
-      label: 'Corpus',
-      icon: IconReportSearch,
-    },
-    {
-      link: `${Route.ABOUT}/intro`,
-      label: 'About',
-      icon: IconInfoCircle,
-    },
-    {
-      link: Route.GUIDE,
-      label: 'Guide',
-      icon: IconBook2,
-    },
+    { ...corpusLink, icon: IconReportSearch },
+    { ...aboutLink, icon: IconInfoCircle },
+    { ...guideLink, icon: IconBook2 },
+    { ...loginLink, icon: IconUser },
   ],
   navbar: {
     about: [
       {
-        to: `${Route.ABOUT}/intro`,
+        to: about.intro,
         label: 'Introduction',
         color: DEFAULT_THEME.colors.blue[5],
         icon: IconInfoCircle,
       },
       {
-        to: `${Route.ABOUT}/media`,
+        to: about.media,
         label: 'Taiwan Social Media',
         color: DEFAULT_THEME.colors.violet[5],
         icon: IconSocial,
       },
       {
-        to: `${Route.ABOUT}/blacklab`,
+        to: about.blacklab,
         label: 'Blacklab',
         color: '#000',
         icon: IconServer,
