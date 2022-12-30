@@ -1,12 +1,11 @@
 import { memo, ReactNode } from 'react';
-import { Container, Title, Text, useMantineTheme } from '@mantine/core';
+import { Container, Title, Text } from '@mantine/core';
 import useStyles from './Corpus.styles';
 
 type Props = { children: ReactNode; description: string | ReactNode };
 
 function CorpusLayout(props: Props) {
   const { classes } = useStyles();
-  const theme = useMantineTheme();
   const { children, description } = props;
 
   const subTitle =
@@ -26,13 +25,7 @@ function CorpusLayout(props: Props) {
           {subTitle}
         </Container>
       </Container>
-      <main
-        style={{
-          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
-        }}
-      >
-        {children}
-      </main>
+      <main>{children}</main>
     </div>
   );
 }
