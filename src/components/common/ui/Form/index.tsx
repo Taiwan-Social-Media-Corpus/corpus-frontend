@@ -8,6 +8,7 @@ import {
   MultiSelect,
   NumberInput,
   CheckboxGroup,
+  PasswordInput,
 } from './components';
 
 function FormController(props: ControllerProps) {
@@ -28,6 +29,8 @@ function FormController(props: ControllerProps) {
       return <NumberInput {...props} />;
     case 'checkbox-group':
       return <CheckboxGroup {...props} />;
+    case 'password-input':
+      return <PasswordInput {...props} />;
     default:
       return null;
   }
