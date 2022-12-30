@@ -7,6 +7,7 @@ import {
   MultiSelectProps as MantineMultiSelectProps,
   NumberInputProps as MantineNumberInputProps,
   CheckboxGroupProps as MantineCheckboxGroupProps,
+  PasswordInputProps as MantinePasswordInputProps,
   SegmentedControlProps as MantineSegmentedControlProps,
 } from '@mantine/core';
 import { ReactNode } from 'react';
@@ -43,9 +44,11 @@ export type SegmentedControlProps = Controlled<
     options: MantineSegmentedControlProps['data'];
   }
 >;
+export type PasswordInputProps = Controlled<MantinePasswordInputProps>;
 
 export type ControllerProps =
   | ({ control: 'text-input' } & TextInputProps)
+  | ({ control: 'password-input' } & PasswordInputProps)
   | ({ control: 'select' } & SelectProps)
   | ({ control: 'checkbox-group' } & CheckboxGroupProps)
   | ({ control: 'radio-group' } & RadioGroupProps)
