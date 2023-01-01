@@ -9,4 +9,13 @@ const validationSchema = z.object({
   termsWatched: z.string().array().min(1, '請確認是否同意！'),
 });
 
-export default validationSchema;
+const defaultValues = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  termsWatched: [],
+};
+
+export { validationSchema, defaultValues };
