@@ -28,7 +28,7 @@ function NameStep() {
   );
 }
 
-export function validateNames(methods: UseFormReturn<FieldValues, any>) {
+export function validateNameStep(methods: UseFormReturn<FieldValues, any>) {
   const isFirstNameError = methods.watch('firstName') === '';
   const isLastNameError = methods.watch('lastName') === '';
 
