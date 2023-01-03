@@ -14,7 +14,7 @@ if (!API_URL || !EXTERNAL_API_URL) {
 }
 
 const api = isProduction ? `/service/api/${V1}` : API_URL;
-const externalAPI = isProduction ? `http://service/api/${V1}` : EXTERNAL_API_URL;
+const externalAPI = isProduction ? `http://nginx:80/service/api/${V1}` : EXTERNAL_API_URL;
 
 // ----- user service -----
 const user = urlJoin(api, 'user');
