@@ -4,7 +4,7 @@ import { FieldValues } from '@components/pages/User/SignUp/types';
 
 function NameStep() {
   const { formState } = useFormContext();
-  const hasFirstNameError = formState.errors.firstName !== undefined;
+  const hasLastNameError = formState.errors.lastName !== undefined;
 
   return (
     <>
@@ -22,7 +22,7 @@ function NameStep() {
         name="firstName"
         label="名字"
         withAsterisk
-        mt={hasFirstNameError ? 25 : 10}
+        mt={hasLastNameError ? 25 : 10}
       />
     </>
   );
