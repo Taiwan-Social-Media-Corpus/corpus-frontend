@@ -1,6 +1,6 @@
 import FormController from '@components/common/ui/Form';
-import { useFormContext, UseFormReturn } from 'react-hook-form';
 import { FieldValues } from '@components/pages/User/SignUp/types';
+import { useFormContext, UseFormSetError, UseFormWatch } from 'react-hook-form';
 
 function NameStep() {
   const { formState } = useFormContext();
@@ -28,19 +28,22 @@ function NameStep() {
   );
 }
 
-export function validateNameStep(methods: UseFormReturn<FieldValues, any>) {
-  const isFirstNameError = methods.watch('firstName') === '';
-  const isLastNameError = methods.watch('lastName') === '';
+export function validateNameStep(
+  watch: UseFormWatch<FieldValues>,
+  setError: UseFormSetError<FieldValues>
+) {
+  const isFirstNameError = watch('firstName') === '';
+  const isLastNameError = watch('lastName') === '';
 
   if (isFirstNameError && isLastNameError) {
-    methods.setError('firstName', { message: '必填！' });
-    methods.setError('lastName', { message: '必填！' });
+    setError('firstName', { message: '必填！' });
+    setError('lastName', { message: '必填！' });
     return false;
   }
 
   if (isFirstNameError || isLastNameError) {
     const errorField = isFirstNameError ? 'firstName' : 'lastName';
-    methods.setError(errorField, { message: '必填！' });
+    setError(errorField, { message: '必填！' });
     return false;
   }
 
