@@ -86,7 +86,7 @@ function Identification() {
         >
           <Center inline>
             <IconArrowLeft size={16} />
-            <Box ml={5}>回首頁</Box>
+            <Box ml={5}>回登入頁面</Box>
           </Center>
         </Anchor>
         <Form.Button
