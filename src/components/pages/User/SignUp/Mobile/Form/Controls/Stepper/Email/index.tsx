@@ -1,5 +1,5 @@
-import { UseFormReturn } from 'react-hook-form';
 import FormController from '@components/common/ui/Form';
+import { UseFormSetError, UseFormWatch } from 'react-hook-form';
 import { FieldValues } from '@components/pages/User/SignUp/types';
 
 function EmailStep() {
@@ -15,11 +15,14 @@ function EmailStep() {
   );
 }
 
-export function validateEmailStep(methods: UseFormReturn<FieldValues, any>) {
-  const isEmailError = methods.watch('email') === '';
+export function validateEmailStep(
+  watch: UseFormWatch<FieldValues>,
+  setError: UseFormSetError<FieldValues>
+) {
+  const isEmailError = watch('email') === '';
 
   if (isEmailError) {
-    methods.setError('email', { message: '必填！' });
+    setError('email', { message: '必填！' });
     return false;
   }
 
