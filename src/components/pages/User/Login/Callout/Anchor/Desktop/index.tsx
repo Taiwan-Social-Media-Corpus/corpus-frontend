@@ -1,6 +1,6 @@
 import { memo, useState } from 'react';
+import SignUpForm from '@components/pages/User/SignUp/Form/Desktop';
 import { Anchor, Modal, Paper, useMantineTheme } from '@mantine/core';
-import SignUpForm from '@components/pages/User/SignUp/Desktop/Form';
 
 function AnchorDesktop() {
   const theme = useMantineTheme();
