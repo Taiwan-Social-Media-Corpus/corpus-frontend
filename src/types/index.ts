@@ -38,6 +38,8 @@ export type PickAsOrNull<T, K extends keyof T> = Omit<T, K> & {
 
 export type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
+export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
 // -------- NextJs --------
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
