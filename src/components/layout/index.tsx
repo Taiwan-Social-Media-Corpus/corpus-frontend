@@ -31,7 +31,7 @@ function Layout(props: Props) {
     }
     return (
       <>
-        <Title className={classes.title}>Taiwan Social Media Corpus</Title>
+        <Title className={classes.title}>{title}</Title>
         <Container size={560} p={0}>
           <Text size="sm" className={classes.description}>
             {description}
