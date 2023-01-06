@@ -28,6 +28,11 @@ export interface ConcordanceRequestBody {
   fetchNumber: number;
 }
 
+export type CorpusStats = {
+  word: { [key: string]: number };
+  pos: { [key: string]: number };
+};
+
 export type Media = {
   ptt: number;
   dcard: number;
