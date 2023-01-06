@@ -1,11 +1,11 @@
 import { NextPage } from 'next';
+import Layout from '@components/layout';
 import { Container, Paper } from '@mantine/core';
-import AuthenticationLayout from '@components/layout/Authentication';
 import MobileSignUpForm from '@components/pages/User/SignUp/Form/Mobile';
 import DesktopSignUpForm from '@components/pages/User/SignUp/Form/Desktop';
 
 const SignUp: NextPage = () => (
-  <AuthenticationLayout title="Sign up to LOPEN">
+  <Layout title="Sign up to LOPEN" withAvatar>
     <Container
       sx={{
         '@media (min-width: 420px)': {
@@ -29,7 +29,7 @@ const SignUp: NextPage = () => (
         <DesktopSignUpForm />
       </Paper>
     </Container>
-  </AuthenticationLayout>
+  </Layout>
 );
 
 export default SignUp;
