@@ -1,12 +1,12 @@
 import Route from '@config/routes';
 import dynamic from 'next/dynamic';
 import { ReactElement } from 'react';
+import Layout from '@components/layout';
 import { GetServerSideProps } from 'next';
 import { Container } from '@mantine/core';
 import { NextPageWithLayout } from 'types';
 import { decodeURL } from '@utils/url/corpus';
 import { ConcordancePageProps } from 'types/corpus';
-import CorpusLayout from '@components/layout/Corpus';
 
 const ConcordancePage = dynamic(() => import('@components/pages/Corpus/Concordance'));
 
@@ -21,7 +21,15 @@ const Concordance: NextPageWithLayout<ConcordancePageProps> = (props) => {
 };
 
 Concordance.getLayout = function getLayout(page: ReactElement) {
-  return <CorpusLayout description="A corpus of PTT and Dcard.">{page}</CorpusLayout>;
+  return (
+    <Layout
+      title="Taiwan Social Media Corpus"
+      description="A corpus of PTT and Dcard."
+      withAvatar={false}
+    >
+      {page}
+    </Layout>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps<ConcordancePageProps> = async (context) => {
