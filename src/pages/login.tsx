@@ -1,11 +1,11 @@
 import { NextPage } from 'next';
+import Layout from '@components/layout';
 import { Container, Paper } from '@mantine/core';
 import LoginForm from '@components/pages/User/Login/Form';
 import LoginCallout from '@components/pages/User/Login/Callout';
-import AuthenticationLayout from '@components/layout/Authentication';
 
 const Login: NextPage = () => (
-  <AuthenticationLayout title="Sign in to LOPEN">
+  <Layout title="Sign in to LOPEN" withAvatar>
     <Container size={420}>
       <Paper withBorder shadow="md" p={30} mt={10} radius="md">
         <LoginForm />
@@ -14,7 +14,7 @@ const Login: NextPage = () => (
         <LoginCallout />
       </Paper>
     </Container>
-  </AuthenticationLayout>
+  </Layout>
 );
 
 export default Login;
