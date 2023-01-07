@@ -6,3 +6,11 @@ export interface User {
   password: string;
   enabled: boolean;
 }
+
+export interface RecoveryJWTPayload {
+  callSite: string;
+  stage: string;
+  email: string;
+  iat: number;
+  exp: number;
+}
