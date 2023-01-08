@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import Route from '@config/routes';
 import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
 import { Container, Text, Group } from '@mantine/core';
@@ -32,8 +34,16 @@ function Footer(props: Props) {
           <div className={classes.inner}>
             <div className={classes.logoSection}>
               <Group>
-                <IconController control="lopen" size={80} renderType="footer" />
-                <Text ff="Monaco,Courier,monospace" size="md" weight={600}>
+                <Link href={Route.home}>
+                  <IconController control="lopen" size={80} renderType="footer" />
+                </Link>
+                <Text
+                  component={Link}
+                  href={Route.home}
+                  ff="Monaco,Courier,monospace"
+                  size="md"
+                  weight={600}
+                >
                   LOPEN
                 </Text>
               </Group>
