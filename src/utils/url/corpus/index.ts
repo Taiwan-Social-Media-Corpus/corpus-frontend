@@ -1,5 +1,5 @@
 import { ConcordanceRequestBody } from 'types/corpus';
-import { FieldValues } from '@components/pages/Corpus/Form/types';
+import { FieldValues } from '@components/pages/Corpus/Home/Form/types';
 
 function isInvalidPayload(payload: ConcordanceRequestBody) {
   const { boards, cqlEnable, page, ...rest } = payload;
