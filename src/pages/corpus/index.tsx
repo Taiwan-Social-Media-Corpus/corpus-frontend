@@ -1,28 +1,21 @@
+import API from '@config/api';
+import { SWRConfig } from 'swr';
 import Route from '@config/routes';
+import { Boards } from 'types/corpus';
 import Layout from '@components/layout';
-import { useRouter } from 'next/router';
-import { Container } from '@mantine/core';
 import type { ReactElement } from 'react';
 import { NextPageWithLayout } from 'types';
-import CorpusForm from '@components/pages/Corpus/Form';
-import { QueryClient, dehydrate } from '@tanstack/react-query';
-import { useBoards, usePrefetchBoards } from '@services/corpus/boards';
+import type { GetServerSideProps } from 'next';
+import CorpusHome from '@components/pages/Corpus/Home';
+import { fetchBoards } from '@services/corpus/boards';
 
-const Corpus: NextPageWithLayout = () => {
-  const router = useRouter();
-  const { boards, isError } = useBoards();
+type Props = { fallback: { [x: string]: Boards } };
 
-  if (isError || !boards || boards.status === 'failed') {
-    router.push(Route.serverError, { pathname: router.pathname });
-    return null;
-  }
-
-  return (
-    <Container size={700} my={40}>
-      <CorpusForm boards={boards.data} />
-    </Container>
-  );
-};
+const Corpus: NextPageWithLayout<Props> = (props) => (
+  <SWRConfig value={{ fallback: props.fallback }}>
+    <CorpusHome />
+  </SWRConfig>
+);
 
 Corpus.getLayout = function getLayout(page: ReactElement) {
   return (
@@ -36,13 +29,20 @@ Corpus.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export const getServerSideProps = async () => {
-  const queryClient = new QueryClient();
-  await usePrefetchBoards(queryClient);
+export const getServerSideProps: GetServerSideProps = async () => {
+  const redirect = { redirect: { permanent: false, destination: Route.recovery.root } };
+  const url = API.V1.corpus.boards.external;
+  const boards = await fetchBoards(url);
+
+  if (boards === null || boards.status === 'failed') {
+    return redirect;
+  }
 
   return {
     props: {
-      dehydratedState: dehydrate(queryClient),
+      fallback: {
+        [url]: boards.data,
+      },
     },
   };
 };
