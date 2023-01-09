@@ -26,7 +26,7 @@ function Jumbotron(props: Props) {
   ].map((value, index) => (
     <div className={classes.feature} key={`${value.title}-${index}`}>
       <div className={classes.featureBody}>
-        <CountUp start={0} end={value.stats} duration={10}>
+        <CountUp start={0} end={value.stats} duration={3}>
           {({ countUpRef }) => (
             <Text mt={4} size={28}>
               <span ref={countUpRef} />
