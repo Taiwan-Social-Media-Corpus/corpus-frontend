@@ -15,8 +15,8 @@ function PosController(props: Props) {
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setShowPos(event.currentTarget.checked);
-    const { e } = router.query as ConcordanceParams;
-    const pushUrl = `${Route.corpus.concordance}?pos=${event.currentTarget.checked}&e=${e}`;
+    const { page, e } = router.query as ConcordanceParams;
+    const pushUrl = `${Route.corpus.concordance}?page=${page}&pos=${event.currentTarget.checked}&e=${e}`;
     router.push(pushUrl);
   };
 
