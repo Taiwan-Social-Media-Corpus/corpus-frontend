@@ -1,11 +1,10 @@
 import {
-  useReactTable,
-  flexRender,
-  getCoreRowModel,
   Row,
+  flexRender,
+  useReactTable,
+  getCoreRowModel,
   getFacetedRowModel,
 } from '@tanstack/react-table';
-import dynamic from 'next/dynamic';
 import { Hit } from 'types/corpus';
 import { useVirtual } from '@tanstack/react-virtual';
 import { useMemo, useState, useRef, memo } from 'react';
@@ -14,10 +13,8 @@ import { TableProps } from './types';
 import buildColumns from './Columns';
 import useStyles from './Table.styles';
 
-const Pagination = dynamic(() => import('./Pagination').then((module) => module));
-
 function Table(props: TableProps) {
-  const { data, showPos, pagination, fetchNumber, setPagination } = props;
+  const { data, showPos } = props;
   const { cx, classes } = useStyles();
   const [scrolled, setScrolled] = useState(false);
   const columns = buildColumns(data.docInfos, showPos);
@@ -26,11 +23,8 @@ function Table(props: TableProps) {
   const table = useReactTable<Hit>({
     data: data.hits,
     columns: col,
-    pageCount: Math.round(data.summary.numberOfHits / fetchNumber) || 1,
-    state: { pagination },
     columnResizeMode: 'onChange',
     manualPagination: true,
-    onPaginationChange: setPagination,
     getCoreRowModel: getCoreRowModel(),
     getFacetedRowModel: getFacetedRowModel(),
   });
@@ -107,7 +101,6 @@ function Table(props: TableProps) {
           <TB />
         </MantineTable>
       </ScrollArea>
-      <Pagination table={table} />
     </>
   );
 }
