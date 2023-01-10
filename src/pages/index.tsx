@@ -20,8 +20,8 @@ const Home: NextPage<Props> = (props) => (
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const mediaUrl = API.V1.corpus.media.external;
-  const corpusStatsUrl = `${API.V1.corpus.stats.corpus.external}?type=word`;
+  const mediaUrl = API.V1.corpus.media;
+  const corpusStatsUrl = API.V1.corpus.stats.corpus;
 
   const [mediaResult, corpusStatsResult] = await Promise.all([
     fetchMedia(mediaUrl),
