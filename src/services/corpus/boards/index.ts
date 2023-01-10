@@ -9,7 +9,7 @@ type ResponseType = Response<Boards> | null;
 const fetchBoards = (url: string): Promise<ResponseType> => request({ url, method: 'GET' });
 
 const useBoards = () => {
-  const { data, error } = useSWR<Boards>(API.V1.corpus.boards.external);
+  const { data, error } = useSWR<Boards>(API.V1.corpus.boards);
 
   return { boards: data, isLoading: !error && !data, error };
 };
