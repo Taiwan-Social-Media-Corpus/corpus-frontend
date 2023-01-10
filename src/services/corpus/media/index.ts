@@ -9,7 +9,7 @@ type ResponseType = Response<Media> | null;
 const fetchMedia = (url: string): Promise<ResponseType> => request({ url, method: 'GET' });
 
 const useMedia = () => {
-  const { data, error } = useSWR<Media>(API.V1.corpus.media.external);
+  const { data, error } = useSWR<Media>(API.V1.corpus.media);
 
   return { media: data, isMediaLoading: !error && !data, mediaError: error };
 };
