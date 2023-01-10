@@ -51,20 +51,11 @@ const API = {
     },
     corpus: {
       root: corpus,
-      media: {
-        root: urlJoin(corpus, 'media'),
-        external: urlJoin(externalCorpus, 'media'),
-      },
+      media: urlJoin(externalCorpus, 'media'),
       stats: {
-        corpus: {
-          root: urlJoin(corpus, 'stats'),
-          external: urlJoin(externalCorpus, 'stats'),
-        },
+        corpus: `${urlJoin(externalCorpus, 'stats')}?type=word`,
       },
-      boards: {
-        root: urlJoin(corpus, 'boards'),
-        external: urlJoin(externalCorpus, 'boards'),
-      },
+      boards: urlJoin(externalCorpus, 'boards'),
       concordance: {
         root: urlJoin(corpus, 'concordance'),
         csv: urlJoin(corpus, 'concordance', 'csv'),
