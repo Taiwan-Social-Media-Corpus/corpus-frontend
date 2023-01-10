@@ -42,7 +42,7 @@ function CorpusForm(props: Props) {
 
   const onSubmit = methods.handleSubmit((data) => {
     const e = encodeURL(data);
-    const pushUrl = `${Route.corpus.concordance}?pos=false&e=${e}`;
+    const pushUrl = `${Route.corpus.concordance}?page=1&pos=false&e=${e}`;
     router.push(pushUrl);
   });
 
