@@ -13,8 +13,8 @@ function ReportContent(props: Props) {
   const router = useRouter();
   const { numberofHits } = props;
   const { classes } = useStyles();
-  const { e } = router.query as ConcordanceParams;
-  const payload = decodeURL(e) as ConcordanceRequestBody;
+  const { e, page } = router.query as ConcordanceParams;
+  const payload = decodeURL(e, page) as ConcordanceRequestBody;
   const { word, media, postType, start, end, fetchNumber } = payload;
 
   const listItems = useMemo(
