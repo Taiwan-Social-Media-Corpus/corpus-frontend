@@ -7,7 +7,7 @@ function isInvalidPayload(payload: ConcordanceRequestBody) {
   return payloadValues.some((value) => value === null);
 }
 
-function decodeURL(e: string) {
+function decodeURL(e: string, page: string) {
   try {
     const decoded = decodeURIComponent(Buffer.from(e, 'base64').toString('ascii'));
     const params = new URLSearchParams(decoded);
@@ -22,7 +22,7 @@ function decodeURL(e: string) {
       start: params.get('s'),
       end: params.get('e'),
       windowSize: params.get('win'),
-      page: 1,
+      page: Number(page),
       fetchNumber: Number(params.get('f')),
     } as ConcordanceRequestBody;
 
