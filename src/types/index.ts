@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
-import { DehydratedState } from '@tanstack/react-query';
 
 // ---------- API ----------
 
@@ -48,7 +47,6 @@ export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 
 export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
-  dehydratedState: DehydratedState;
 };
 
 export type NextPageWithAuth = NextPage & {
@@ -59,7 +57,6 @@ export type NextPageWithAuth = NextPage & {
 
 export type AppPropsWithAuth = AppProps & {
   Component: NextPageWithAuth;
-  dehydratedState: DehydratedState;
 };
 
 // ---- miscellaneous ----
