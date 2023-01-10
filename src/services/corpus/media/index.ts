@@ -1,31 +1,17 @@
+import useSWR from 'swr';
 import API from '@config/api';
 import { Response } from 'types';
-import { Media } from 'types/corpus';
 import request from '@utils/request';
-import { QueryClient, useQuery } from '@tanstack/react-query';
+import { Media } from 'types/corpus';
 
 type ResponseType = Response<Media> | null;
 
-const QUERY_KEY = 'media';
-
-const fetchMedia = (apiType: 'root' | 'external') => async () => {
-  const url = API.V1.corpus.media[apiType];
-  return request({ url, method: 'GET' });
-};
+const fetchMedia = (url: string): Promise<ResponseType> => request({ url, method: 'GET' });
 
 const useMedia = () => {
-  const { data, isLoading, isError } = useQuery<ResponseType, any>({
-    queryKey: [QUERY_KEY],
-    queryFn: fetchMedia('root'),
-  });
+  const { data, error } = useSWR<Media>(API.V1.corpus.media.external);
 
-  return { media: data, isMediaLoading: isLoading, isMediaError: isError };
+  return { media: data, isMediaLoading: !error && !data, mediaError: error };
 };
 
-const usePrefetchMedia = async (client: QueryClient) =>
-  client.prefetchQuery({
-    queryKey: [QUERY_KEY],
-    queryFn: fetchMedia('external'),
-  });
-
-export { useMedia, usePrefetchMedia };
+export { useMedia, fetchMedia };

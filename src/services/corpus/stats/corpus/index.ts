@@ -1,31 +1,18 @@
+import useSWR from 'swr';
 import API from '@config/api';
 import { Response } from 'types';
 import request from '@utils/request';
 import { CorpusStats } from 'types/corpus';
-import { QueryClient, useQuery } from '@tanstack/react-query';
 
 type ResponseType = Response<CorpusStats> | null;
 
-const QUERY_KEY = 'corpusStats';
-
-const fetchCorpusStats = (apiType: 'root' | 'external') => async () => {
-  const url = `${API.V1.corpus.stats.corpus[apiType]}?type=word`;
-  return request({ url, method: 'GET' });
-};
+const fetchCorpusStats = (url: string): Promise<ResponseType> => request({ url, method: 'GET' });
 
 const useCorpusStats = () => {
-  const { data, isLoading, isError } = useQuery<ResponseType, any>({
-    queryKey: [QUERY_KEY],
-    queryFn: fetchCorpusStats('root'),
-  });
+  const url = `${API.V1.corpus.stats.corpus.external}?type=word`;
+  const { data, error } = useSWR<CorpusStats>(url);
 
-  return { corpusStats: data, isCorpusStatsLoading: isLoading, isCorpusStatsError: isError };
+  return { corpusStats: data, isCorpusStatsLoading: !error && !data, corpusStatsError: error };
 };
 
-const usePrefetchCorpusStats = async (client: QueryClient) =>
-  client.prefetchQuery({
-    queryKey: [QUERY_KEY],
-    queryFn: fetchCorpusStats('external'),
-  });
-
-export { useCorpusStats, usePrefetchCorpusStats };
+export { useCorpusStats, fetchCorpusStats };
