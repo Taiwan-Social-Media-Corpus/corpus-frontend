@@ -13,7 +13,7 @@ const handleResendCode = async (dispatch: AlertContextType['dispatch'], router: 
   }
 
   if (result.status === 'failed') {
-    if (result.msg === 'exceeded sending rate') {
+    if (result.msg === 'exceeded email rate') {
       dispatch({
         type: AlertAction.EXCESS_EMAIL,
         payload: '超過信件寄送上限，請於 24 小時後再試。',
