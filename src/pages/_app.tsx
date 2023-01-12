@@ -2,33 +2,20 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { getCookie } from 'cookies-next';
-import { useMemo, useState } from 'react';
 import { AppPropsWithLayout } from 'types';
 import { ColorScheme } from '@mantine/core';
 import { UserProvider } from '@contexts/User';
 import { GetServerSidePropsContext } from 'next';
-import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import withSwitch from '@components/common/auth';
 
-const Layout = dynamic(() => import('@components/layout/App'));
 const DarkThemeContext = dynamic(() => import('@contexts/DarkTheme'));
+const NavigationLayout = dynamic(() => import('@components/layout/Navigation'));
 
 function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
   const { Component, pageProps, colorScheme } = props;
   const router = useRouter();
-  const [queryClient] = useState(() => new QueryClient());
   const getLayout = Component.getLayout ?? ((page) => page);
-
-  const hydratedComponent = useMemo(
-    () =>
-      pageProps !== undefined ? (
-        <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
-        </Hydrate>
-      ) : (
-        <Component {...pageProps} />
-      ),
-    [pageProps]
-  );
+  const VerifiedComponent = withSwitch(Component);
 
   return (
     <>
@@ -50,11 +37,9 @@ function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
       </Head>
 
       <UserProvider>
-        <QueryClientProvider client={queryClient}>
-          <DarkThemeContext colorScheme={colorScheme}>
-            <Layout>{getLayout(hydratedComponent)}</Layout>
-          </DarkThemeContext>
-        </QueryClientProvider>
+        <DarkThemeContext colorScheme={colorScheme}>
+          <NavigationLayout>{getLayout(<VerifiedComponent {...pageProps} />)}</NavigationLayout>
+        </DarkThemeContext>
       </UserProvider>
     </>
   );
