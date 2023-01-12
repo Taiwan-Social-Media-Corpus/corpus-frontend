@@ -7,4 +7,8 @@ function isEmptyObject(value: object | null) {
   return isObject(value) && Object.entries(value).length === 0;
 }
 
-export { isObject, isEmptyObject };
+function sanitizeIP(ip: string) {
+  return ip.replace('::ffff:', '');
+}
+
+export { isObject, isEmptyObject, sanitizeIP };
