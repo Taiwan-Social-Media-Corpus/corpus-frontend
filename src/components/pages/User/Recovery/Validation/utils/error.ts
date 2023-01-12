@@ -28,7 +28,7 @@ const handleError = (
       });
       return null;
     }
-    case 'too many errors': {
+    case 'maximum retry attempts': {
       dispatch({
         type: AlertAction.EXCESS_ERROR,
         payload: '錯誤次數過多。',
@@ -39,7 +39,7 @@ const handleError = (
       clearTimeout(timeout);
       return null;
     }
-    case 'exceeded sending rate': {
+    case 'exceeded email rate': {
       dispatch({
         type: AlertAction.EXCESS_EMAIL,
         payload: '超過信件寄送上限，請於 24 小時後再試。',
