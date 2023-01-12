@@ -1,3 +1,4 @@
 import handleErrorCode from './error';
+import handleResendCode from './resend';
 
-export default handleErrorCode;
+export { handleErrorCode, handleResendCode };
