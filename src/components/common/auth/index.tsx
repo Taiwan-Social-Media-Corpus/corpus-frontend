@@ -44,7 +44,9 @@ const withSwitch = (Component: NextPageWithAuth) => {
       Route.recovery.root,
     ];
 
-    if (excludedRoutes.some((value) => router.asPath.includes(value))) return <Redirect url="/" />;
+    if (excludedRoutes.some((value) => router.asPath.includes(value))) {
+      return <Redirect url={Route.dashboard.account} />;
+    }
 
     const redirect = getRedirectURL(`${Route.activation}?redirect`, router.asPath);
     if (redirect !== null) return <Redirect url={redirect} />;
