@@ -1,17 +1,14 @@
 import API from '@config/api';
 import { SWRConfig } from 'swr';
 import Route from '@config/routes';
-import { Boards } from 'types/corpus';
 import type { ReactElement } from 'react';
-import { NextPageWithLayout } from 'types';
 import type { GetServerSideProps } from 'next';
 import MainLayout from '@components/layout/Main';
-import CorpusHome from '@components/pages/Corpus/Home';
 import { fetchBoards } from '@services/corpus/boards';
+import CorpusHome from '@components/pages/Corpus/Home';
+import { NextPageWithLayout, FallbackProps } from 'types';
 
-type Props = { fallback: { [x: string]: Boards } };
-
-const Corpus: NextPageWithLayout<Props> = (props) => (
+const Corpus: NextPageWithLayout<FallbackProps> = (props) => (
   <SWRConfig value={{ fallback: props.fallback }}>
     <CorpusHome />
   </SWRConfig>

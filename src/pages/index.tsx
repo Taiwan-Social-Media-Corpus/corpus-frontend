@@ -1,6 +1,7 @@
 import API from '@config/api';
 import { SWRConfig } from 'swr';
 import dynamic from 'next/dynamic';
+import { FallbackProps } from 'types';
 import { fetchMedia } from '@services/corpus/media';
 import type { NextPage, GetServerSideProps } from 'next';
 import { fetchCorpusStats } from '@services/corpus/stats/corpus';
@@ -8,9 +9,7 @@ import { fetchCorpusStats } from '@services/corpus/stats/corpus';
 const HomePage = dynamic(() => import('@components/pages/Home'));
 const Footer = dynamic(() => import('@components/common/ui/Footer'));
 
-type Props = { fallback: { [x: string]: any } };
-
-const Home: NextPage<Props> = (props) => (
+const Home: NextPage<FallbackProps> = (props) => (
   <SWRConfig value={{ fallback: props.fallback }}>
     <HomePage />
     <Footer />
