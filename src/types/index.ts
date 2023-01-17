@@ -20,6 +20,7 @@ export type Request<T> = {
   method: HTTPMethods;
   payload?: T;
   headers?: HeadersInit;
+  includeApiKey?: boolean;
   toJson?: boolean;
 };
 
