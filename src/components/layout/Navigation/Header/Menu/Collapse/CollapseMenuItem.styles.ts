@@ -10,7 +10,6 @@ const useStyles = createStyles((theme) => ({
   },
 
   link: {
-    fontWeight: 500,
     display: 'block',
     textDecoration: 'none',
     paddingLeft: 20,
