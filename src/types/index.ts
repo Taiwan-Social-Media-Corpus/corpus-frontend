@@ -59,6 +59,8 @@ export type AppPropsWithAuth = AppProps & {
   Component: NextPageWithAuth;
 };
 
+export type FallbackProps = { fallback: { [x: string]: any } };
+
 // ---- miscellaneous ----
 
 export interface IconProps extends React.ComponentPropsWithoutRef<'svg'> {
