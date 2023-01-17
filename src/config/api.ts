@@ -18,6 +18,7 @@ const externalAPI = isProduction ? `http://nginx:80/service/api/${V1}` : EXTERNA
 
 // ----- user service -----
 const user = urlJoin(api, 'user');
+const externalUser = urlJoin(externalAPI, 'user');
 const activation = urlJoin(user, 'activation');
 const recovery = urlJoin(user, 'recovery');
 const email = urlJoin(user, 'email');
@@ -47,6 +48,10 @@ const API = {
         password: urlJoin(recovery, 'password'),
         code: urlJoin(recovery, 'code'),
         resend: urlJoin(recovery, 'resend'),
+      },
+      apiToken: {
+        root: urlJoin(user, 'apiToken'),
+        external: urlJoin(externalUser, 'apiToken'),
       },
     },
     corpus: {
