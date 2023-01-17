@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { useRouter } from 'next/router';
 import { useUser } from '@contexts/User';
 import { Group, Button } from '@mantine/core';
+import { closeAllModals } from '@mantine/modals';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, FormProvider, FormState } from 'react-hook-form';
 import FormController from '@components/common/ui/Form';
@@ -10,7 +11,10 @@ import submit from '../../submit';
 import { FieldValues } from '../../types';
 import { signUpSchema, defaultValues } from '../../schema';
 
-function DesktopSignUpForm() {
+type Props = { isModal: boolean };
+
+function DesktopSignUpForm(props: Props) {
+  const { isModal } = props;
   const router = useRouter();
   const { dispatch } = useUser();
   const methods = useForm<FieldValues>({
@@ -26,7 +30,12 @@ function DesktopSignUpForm() {
     mode: 'onTouched',
   });
 
-  const onSubmit = methods.handleSubmit((data) => submit(data, router, dispatch));
+  const onSubmit = methods.handleSubmit((data) => {
+    if (isModal) {
+      closeAllModals();
+    }
+    submit(data, router, dispatch);
+  });
 
   const { errors } = methods.formState;
   const hasError = (key: keyof FormState<FieldValues>['errors']) => errors[key] !== undefined;
