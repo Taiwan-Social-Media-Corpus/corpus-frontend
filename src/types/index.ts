@@ -50,13 +50,13 @@ export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-export type NextPageWithAuth<T> = NextPage<T> & {
+export type NextPageWithAuth<T = undefined> = NextPage<T> & {
   auth?: boolean;
   admin?: boolean;
   hideLayout?: boolean;
 };
 
-export type AppPropsWithAuth<T> = AppProps & {
+export type AppPropsWithAuth<T = undefined> = AppProps & {
   Component: NextPageWithAuth<T>;
 };
 
