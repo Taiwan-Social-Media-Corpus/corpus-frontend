@@ -3,6 +3,7 @@ import urlJoin from 'url-join';
 const about = '/about';
 const corpus = '/corpus';
 const recovery = '/recovery';
+const dashboard = '/dashboard';
 
 const Route = {
   home: '/',
@@ -16,6 +17,11 @@ const Route = {
   login: '/login',
   logout: '/logout',
   signUp: '/signup',
+  dashboard: {
+    root: dashboard,
+    account: urlJoin(dashboard, 'account'),
+    token: urlJoin(dashboard, 'token'),
+  },
   activation: '/activation',
   recovery: {
     root: recovery,
