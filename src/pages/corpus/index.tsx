@@ -2,10 +2,10 @@ import API from '@config/api';
 import { SWRConfig } from 'swr';
 import Route from '@config/routes';
 import { Boards } from 'types/corpus';
-import Layout from '@components/layout';
 import type { ReactElement } from 'react';
 import { NextPageWithLayout } from 'types';
 import type { GetServerSideProps } from 'next';
+import MainLayout from '@components/layout/Main';
 import CorpusHome from '@components/pages/Corpus/Home';
 import { fetchBoards } from '@services/corpus/boards';
 
@@ -19,13 +19,13 @@ const Corpus: NextPageWithLayout<Props> = (props) => (
 
 Corpus.getLayout = function getLayout(page: ReactElement) {
   return (
-    <Layout
+    <MainLayout
       title="Taiwan Social Media Corpus"
       description="A corpus of PTT and Dcard."
       withAvatar={false}
     >
       {page}
-    </Layout>
+    </MainLayout>
   );
 };
 
