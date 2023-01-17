@@ -8,7 +8,7 @@ export type ResponseType = Response<Concordance> | null;
 
 const useConcordance = (payload: ConcordanceRequestBody) => {
   const { data, error, mutate } = useSWR<ResponseType>(API.V1.corpus.concordance.root, (url) =>
-    request({ url, method: 'POST', payload })
+    request({ url, method: 'POST', payload, includeApiKey: true })
   );
 
   return { concordance: data, isLoading: !error && !data, isError: error, mutate };

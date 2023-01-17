@@ -6,7 +6,8 @@ import { CorpusStats } from 'types/corpus';
 
 type ResponseType = Response<CorpusStats> | null;
 
-const fetchCorpusStats = (url: string): Promise<ResponseType> => request({ url, method: 'GET' });
+const fetchCorpusStats = (url: string): Promise<ResponseType> =>
+  request({ url, method: 'GET', includeApiKey: true });
 
 const useCorpusStats = () => {
   const url = API.V1.corpus.stats.corpus;
