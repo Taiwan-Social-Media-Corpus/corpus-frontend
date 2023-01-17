@@ -27,7 +27,7 @@ Corpus.getLayout = function getLayout(page: ReactElement) {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const redirect = { redirect: { permanent: false, destination: Route.recovery.root } };
+  const redirect = { redirect: { permanent: false, destination: Route.serverError } };
   const url = API.V1.corpus.boards;
   const boards = await fetchBoards(url);
 
