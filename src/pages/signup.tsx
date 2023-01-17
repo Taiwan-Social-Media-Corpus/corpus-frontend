@@ -26,7 +26,7 @@ const SignUp: NextPage = () => (
       }}
     >
       <Paper withBorder shadow="md" p={30} mt={10} radius="md">
-        <DesktopSignUpForm />
+        <DesktopSignUpForm isModal={false} />
       </Paper>
     </Container>
   </MainLayout>
