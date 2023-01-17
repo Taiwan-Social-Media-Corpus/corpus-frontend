@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { useMemo, ReactNode } from 'react';
 import { Container, Title, Stack, Avatar, Text } from '@mantine/core';
-import useStyles from './Layout.styles';
+import useStyles from './MainLayout.styles';
 
 type Props = {
   children: ReactNode;
@@ -9,13 +9,13 @@ type Props = {
   withAvatar: boolean;
 };
 
-function Layout(props: Props) {
+function MainLayout(props: Props) {
   const { children, title, description, withAvatar } = props;
   const { classes } = useStyles();
 
-  const generateItem = () => {
-    if (withAvatar) {
-      return (
+  const item = useMemo(
+    () =>
+      withAvatar ? (
         <Stack spacing={30} mb={25}>
           <Avatar
             src="../lopen-logo.jpeg"
@@ -27,26 +27,25 @@ function Layout(props: Props) {
           />
           <Title className={classes.title}>{title}</Title>
         </Stack>
-      );
-    }
-    return (
-      <>
-        <Title className={classes.title}>{title}</Title>
-        <Container size={560} p={0}>
-          <Text size="sm" className={classes.description}>
-            {description}
-          </Text>
-        </Container>
-      </>
-    );
-  };
+      ) : (
+        <>
+          <Title className={classes.title}>{title}</Title>
+          <Container size={560} p={0}>
+            <Text size="sm" className={classes.description}>
+              {description}
+            </Text>
+          </Container>
+        </>
+      ),
+    [withAvatar]
+  );
 
   return (
     <div className={classes.wrapper}>
-      <Container size={700}>{generateItem()}</Container>
+      <Container size={700}>{item}</Container>
       <main>{children}</main>
     </div>
   );
 }
 
-export default Layout;
+export default MainLayout;
