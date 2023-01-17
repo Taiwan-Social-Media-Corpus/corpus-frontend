@@ -19,7 +19,7 @@ export type Request<T> = {
   url: string;
   method: HTTPMethods;
   payload?: T;
-  authToken?: string;
+  headers?: HeadersInit;
   toJson?: boolean;
 };
 
@@ -49,14 +49,14 @@ export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-export type NextPageWithAuth = NextPage & {
+export type NextPageWithAuth<T> = NextPage<T> & {
   auth?: boolean;
   admin?: boolean;
   hideLayout?: boolean;
 };
 
-export type AppPropsWithAuth = AppProps & {
-  Component: NextPageWithAuth;
+export type AppPropsWithAuth<T> = AppProps & {
+  Component: NextPageWithAuth<T>;
 };
 
 export type FallbackProps = { fallback: { [x: string]: any } };
