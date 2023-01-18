@@ -9,7 +9,7 @@ function AnchorDesktop() {
   return (
     <Anchor
       size="md"
-      onClick={() => {
+      onClick={() =>
         openModal({
           title: 'Sign up',
           zIndex: 99999,
@@ -25,8 +25,8 @@ function AnchorDesktop() {
               <SignUpForm isModal />
             </Paper>
           ),
-        });
-      }}
+        })
+      }
     >
       Create account
     </Anchor>

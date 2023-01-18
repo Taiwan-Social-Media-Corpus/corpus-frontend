@@ -14,13 +14,13 @@ function SearchReport(props: Props) {
     <Button
       variant="default"
       leftIcon={<IconReportSearch size={14} />}
-      onClick={() => {
+      onClick={() =>
         openModal({
           zIndex: 9999,
           overlayOpacity: 0.55,
           children: <ReportContent numberofHits={numberofHits} />,
-        });
-      }}
+        })
+      }
     >
       Search Report
     </Button>
