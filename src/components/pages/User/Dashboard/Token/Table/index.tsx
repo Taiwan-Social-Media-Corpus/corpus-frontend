@@ -11,15 +11,19 @@ function APITokenTable(props: Props) {
 
   return (
     <Table
-      mt={50}
       data={data}
       columns={columns}
       withColumnBorders
       withBorder
       fontSize="md"
       horizontalSpacing="md"
-      sx={{ tableLayout: 'fixed', minWidth: 700, cursor: 'pointer' }}
-      style={{ wordWrap: 'break-word', wordBreak: 'break-all' }}
+      sx={{
+        tableLayout: 'fixed',
+        minWidth: 700,
+        cursor: 'pointer',
+        wordWrap: 'break-word',
+        wordBreak: 'break-all',
+      }}
     />
   );
 }
