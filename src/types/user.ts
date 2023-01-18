@@ -14,3 +14,9 @@ export interface RecoveryJWTPayload {
   iat: number;
   exp: number;
 }
+
+export type APIToken = {
+  apiToken: string;
+  createdAt: Date;
+  expiredAt: Date;
+};
