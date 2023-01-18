@@ -30,7 +30,7 @@ type LogoutAction = {
 
 type FetchSuccessAction = {
   type: Action.FETCH_SUCCESS;
-  payload: UserData;
+  payload?: UserData;
 };
 
 type PendingAction = {

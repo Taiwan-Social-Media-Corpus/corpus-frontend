@@ -11,9 +11,9 @@ const initialState: InitialState = {
 const reducer = (state: InitialState, action: ActionType) => {
   switch (action.type) {
     case Action.FETCH_ERROR:
-      return { ...state, pending: false, error: 'Oops! Something went wrong!' };
+      return { ...state, pending: false, error: action.payload };
     case Action.FETCH_SUCCESS:
-      return { ...state, pending: false, data: action.payload };
+      return { ...state, pending: false, data: action.payload ?? initialState.data };
     case Action.FETCH_FAILED:
       return { ...state, pending: false };
     case Action.PENDING:

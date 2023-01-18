@@ -2,9 +2,9 @@ import { useRouter } from 'next/router';
 import { getFullName } from '@utils/username';
 import useSession from '@services/user/session';
 import { createContext, useContext, useEffect } from 'react';
-import { UserContextType, ContextProviderProps } from './types';
 import { Action } from './actions';
 import useUserReducer from './reducer';
+import { UserContextType, ContextProviderProps } from './types';
 
 const UserContext = createContext({} as UserContextType);
 const useUser = () => useContext(UserContext);
@@ -19,14 +19,14 @@ const UserProvider = ({ children }: ContextProviderProps) => {
       return dispatch({ type: Action.PENDING });
     }
 
-    if (error || !data) {
-      dispatch({ type: Action.FETCH_ERROR });
-      router.push('/500', { pathname: router.pathname });
+    if (error) {
+      dispatch({ type: Action.FETCH_ERROR, payload: error });
+      router.push('/500', { pathname: router.pathname, query: router.query });
       return undefined;
     }
 
-    if (!data.data) {
-      return dispatch({ type: Action.FETCH_FAILED });
+    if (!data) {
+      return dispatch({ type: Action.FETCH_SUCCESS });
     }
 
     const { uid, email, firstName, lastName, enabled } = data.data;
@@ -42,7 +42,7 @@ const UserProvider = ({ children }: ContextProviderProps) => {
         enabled,
       },
     });
-  }, [data]);
+  }, [isLoading]);
 
   return <UserContext.Provider value={{ user, dispatch, mutate }}>{children}</UserContext.Provider>;
 };
