@@ -20,13 +20,11 @@ export type Request<T> = {
   method: HTTPMethods;
   payload?: T;
   headers?: HeadersInit;
-  includeApiKey?: boolean;
-  toJson?: boolean;
 };
 
-export interface Response<ResData = {}> {
+export interface Response<TData extends Record<string, any> = {}> {
   status: 'success' | 'failed';
-  data: ResData;
+  data: TData;
   msg?: string;
 }
 
