@@ -1,16 +1,14 @@
 import { Request } from 'types';
 
-async function request<T>({
-  url,
-  method,
-  payload,
-  headers,
-  toJson = true,
-  includeApiKey = false,
-}: Request<T>) {
+async function request<T>(args: Request<T> & { toJson: false }): Promise<Response>;
+async function request<T, ReturnType>(args: Request<T> & { toJson?: true }): Promise<ReturnType>;
+async function request<T, ReturnType>(
+  args: Request<T> & { toJson?: boolean; includeApiKey?: boolean }
+): Promise<ReturnType | Response> {
+  const { url, method, payload, headers, toJson = true, includeApiKey = false } = args;
+
   const _payload = payload ?? {};
   const body = method !== 'GET' ? JSON.stringify(_payload) : null;
-
   const _headers = new Headers({
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -34,11 +32,11 @@ async function request<T>({
     headers: _headers,
   });
 
-  if (!toJson) {
-    return response;
+  if (toJson) {
+    return response.json();
   }
 
-  return response.json();
+  return response;
 }
 
 export default request;
