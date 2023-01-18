@@ -29,7 +29,7 @@ const UserProvider = ({ children }: ContextProviderProps) => {
       return dispatch({ type: Action.FETCH_SUCCESS });
     }
 
-    const { uid, email, firstName, lastName, enabled } = data.data;
+    const { uid, email, firstName, lastName, enabled } = data;
 
     return dispatch({
       type: Action.FETCH_SUCCESS,
