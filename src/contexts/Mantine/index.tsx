@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { setCookie } from 'cookies-next';
-import { ColorScheme, MantineProvider, ColorSchemeProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
+import { MantineProvider as Provider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 
-type DarkModeContextProps = {
+type Props = {
   colorScheme: ColorScheme;
   children: React.ReactNode;
 };
 
-function DarkThemeContext(props: DarkModeContextProps) {
+function MantineProvider(props: Props) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
 
   const toggleColorScheme = (value?: ColorScheme) => {
@@ -20,11 +21,11 @@ function DarkThemeContext(props: DarkModeContextProps) {
 
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider theme={{ colorScheme }} withNormalizeCSS withGlobalStyles>
-        {props.children}
-      </MantineProvider>
+      <Provider theme={{ colorScheme }} withNormalizeCSS withGlobalStyles>
+        <ModalsProvider>{props.children}</ModalsProvider>
+      </Provider>
     </ColorSchemeProvider>
   );
 }
 
-export default DarkThemeContext;
+export default MantineProvider;
