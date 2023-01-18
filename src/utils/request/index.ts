@@ -1,7 +1,9 @@
 import { Request } from 'types';
 
 async function request<T>(args: Request<T> & { toJson: false }): Promise<Response>;
-async function request<T, ReturnType>(args: Request<T> & { toJson?: true }): Promise<ReturnType>;
+async function request<T, ReturnType>(
+  args: Request<T> & { toJson?: true; includeApiKey?: true }
+): Promise<ReturnType>;
 async function request<T, ReturnType>(
   args: Request<T> & { toJson?: boolean; includeApiKey?: boolean }
 ): Promise<ReturnType | Response> {
