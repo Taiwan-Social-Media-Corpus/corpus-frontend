@@ -10,7 +10,7 @@ function Redirect(props: RedirectProps) {
 
   useEffect(() => {
     router.push(url, as);
-  }, [router.pathname]);
+  }, [url, from, router]);
 
   return null;
 }
