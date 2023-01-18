@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import Route from '@config/routes';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useUser } from '@contexts/User';
 import { Anchor, Title } from '@mantine/core';
@@ -9,8 +10,9 @@ import { getRedirectURL } from '@utils/url/redirect';
 import { openModal, closeAllModals } from '@mantine/modals';
 import activateUser from '@services/user/activation/activate';
 import { combineToString } from '@components/common/ui/Form/components/utils/pin';
-import EmailResetForm from './EmailResetForm';
 import { handleResendCode, handleErrorCode } from './utils';
+
+const EmailResetForm = dynamic(() => import('./EmailResetForm'));
 
 function ActivationForm() {
   const router = useRouter();

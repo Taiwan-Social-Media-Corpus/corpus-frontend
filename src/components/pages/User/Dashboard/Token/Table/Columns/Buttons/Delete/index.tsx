@@ -1,9 +1,11 @@
 import { memo } from 'react';
+import dynamic from 'next/dynamic';
 import { IconTrash } from '@tabler/icons';
 import { ActionIcon } from '@mantine/core';
 import { openModal, closeAllModals } from '@mantine/modals';
-import DeleteForm from './Form';
 import { HelperButtonProps } from '../types';
+
+const DeleteForm = dynamic(() => import('./Form'));
 
 function DeleteButton(props: HelperButtonProps) {
   return (

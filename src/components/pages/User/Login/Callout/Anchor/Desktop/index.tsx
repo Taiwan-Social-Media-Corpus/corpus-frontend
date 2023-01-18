@@ -1,7 +1,9 @@
 import { memo } from 'react';
+import dynamic from 'next/dynamic';
 import { openModal } from '@mantine/modals';
 import { Anchor, Paper, useMantineTheme } from '@mantine/core';
-import SignUpForm from '@components/pages/User/SignUp/Form/Desktop';
+
+const SignUpForm = dynamic(() => import('@components/pages/User/SignUp/Form/Desktop'));
 
 function AnchorDesktop() {
   const theme = useMantineTheme();
