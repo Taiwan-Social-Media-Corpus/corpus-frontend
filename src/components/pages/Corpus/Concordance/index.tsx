@@ -5,7 +5,7 @@ import Loader from '@components/common/ui/Loader';
 import useConcordance from '@services/corpus/concordance/get';
 import { ConcordanceParams, ConcordancePageProps } from 'types/corpus';
 
-const Table = dynamic(() => import('./Table'));
+const ConcordanceTable = dynamic(() => import('./Table'));
 const ErrorCQL = dynamic(() => import('./Error'));
 const NoResult = dynamic(() => import('./NoResult'));
 const HelperButtons = dynamic(() => import('./Buttons'));
@@ -37,7 +37,7 @@ function ConcordancePage(props: ConcordancePageProps) {
         setShowPos={setShowPos}
         numberofHits={data.summary.numberOfHits}
       />
-      <Table data={data} showPos={showPos} />
+      <ConcordanceTable data={data} showPos={showPos} />
       <Pagination
         numberOfHits={data.summary.numberOfHits}
         fetchNumber={payload.fetchNumber}
