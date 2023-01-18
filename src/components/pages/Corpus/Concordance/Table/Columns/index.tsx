@@ -2,9 +2,9 @@ import dynamic from 'next/dynamic';
 import { DocInfos, Hit } from 'types/corpus';
 import { ColumnDef } from '@tanstack/react-table';
 
-const MediaCard = dynamic(() => import('./Cell/MediaCard').then((module) => module));
-const ConcordanceData = dynamic(() => import('./Cell/Concordance').then((module) => module));
-const ColumnHeader = dynamic(() => import('./Header').then((module) => module));
+const MediaCard = dynamic(() => import('./Cell/MediaCard'));
+const ConcordanceData = dynamic(() => import('./Cell/Concordance'));
+const ColumnHeader = dynamic(() => import('@components/common/ui/Table/components/Header'));
 
 function buildColumns(docInfos: DocInfos, showPos: boolean): ColumnDef<Hit, any>[] {
   return [
