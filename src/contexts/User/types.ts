@@ -17,6 +17,7 @@ export type InitialState = {
 
 type FetchErrorAction = {
   type: Action.FETCH_ERROR;
+  payload?: any;
 };
 
 type FetchFailedAction = {
