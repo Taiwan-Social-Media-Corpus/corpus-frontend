@@ -8,7 +8,7 @@ const useSession = () => {
     request({ url, method: 'GET' })
   );
 
-  return { data, isLoading: !error && !data, error, mutate };
+  return { data: data?.data, isLoading: !error && !data, error, mutate };
 };
 
 export default useSession;
