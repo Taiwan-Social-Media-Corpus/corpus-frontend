@@ -1,14 +1,11 @@
-import dynamic from 'next/dynamic';
 import Layout from '@components/layout';
 import { getCookie } from 'cookies-next';
 import { AppPropsWithLayout } from 'types';
 import { ColorScheme } from '@mantine/core';
 import { UserProvider } from '@contexts/User';
 import NextApp, { AppContext } from 'next/app';
-import { ModalsProvider } from '@mantine/modals';
+import MantineProvider from '@contexts/Mantine';
 import withSwitch from '@components/common/auth';
-
-const DarkThemeContext = dynamic(() => import('@contexts/DarkTheme'));
 
 function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
   const { Component, pageProps, colorScheme } = props;
@@ -17,11 +14,9 @@ function App(props: AppPropsWithLayout & { colorScheme: ColorScheme }) {
 
   return (
     <UserProvider>
-      <DarkThemeContext colorScheme={colorScheme}>
-        <ModalsProvider>
-          <Layout>{getLayout(<VerifiedComponent {...pageProps} />)}</Layout>
-        </ModalsProvider>
-      </DarkThemeContext>
+      <MantineProvider colorScheme={colorScheme}>
+        <Layout>{getLayout(<VerifiedComponent {...pageProps} />)}</Layout>
+      </MantineProvider>
     </UserProvider>
   );
 }
