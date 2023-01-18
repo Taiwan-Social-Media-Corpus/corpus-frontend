@@ -6,7 +6,10 @@ type ResponseType = Response | null;
 
 const resendCode = async (): Promise<[ResponseType, any]> => {
   try {
-    const result = await request({ method: 'POST', url: API.V1.user.recovery.resend });
+    const result = await request<undefined, ResponseType>({
+      method: 'POST',
+      url: API.V1.user.recovery.resend,
+    });
     return [result, null];
   } catch (error) {
     return [null, error];

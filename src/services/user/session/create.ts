@@ -4,7 +4,11 @@ import { Payload, ResponseType } from './types';
 
 const createSession = async (payload: Payload): Promise<[ResponseType, any]> => {
   try {
-    const result = await request({ method: 'POST', url: API.V1.user.session, payload });
+    const result = await request<Payload, ResponseType>({
+      method: 'POST',
+      url: API.V1.user.session,
+      payload,
+    });
     return [result, null];
   } catch (error) {
     return [null, error];

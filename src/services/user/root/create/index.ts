@@ -8,7 +8,11 @@ type ResponseType = Response<Optional<User, 'email'>> | null;
 
 const createUser = async (payload: PayloadType): Promise<[ResponseType, any]> => {
   try {
-    const result = await request({ method: 'POST', url: API.V1.user.root, payload });
+    const result = await request<PayloadType, ResponseType>({
+      method: 'POST',
+      url: API.V1.user.root,
+      payload,
+    });
     return [result, null];
   } catch (error) {
     return [null, error];

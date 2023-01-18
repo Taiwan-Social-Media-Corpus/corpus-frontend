@@ -14,7 +14,11 @@ export type ResponseType = Response<ResData> | null;
 
 const activateUser = async (payload: PayloadType): Promise<[ResponseType, any]> => {
   try {
-    const result = await request({ method: 'POST', url: API.V1.user.activation.root, payload });
+    const result = await request<PayloadType, ResponseType>({
+      method: 'POST',
+      url: API.V1.user.activation.root,
+      payload,
+    });
     return [result, null];
   } catch (error: any) {
     return [null, error];

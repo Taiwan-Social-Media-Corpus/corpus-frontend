@@ -9,7 +9,11 @@ type ResponseType = Response | null;
 
 const resetEmail = async (payload: PayloadType): Promise<[ResponseType, any]> => {
   try {
-    const result = await request({ method: 'POST', url: API.V1.user.activation.email, payload });
+    const result = await request<PayloadType, ResponseType>({
+      method: 'POST',
+      url: API.V1.user.activation.email,
+      payload,
+    });
     return [result, null];
   } catch (error: any) {
     return [null, error];

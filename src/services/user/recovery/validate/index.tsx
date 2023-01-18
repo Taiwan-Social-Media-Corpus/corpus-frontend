@@ -9,7 +9,11 @@ export type ResponseType = Response<ResData> | null;
 
 const validate = async (payload: PayloadType): Promise<[ResponseType, any]> => {
   try {
-    const result = await request({ method: 'POST', url: API.V1.user.recovery.code, payload });
+    const result = await request<PayloadType, ResponseType>({
+      method: 'POST',
+      url: API.V1.user.recovery.code,
+      payload,
+    });
     return [result, null];
   } catch (error) {
     return [null, error];
