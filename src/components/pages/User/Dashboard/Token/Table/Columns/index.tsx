@@ -14,7 +14,7 @@ function buildColumns(): ColumnDef<APIToken, any>[] {
     {
       accessorKey: 'apiToken',
       header: () => <ColumnHeader position="left" content="API Token" />,
-      cell: (info) => info.row.original.apiToken,
+      cell: (info) => <div style={{ cursor: 'text' }}>{info.row.original.apiToken}</div>,
       size: 100,
     },
     {
