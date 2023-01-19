@@ -1,13 +1,12 @@
 import { memo } from 'react';
 import { APIToken } from 'types/user';
 import Table from '@components/common/ui/Table';
-import buildColumns from './Columns';
+import columns from './Columns';
 
 type Props = { data: APIToken[] };
 
 function APITokenTable(props: Props) {
   const { data } = props;
-  const columns = buildColumns();
 
   return (
     <Table
