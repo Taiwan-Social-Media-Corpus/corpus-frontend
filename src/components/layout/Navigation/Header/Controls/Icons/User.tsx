@@ -51,7 +51,7 @@ function UserMenu(props: Props) {
   return (
     <Menu withArrow width={200} position="bottom-end" shadow="md">
       <Menu.Target>
-        <ActionIcon>
+        <ActionIcon ml={10}>
           <ControlBase tooltip="Account" style={{ borderRadius: 500 }}>
             <Avatar firstName={firstName} lastName={lastName} skeletonHeight={30} />
           </ControlBase>
