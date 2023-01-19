@@ -3,10 +3,9 @@ import { Optional } from 'types';
 import { User } from 'types/user';
 import Route from '@config/routes';
 import { memo, useMemo } from 'react';
-import { Menu, ActionIcon } from '@mantine/core';
 import Avatar from '@components/common/ui/Avatar';
+import { Menu, ActionIcon, Tooltip } from '@mantine/core';
 import { IconLogout, IconSettings, IconApi } from '@tabler/icons';
-import ControlBase from './Base';
 
 type Props = Optional<Pick<User, 'firstName' | 'lastName'>, 'firstName' | 'lastName'>;
 type MenuItemProps = Parameters<typeof Menu.Item<typeof Link | 'button'>>[0];
@@ -51,11 +50,11 @@ function UserMenu(props: Props) {
   return (
     <Menu withArrow width={200} position="bottom-end" shadow="md">
       <Menu.Target>
-        <ActionIcon ml={10}>
-          <ControlBase tooltip="Account" style={{ borderRadius: 500 }}>
+        <Tooltip label="Account">
+          <ActionIcon ml={10} style={{ borderRadius: 500 }}>
             <Avatar firstName={firstName} lastName={lastName} skeletonHeight={30} />
-          </ControlBase>
-        </ActionIcon>
+          </ActionIcon>
+        </Tooltip>
       </Menu.Target>
 
       <Menu.Dropdown>
