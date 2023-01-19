@@ -13,6 +13,10 @@ const useStyles = createStyles((theme) => ({
     [`@media (min-width: ${420}px)`]: {
       paddingBottom: 280,
     },
+
+    [`@media (max-width: ${420}px)`]: {
+      paddingBottom: 380,
+    },
   },
 
   wrapper: {
