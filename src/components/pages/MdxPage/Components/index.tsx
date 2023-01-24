@@ -1,23 +1,31 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import dynamic from 'next/dynamic';
-import { Text } from '@mantine/core';
+import NextImage from 'next/image';
 import { Prism } from '@mantine/prism';
-
-const MdxTitle = dynamic(() => import('./Title'));
+import { Text, Code } from '@mantine/core';
+import Image from './Image';
+import Table from './Table';
+import MdxTitle from './Title';
 
 const h = (order: 1 | 2 | 3 | 4 | 5 | 6) => (props: any) => <MdxTitle order={order} {...props} />;
 
-export const components = {
+const components = {
   Head,
-  Image,
+  NextImage,
+  table: Table,
+  img: Image,
   h1: h(1),
   h2: h(2),
   h3: h(3),
   h4: h(4),
   h5: h(5),
   h6: h(6),
-  p: (props: any) => <p {...props} style={{ lineHeight: 1.55 }} />,
+  code: (props: any) => <Code {...props} />,
+  p: (props: any) => {
+    const isImg =
+      props.children && typeof props.children.props === 'object' && 'src' in props.children.props;
+    if (isImg) return <div {...props} style={{ lineHeight: 1.55 }} />;
+    return <p {...props} style={{ lineHeight: 1.55 }} />;
+  },
   ul: (props: any) => (
     <ul {...props} style={{ lineHeight: 1.65, marginBottom: 20, marginTop: 10 }} />
   ),
@@ -42,3 +50,5 @@ export const components = {
     );
   },
 };
+
+export default components;
