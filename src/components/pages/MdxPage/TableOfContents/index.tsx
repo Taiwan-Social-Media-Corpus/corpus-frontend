@@ -1,7 +1,7 @@
-import React, { memo, useMemo } from 'react';
 import Slugger from 'github-slugger';
 import { IconList } from '@tabler/icons';
 import { MdxPageProps } from 'types/mdx';
+import React, { memo, useMemo } from 'react';
 import { Text, ScrollArea, useMantineTheme } from '@mantine/core';
 import useStyles from './TableOfContents.styles';
 
@@ -23,6 +23,10 @@ function TableOfContents(props: TableOfContentsProps) {
   const items = useMemo(
     () =>
       filteredHeadings.map((heading, index) => {
+        if (heading.value === '參考資料' || heading.value === 'References') {
+          return null;
+        }
+
         const slug = slugger.slug(heading.value);
         return (
           <Text<'a'>
@@ -34,7 +38,8 @@ function TableOfContents(props: TableOfContentsProps) {
             sx={{ paddingLeft: (heading.depth - 1) * theme.spacing.lg }}
             onClick={async (event) => {
               event.preventDefault();
-              document.querySelector(`#${slug}`)?.scrollIntoView({
+              const url = CSS.escape(`#${slug}`);
+              document.querySelector(url)?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start',
                 inline: 'nearest',
