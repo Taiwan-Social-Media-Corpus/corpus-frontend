@@ -1,16 +1,16 @@
-import meta from 'meta';
+import layoutConfig from '@config/layout';
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   spacer: {
-    height: meta.layout.footer.height,
+    height: layoutConfig.footer.height,
 
     '@media (max-width: 800px)': {
-      height: meta.layout.footer.heightTablet,
+      height: layoutConfig.footer.heightTablet,
     },
 
     '@media (max-width: 640px)': {
-      height: meta.layout.footer.heightMobile,
+      height: layoutConfig.footer.heightMobile,
     },
   },
 
@@ -20,27 +20,27 @@ const useStyles = createStyles((theme) => ({
     bottom: 0,
     left: 0,
     right: 0,
-    height: meta.layout.footer.height,
+    height: layoutConfig.footer.height,
 
     '@media (max-width: 800px)': {
-      height: meta.layout.footer.heightTablet,
+      height: layoutConfig.footer.heightTablet,
     },
 
     '@media (max-width: 640px)': {
-      height: meta.layout.footer.heightMobile,
+      height: layoutConfig.footer.heightMobile,
     },
   },
 
   withNavbar: {
-    paddingLeft: meta.layout.navbar.width + theme.spacing.md * 2,
+    paddingLeft: layoutConfig.navbar.width + theme.spacing.md * 2,
     paddingRight: theme.spacing.md * 2,
 
-    [`@media (max-width: ${meta.layout.mdx.breakpoint}px)`]: {
-      paddingLeft: meta.layout.navbar.width + theme.spacing.md,
+    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
+      paddingLeft: layoutConfig.navbar.width + theme.spacing.md,
       paddingRight: theme.spacing.md,
     },
 
-    [`@media (max-width: ${meta.layout.navbar.breakpoint}px)`]: {
+    [`@media (max-width: ${layoutConfig.navbar.breakpoint}px)`]: {
       paddingLeft: theme.spacing.md,
       paddingRight: theme.spacing.md,
     },

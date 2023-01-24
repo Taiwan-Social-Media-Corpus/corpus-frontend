@@ -1,5 +1,5 @@
-import meta from 'meta';
 import { packSx } from '@mantine/utils';
+import layoutConfig from '@config/layout';
 import IconController from '@components/common/ui/Icons';
 import ButtonBase from './Base';
 import { SocialButtonProps } from './types';
@@ -11,13 +11,15 @@ function FacebookButton(props: SocialButtonProps) {
     <ButtonBase
       sx={[
         (theme) => ({
-          backgroundColor: meta.facebook.color,
-          ...theme.fn.hover({ backgroundColor: theme.fn.lighten(meta.facebook.color, 0.1) }),
+          backgroundColor: layoutConfig.facebook.color,
+          ...theme.fn.hover({
+            backgroundColor: theme.fn.lighten(layoutConfig.facebook.color, 0.1),
+          }),
         }),
         ...packSx(sx),
       ]}
       icon={<IconController control="facebook" size={16} />}
-      href={meta.facebook.link}
+      href={layoutConfig.facebook.link}
       {...others}
     >
       Follow Corpus on Facebook
@@ -40,7 +42,7 @@ function GithubButton(props: SocialButtonProps) {
         ...packSx(sx),
       ]}
       icon={<IconController control="github" size={16} />}
-      href={meta.github.organization}
+      href={layoutConfig.github.organization}
       {...others}
     >
       Follow Corpus on Github

@@ -1,4 +1,4 @@
-import meta from 'meta';
+import layoutConfig from '@config/layout';
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme, _params, getRef) => {
@@ -17,9 +17,9 @@ const useStyles = createStyles((theme, _params, getRef) => {
       top: 0,
       bottom: 0,
       left: 0,
-      width: meta.layout.navbar.width,
+      width: layoutConfig.navbar.width,
 
-      [`@media (max-width: ${meta.layout.navbar.breakpoint}px)`]: {
+      [`@media (max-width: ${layoutConfig.navbar.breakpoint}px)`]: {
         display: 'none',
       },
     },
@@ -29,9 +29,9 @@ const useStyles = createStyles((theme, _params, getRef) => {
       paddingBottom: theme.spacing.xl * 2,
 
       paddingLeft: theme.spacing.md,
-      paddingTop: meta.layout.header.height + theme.spacing.md,
+      paddingTop: layoutConfig.header.height + theme.spacing.md,
 
-      [`@media (max-width: ${meta.layout.navbar.breakpoint}px)`]: {
+      [`@media (max-width: ${layoutConfig.navbar.breakpoint}px)`]: {
         paddingBottom: 120,
       },
     },

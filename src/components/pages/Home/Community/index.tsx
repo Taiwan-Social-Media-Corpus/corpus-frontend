@@ -1,5 +1,5 @@
-import meta from 'meta';
 import { memo } from 'react';
+import layoutConfig from '@config/layout';
 import IconController from '@components/common/ui/Icons';
 import { SimpleGrid, Group, Text, Card, Space } from '@mantine/core';
 import PageSection from '../Base';
@@ -21,7 +21,7 @@ function Community() {
           p="lg"
           component="a"
           radius="md"
-          href={meta.facebook.link}
+          href={layoutConfig.facebook.link}
           className={cx(classes.card, classes.facebook)}
         >
           <Group noWrap>
@@ -41,7 +41,7 @@ function Community() {
           p="lg"
           component="a"
           radius="md"
-          href={meta.github.discussions.frontend}
+          href={layoutConfig.github.discussions.frontend}
           className={cx(classes.card, classes.github)}
         >
           <Group noWrap>

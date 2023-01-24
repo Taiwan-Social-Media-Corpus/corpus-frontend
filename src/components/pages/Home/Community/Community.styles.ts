@@ -1,4 +1,4 @@
-import meta from 'meta';
+import layoutConfig from '@config/layout';
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -16,11 +16,14 @@ const useStyles = createStyles((theme) => ({
   },
 
   facebook: {
-    backgroundColor: theme.fn.darken(meta.facebook.color, theme.colorScheme === 'dark' ? 0.25 : 0),
+    backgroundColor: theme.fn.darken(
+      layoutConfig.facebook.color,
+      theme.colorScheme === 'dark' ? 0.25 : 0
+    ),
     color: theme.white,
     ...theme.fn.hover({
       backgroundColor: theme.fn.lighten(
-        meta.facebook.color,
+        layoutConfig.facebook.color,
         theme.colorScheme === 'dark' ? -0.1 : 0.1
       ),
     }),

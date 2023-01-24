@@ -1,4 +1,4 @@
-import meta from 'meta';
+import layoutConfig from '@config/layout';
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -9,9 +9,9 @@ const useStyles = createStyles((theme) => ({
     top: theme.spacing.xl,
     right: 0,
     paddingTop: 55,
-    flex: `0 0 ${meta.layout.mdx.tableOfContentsWidth - 20}px`,
+    flex: `0 0 ${layoutConfig.mdx.tableOfContentsWidth - 20}px`,
 
-    [`@media (max-width: ${meta.layout.mdx.breakpoint}px)`]: {
+    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
       display: 'none',
     },
   },

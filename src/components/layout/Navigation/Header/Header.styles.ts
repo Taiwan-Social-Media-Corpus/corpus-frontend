@@ -1,4 +1,4 @@
-import meta from 'meta';
+import layoutConfig from '@config/layout';
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -11,7 +11,7 @@ const useStyles = createStyles((theme) => ({
     top: 0,
     left: 0,
     right: 0,
-    height: meta.layout.header.height,
+    height: layoutConfig.header.height,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -21,7 +21,7 @@ const useStyles = createStyles((theme) => ({
   logo: {
     paddingRight: 35,
     paddingLeft: theme.spacing.md,
-    height: meta.layout.header.height,
+    height: layoutConfig.header.height,
     paddingTop: 6,
     display: 'flex',
     alignItems: 'center',

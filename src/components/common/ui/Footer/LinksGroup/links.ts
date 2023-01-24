@@ -1,5 +1,5 @@
-import meta from 'meta';
 import Route from '@config/routes';
+import layoutConfig from '@config/layout';
 import { LinksGroupProps } from './types';
 
 const links: LinksGroupProps[] = [
@@ -7,23 +7,23 @@ const links: LinksGroupProps[] = [
     title: 'About',
     data: [
       { label: 'About Corpus', link: Route.about.intro },
-      { label: 'Releases (frontend)', link: meta.github.releases.frontend },
-      { label: 'Releases (backend)', link: meta.github.releases.frontend },
+      { label: 'Releases (frontend)', link: layoutConfig.github.releases.frontend },
+      { label: 'Releases (backend)', link: layoutConfig.github.releases.frontend },
     ],
   },
 
   {
     title: 'Community',
     data: [
-      { label: 'Follow on Facebook', link: meta.facebook.link },
+      { label: 'Follow on Facebook', link: layoutConfig.facebook.link },
       { label: 'Follow on Github', link: 'https://github.com/Retr0327' },
       {
         label: 'GitHub discussions (frontend)',
-        link: meta.github.discussions.frontend,
+        link: layoutConfig.github.discussions.frontend,
       },
       {
         label: 'GitHub discussions (backend)',
-        link: meta.github.discussions.backend,
+        link: layoutConfig.github.discussions.backend,
       },
     ],
   },
@@ -31,9 +31,9 @@ const links: LinksGroupProps[] = [
   {
     title: 'Project',
     data: [
-      { label: 'Documentation', link: meta.docsLink },
-      { label: 'Github organization', link: meta.github.organization },
-      { label: 'LOPEN', link: meta.github.lopen },
+      { label: 'Documentation', link: Route.about.intro },
+      { label: 'Github organization', link: layoutConfig.github.organization },
+      { label: 'LOPEN', link: layoutConfig.github.lopen },
     ],
   },
 ];
