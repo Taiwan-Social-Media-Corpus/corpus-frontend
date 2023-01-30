@@ -2,9 +2,10 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 export interface Frontmatter {
   title: string;
-  date: string;
+  createdAt: string;
   slug: string;
   order: number;
+  updatedAt?: string;
 }
 
 export type MdxPageProps = {
