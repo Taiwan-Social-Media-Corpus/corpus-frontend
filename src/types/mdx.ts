@@ -20,4 +20,6 @@ export type MdxPageProps = {
   };
 };
 
-export type MdxFolder = 'about' | 'guide';
+export type MdxFolder = 'About' | 'Guide';
+
+export type Fields = 'slug' | 'frontMatter' | 'content';
