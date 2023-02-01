@@ -11,4 +11,8 @@ function sanitizeIP(ip: string) {
   return ip.replace('::ffff:', '');
 }
 
-export { isObject, isEmptyObject, sanitizeIP };
+function getRouteFromPathname(pathname: string) {
+  return pathname.replace(/^\/([^/]*).*$/, '$1');
+}
+
+export { isObject, isEmptyObject, sanitizeIP, getRouteFromPathname };
