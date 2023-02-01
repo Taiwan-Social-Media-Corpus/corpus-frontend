@@ -1,7 +1,7 @@
 import { MdxFolder } from 'types/mdx';
 import serializeConfig from '@config/mdx';
 import { serialize } from 'next-mdx-remote/serialize';
-import { getSortedPosts } from '../path';
+import { getPostsData, sortPosts } from '../path';
 
 async function getHeadings(content: string) {
   const headingLines = content.split('\n').filter((line) => line.match(/^###*\s/));
@@ -14,11 +14,12 @@ async function getHeadings(content: string) {
 }
 
 async function createMdxElements(params: { slug: string }, postDir: MdxFolder) {
-  const posts = getSortedPosts(postDir);
-  const postIndex = posts.findIndex(({ slug: postSlug }) => postSlug === params.slug);
-  const { frontMatter, content } = posts[postIndex];
-  const nextPost = posts[postIndex + 1];
-  const previousPost = posts[postIndex - 1];
+  const posts = getPostsData(postDir, ['slug', 'frontMatter', 'content']);
+  const sortedPosts = sortPosts(posts);
+  const postIndex = sortedPosts.findIndex(({ slug: postSlug }) => postSlug === params.slug);
+  const { frontMatter, content } = sortedPosts[postIndex];
+  const nextPost = sortedPosts[postIndex + 1];
+  const previousPost = sortedPosts[postIndex - 1];
 
   const [mdxSource, headings] = await Promise.all([
     await serialize(content, serializeConfig(frontMatter)),
