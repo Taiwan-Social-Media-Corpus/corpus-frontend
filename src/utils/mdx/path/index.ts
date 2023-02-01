@@ -1,44 +1,45 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { MdxFolder } from 'types/mdx';
+import { Fields, MdxFolder } from 'types/mdx';
 
-function getPostDirPath(folder: MdxFolder) {
-  return path.join(
-    process.cwd(),
-    `src/components/pages/${folder.charAt(0).toUpperCase() + folder.slice(1)}`
-  );
+function getPostsDir(folder: MdxFolder) {
+  const dir = `src/components/pages/${folder}`;
+  return path.join(process.cwd(), dir);
 }
 
-function getSortedPosts(folder: MdxFolder) {
-  const dirPath = getPostDirPath(folder);
-  const posts = fs.readdirSync(dirPath).map((filename) => ({
-    filename,
-  }));
-
-  return posts
-    .map(({ filename }) => {
-      const filePath = path.join(dirPath, filename);
-      const source = fs.readFileSync(filePath);
-      const { content, data } = matter(source);
-      const slug = filename.replace('.mdx', '');
-
-      return {
-        content,
-        slug,
-        frontMatter: data,
-      };
-    })
-    .sort((a, b) => a.frontMatter.order - b.frontMatter.order);
+function getPosts(folder: MdxFolder) {
+  const dir = getPostsDir(folder);
+  return fs.readdirSync(dir).filter((file) => /\.mdx?$/.test(file));
 }
 
-function getPostSlug(folder: MdxFolder) {
-  const dirPath = getPostDirPath(folder);
-  const postsPath = fs.readdirSync(dirPath).filter((file) => /\.mdx?$/.test(file));
+function getPostsData(folder: MdxFolder, fields: Fields[] = []) {
+  const posts = getPosts(folder);
 
-  return postsPath
-    .map((filePath) => filePath.replace(/\.mdx?$/, ''))
-    .map((slug) => ({ params: { slug } }));
+  return posts.map((filename) => {
+    const dir = getPostsDir(folder);
+    const filePath = path.join(dir, filename);
+    const source = fs.readFileSync(filePath);
+    const { data, content } = matter(source);
+    const slug = filename.replace(/\.[^.]+$/, '');
+
+    const output: { [key: string]: any } = {};
+    if (fields.includes('slug')) {
+      output.slug = slug;
+    }
+    if (fields.includes('frontMatter')) {
+      output.frontMatter = data;
+    }
+    if (fields.includes('content')) {
+      output.content = content;
+    }
+
+    return output;
+  });
 }
 
-export { getPostDirPath, getPostSlug, getSortedPosts };
+function sortPosts(posts: { [key: string]: any }[]) {
+  return posts.sort((a, b) => a.frontMatter.order - b.frontMatter.order);
+}
+
+export { getPostsData, sortPosts };
