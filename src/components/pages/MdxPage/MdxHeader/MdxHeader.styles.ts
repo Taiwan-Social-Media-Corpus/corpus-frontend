@@ -7,12 +7,10 @@ const useStyles = createStyles((theme) => ({
     maxWidth: 1082,
     marginLeft: 'auto',
     marginRight: 'auto',
-    paddingBottom: theme.spacing.xs,
 
     [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
       maxWidth: '100%',
       paddingRight: 0,
-      paddingBottom: theme.spacing.xl,
     },
   },
 
