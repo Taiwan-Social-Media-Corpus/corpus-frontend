@@ -71,11 +71,3 @@ export type IconControllerProps =
   | ({ control: 'facebook' } & IconProps)
   | ({ control: 'no-result' } & IconProps)
   | ({ control: 'lopen' } & IconProps & { renderType: 'footer' | 'header' });
-
-export type NestedLinks = { link: string; label: string }[];
-
-export type LinkItem = {
-  link: string;
-  label: string;
-  links?: NestedLinks;
-};
