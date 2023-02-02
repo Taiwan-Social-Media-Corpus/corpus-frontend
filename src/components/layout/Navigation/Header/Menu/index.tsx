@@ -7,7 +7,7 @@ import { Burger, Menu as MantineMenu } from '@mantine/core';
 import { MenuProps } from './types';
 import useStyles from './Menu.styles';
 
-const UserButton = dynamic(() => import('./UserButton'));
+const UserButton = dynamic(() => import('@components/common/ui/UserButton'));
 const CollapseMenuItem = dynamic(() => import('./Collapse'));
 
 function Menu(props: MenuProps) {
@@ -71,6 +71,7 @@ function Menu(props: MenuProps) {
 
       <MantineMenu.Dropdown>
         {userButton}
+        <MantineMenu.Divider />
         {items}
       </MantineMenu.Dropdown>
     </MantineMenu>
