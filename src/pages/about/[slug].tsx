@@ -1,24 +1,20 @@
 import { MdxPageProps } from 'types/mdx';
-import { getPostSlug } from '@utils/mdx/path';
+import { getPostsData } from '@utils/mdx/path';
 import MdxPage from '@components/pages/MdxPage';
 import createMdxElements from '@utils/mdx/elements';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
-function About(props: MdxPageProps) {
-  const { post, frontMatter, siblings } = props;
-
-  return (
-    <article>
-      <MdxPage post={post} frontMatter={frontMatter} siblings={siblings} />
-    </article>
-  );
-}
+const About: NextPage<MdxPageProps> = (props) => (
+  <article>
+    <MdxPage {...props} />
+  </article>
+);
 
 export default About;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context as { params: { slug: string } };
-  const { post, frontMatter, siblings } = await createMdxElements(params, 'about');
+  const { post, frontMatter, siblings } = await createMdxElements(params, 'About');
 
   return {
     props: {
@@ -30,7 +26,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const paths = getPostSlug('about');
+  const posts = getPostsData('About', ['slug']);
+  const paths = posts.map((filename) => ({ params: { slug: filename.slug } }));
 
   return {
     paths,
