@@ -62,7 +62,7 @@ function Navbar() {
         <SearchControl
           control="input"
           mb={20}
-          mt={isDashboardRoute ? 70 : undefined}
+          mt={hasSession && isDashboardRoute ? 70 : hasSession ? undefined : 70}
           sx={{ width: '100%' }}
           onClick={spotlight.openSpotlight}
         />
