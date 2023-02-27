@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import { ReactElement, ReactNode } from 'react';
 
 // ---------- API ----------
 
@@ -40,22 +39,15 @@ export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 // -------- NextJs --------
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode;
-};
-
-export type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
-};
-
-export type NextPageWithAuth<T = any> = NextPage<T> & {
+export type PageControl = {
   auth?: boolean;
-  admin?: boolean;
-  hideLayout?: boolean;
+  Layout?: (props: { children?: React.ReactNode }) => JSX.Element;
 };
 
-export type AppPropsWithAuth<T = any> = AppProps & {
-  Component: NextPageWithAuth<T>;
+export type NextPageWithControl<P = {}, IP = P> = NextPage<P, IP> & { control?: PageControl };
+
+export type AppPropsWithControl<T = any> = AppProps & {
+  Component: NextPageWithControl<T>;
 };
 
 export type FallbackProps = { fallback: { [x: string]: any } };
