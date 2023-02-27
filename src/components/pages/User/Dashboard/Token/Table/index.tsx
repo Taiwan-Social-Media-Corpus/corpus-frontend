@@ -18,7 +18,7 @@ function APITokenTable(props: Props) {
       horizontalSpacing="md"
       sx={{
         tableLayout: 'fixed',
-        minWidth: 700,
+        minWidth: 200,
         cursor: 'pointer',
         wordWrap: 'break-word',
         wordBreak: 'break-all',
