@@ -1,12 +1,10 @@
 import { memo } from 'react';
-import Route from '@config/routes';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useUser } from '@contexts/User';
 import { Anchor, Title } from '@mantine/core';
 import AlertAction from '@contexts/Alert/actions';
 import PinContainer from '@components/common/ui/Pin';
-import { getRedirectURL } from '@utils/url/redirect';
 import { openModal, closeAllModals } from '@mantine/modals';
 import activateUser from '@services/user/activation/activate';
 import { combineToString } from '@components/common/ui/Form/components/utils/pin';
@@ -57,11 +55,6 @@ function ActivationForm() {
 
         mutate();
         dispatchAlert({ type: AlertAction.RESET });
-
-        const redirectURL = getRedirectURL(`${Route.recovery}?redirect`, router.asPath);
-
-        if (redirectURL) router.push(redirectURL);
-
         return null;
       }}
     />
