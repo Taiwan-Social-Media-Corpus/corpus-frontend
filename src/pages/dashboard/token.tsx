@@ -3,12 +3,12 @@ import API from '@config/api';
 import { SWRConfig } from 'swr';
 import Route from '@config/routes';
 import type { GetServerSideProps } from 'next';
-import { NextPageWithAuth, FallbackProps } from 'types';
+import { NextPageWithControl, FallbackProps } from 'types';
 import { fetchAPITokens } from '@services/user/apiToken/read';
 import APITokenPage from '@components/pages/User/Dashboard/Token';
 import DashboardBase from '@components/pages/User/Dashboard/Base';
 
-const APIToken: NextPageWithAuth<FallbackProps> = (props) => (
+const APIToken: NextPageWithControl<FallbackProps> = (props) => (
   <SWRConfig value={{ fallback: props.fallback }}>
     <DashboardBase title="API Token">
       <APITokenPage />
@@ -16,7 +16,9 @@ const APIToken: NextPageWithAuth<FallbackProps> = (props) => (
   </SWRConfig>
 );
 
-APIToken.auth = true;
+APIToken.control = {
+  auth: true,
+};
 
 export default APIToken;
 

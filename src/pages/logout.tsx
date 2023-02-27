@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useUser } from '@contexts/User';
-import { NextPageWithAuth } from 'types';
+import { NextPageWithControl } from 'types';
 import { Action } from '@contexts/User/actions';
 import deleteSession from '@services/user/session/delete';
 
-const Logout: NextPageWithAuth = () => {
+const Logout: NextPageWithControl = () => {
   const router = useRouter();
   const { dispatch } = useUser();
 
@@ -20,6 +20,8 @@ const Logout: NextPageWithAuth = () => {
   return null;
 };
 
-Logout.auth = true;
+Logout.control = {
+  auth: true,
+};
 
 export default Logout;
