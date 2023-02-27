@@ -7,8 +7,7 @@ const links: LinksGroupProps[] = [
     title: 'About',
     data: [
       { label: 'About Corpus', link: Route.about.intro },
-      { label: 'Releases (frontend)', link: layoutConfig.github.releases.frontend },
-      { label: 'Releases (backend)', link: layoutConfig.github.releases.frontend },
+      { label: 'Releases', link: layoutConfig.github.releases },
     ],
   },
 
@@ -18,12 +17,8 @@ const links: LinksGroupProps[] = [
       { label: 'Follow on Facebook', link: layoutConfig.facebook.link },
       { label: 'Follow on Github', link: 'https://github.com/Retr0327' },
       {
-        label: 'GitHub discussions (frontend)',
-        link: layoutConfig.github.discussions.frontend,
-      },
-      {
-        label: 'GitHub discussions (backend)',
-        link: layoutConfig.github.discussions.backend,
+        label: 'GitHub discussion',
+        link: layoutConfig.github.discussion,
       },
     ],
   },
