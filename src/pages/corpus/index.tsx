@@ -1,29 +1,28 @@
 import API from '@config/api';
 import { SWRConfig } from 'swr';
 import Route from '@config/routes';
-import type { ReactElement } from 'react';
 import type { GetServerSideProps } from 'next';
 import MainLayout from '@components/layout/Main';
 import { fetchBoards } from '@services/corpus/boards';
 import CorpusHome from '@components/pages/Corpus/Home';
-import { NextPageWithLayout, FallbackProps } from 'types';
+import { NextPageWithControl, FallbackProps } from 'types';
 
-const Corpus: NextPageWithLayout<FallbackProps> = (props) => (
+const Corpus: NextPageWithControl<FallbackProps> = (props) => (
   <SWRConfig value={{ fallback: props.fallback }}>
     <CorpusHome />
   </SWRConfig>
 );
 
-Corpus.getLayout = function getLayout(page: ReactElement) {
-  return (
+Corpus.control = {
+  Layout: (props) => (
     <MainLayout
       title="Taiwan Social Media Corpus"
       description="A corpus of PTT and Dcard."
       withAvatar={false}
     >
-      {page}
+      {props.children}
     </MainLayout>
-  );
+  ),
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
