@@ -40,7 +40,7 @@ function Community() {
           p="lg"
           component="a"
           radius="md"
-          href={layoutConfig.github.discussions.frontend}
+          href={layoutConfig.github.discussion}
           className={cx(classes.card, classes.github)}
         >
           <Group noWrap>
