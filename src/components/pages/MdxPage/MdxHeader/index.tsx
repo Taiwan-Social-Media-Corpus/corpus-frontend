@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Frontmatter } from 'types/mdx';
 import { Title, Text } from '@mantine/core';
 import useStyles from './MdxHeader.styles';
@@ -20,4 +19,4 @@ function MdxHeader(props: Props) {
   );
 }
 
-export default memo(MdxHeader);
+export default MdxHeader;

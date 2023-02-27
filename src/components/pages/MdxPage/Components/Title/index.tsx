@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import Link from 'next/link';
 import { Title, Text } from '@mantine/core';
 import useStyles from './Title.styles';
@@ -27,4 +26,4 @@ function MdxTitle(props: React.ComponentPropsWithoutRef<typeof Title>) {
   );
 }
 
-export default memo(MdxTitle);
+export default MdxTitle;

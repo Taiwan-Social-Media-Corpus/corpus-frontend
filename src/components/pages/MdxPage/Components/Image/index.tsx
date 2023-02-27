@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Image as MantineImage, AspectRatio } from '@mantine/core';
 
 function Image(props: any) {
@@ -12,4 +11,4 @@ function Image(props: any) {
   );
 }
 
-export default memo(Image);
+export default Image;

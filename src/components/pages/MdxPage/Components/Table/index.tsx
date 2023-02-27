@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { ScrollArea, Table as MantineTable } from '@mantine/core';
 
 function Table(props: any) {
@@ -20,4 +19,4 @@ function Table(props: any) {
   );
 }
 
-export default memo(Table);
+export default Table;
