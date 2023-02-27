@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import layoutConfig from '@config/layout';
 import IconController from '@components/common/ui/Icons';
 import { SimpleGrid, Group, Text, Card, Space } from '@mantine/core';
@@ -62,4 +61,4 @@ function Community() {
   );
 }
 
-export default memo(Community);
+export default Community;

@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Props } from './types';
 import useStyles from './Waves.styles';
 
@@ -20,4 +19,4 @@ function Waves(props: Props) {
   );
 }
 
-export default memo(Waves);
+export default Waves;

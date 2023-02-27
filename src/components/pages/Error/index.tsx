@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Title, Text, Container, Group } from '@mantine/core';
 import useStyles from './ErrorPage.styles';
 
@@ -27,4 +26,4 @@ function ErrorPage(props: Props) {
   );
 }
 
-export default memo(ErrorPage);
+export default ErrorPage;

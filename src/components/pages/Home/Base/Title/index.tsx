@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import useStyles from './Title.styles';
 
 type Props = React.ComponentProps<'h1'>;
@@ -14,4 +13,4 @@ function SectionTitle(props: Props) {
   );
 }
 
-export default memo(SectionTitle);
+export default SectionTitle;

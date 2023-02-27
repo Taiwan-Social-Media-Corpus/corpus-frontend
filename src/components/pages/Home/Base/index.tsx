@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Container, Text, DefaultProps, Box } from '@mantine/core';
 import SectionTitle from './Title';
 import useStyles from './PageSection.styles';
@@ -28,4 +27,4 @@ function PageSection(props: Props) {
   );
 }
 
-export default memo(PageSection);
+export default PageSection;

@@ -1,5 +1,6 @@
+import { useMemo } from 'react';
 import CountUp from 'react-countup';
-import { memo, useMemo } from 'react';
+import layoutConfig from '@config/layout';
 import { Media, CorpusStats } from 'types/corpus';
 import IconController from '@components/common/ui/Icons';
 import { Container, Group, Button, Text, useMantineTheme, SimpleGrid } from '@mantine/core';
@@ -74,7 +75,7 @@ function Jumbotron(props: Props) {
 
           <Button
             component="a"
-            href="https://github.com/Taiwan-Social-Media-Corpus"
+            href={layoutConfig.github.organization}
             size="xl"
             variant="outline"
             radius="md"
@@ -91,4 +92,4 @@ function Jumbotron(props: Props) {
   );
 }
 
-export default memo(Jumbotron);
+export default Jumbotron;
