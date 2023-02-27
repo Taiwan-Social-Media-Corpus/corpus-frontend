@@ -54,7 +54,7 @@ const withSwitch = (Component: NextPageWithControl) => {
 
     if (excludedRoutes.some((value) => asPath.includes(value))) {
       if (nextUrl) return <Redirect url={nextUrl} />;
-      return <Redirect url="/" />;
+      return <Redirect url={Route.dashboard.account} />;
     }
 
     return <Component {...props} />;
