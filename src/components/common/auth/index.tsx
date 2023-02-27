@@ -1,32 +1,28 @@
 import Route from '@config/routes';
 import { useRouter } from 'next/router';
 import { useUser } from '@contexts/User';
-import { NextPageWithAuth } from 'types';
-import { Redirect, getRedirectURL } from '@utils/url/redirect';
+import Redirect from '@utils/url/redirect';
+import { NextPageWithControl } from 'types';
 
-const withSwitch = (Component: NextPageWithAuth) => {
-  const Switch = (props: any) => {
+const withSwitch = (Component: NextPageWithControl) => {
+  const Switch: NextPageWithControl = (props: any) => {
     const { user } = useUser();
-    const router = useRouter();
-    const currentPath = router.pathname;
-    const isAuth = Component?.auth;
-    const hasSession = user?.data.uid;
-    const enabled = user?.data.enabled;
+    const { pathname, asPath } = useRouter();
+    const isAuth = Component.control?.auth;
+    const { uid: hasSession, enabled } = user.data;
+    const query = new URLSearchParams(asPath.split('?')?.[1]);
+    const nextUrl = query.get('next');
 
     if (!hasSession) {
       if (isAuth) {
-        return <Redirect url={Route.login} />;
+        const next = pathname !== Route.logout ? asPath : undefined;
+        return <Redirect url={{ pathname: Route.login, query: next ? { next } : undefined }} />;
       }
       return <Component {...props} />;
     }
 
     if (!enabled) {
-      const permittedRoutes: string[] = [
-        Route.home,
-        Route.logout,
-        Route.activation,
-        Route.dashboard.account,
-      ];
+      const permittedRoutes: string[] = [Route.home, Route.logout, Route.activation];
       const noNeedToRedirects: string[] = [
         Route.login,
         Route.signUp,
@@ -34,11 +30,18 @@ const withSwitch = (Component: NextPageWithAuth) => {
         Route.serverError,
       ];
 
-      const from = noNeedToRedirects.includes(currentPath) ? undefined : currentPath;
-      if (currentPath !== Route.activation && !permittedRoutes.includes(currentPath)) {
-        return <Redirect url={Route.activation} from={from} />;
-      }
+      const from = noNeedToRedirects.includes(pathname) ? undefined : pathname;
 
+      if (pathname !== Route.activation && !permittedRoutes.includes(pathname)) {
+        return (
+          <Redirect
+            url={{
+              pathname: Route.activation,
+              query: nextUrl || from ? { next: nextUrl || from } : undefined,
+            }}
+          />
+        );
+      }
       return <Component {...props} />;
     }
 
@@ -49,12 +52,10 @@ const withSwitch = (Component: NextPageWithAuth) => {
       Route.recovery.root,
     ];
 
-    if (excludedRoutes.some((value) => router.asPath.includes(value))) {
-      return <Redirect url={Route.dashboard.account} />;
+    if (excludedRoutes.some((value) => asPath.includes(value))) {
+      if (nextUrl) return <Redirect url={nextUrl} />;
+      return <Redirect url="/" />;
     }
-
-    const redirect = getRedirectURL(`${Route.activation}?redirect`, router.asPath);
-    if (redirect !== null) return <Redirect url={redirect} />;
 
     return <Component {...props} />;
   };
@@ -63,6 +64,7 @@ const withSwitch = (Component: NextPageWithAuth) => {
     Switch.getInitialProps = Component.getInitialProps;
   }
 
+  Switch.control = Component.control;
   return Switch;
 };
 
