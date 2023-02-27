@@ -1,8 +1,9 @@
 import Slugger from 'github-slugger';
 import { IconList } from '@tabler/icons';
 import { MdxPageProps } from 'types/mdx';
-import React, { memo, useMemo } from 'react';
 import { Text, ScrollArea, useMantineTheme } from '@mantine/core';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import getActiveElement from './utils';
 import useStyles from './TableOfContents.styles';
 
 type TableOfContentsProps = {
@@ -14,7 +15,31 @@ function TableOfContents(props: TableOfContentsProps) {
   const { classes, cx } = useStyles();
   const theme = useMantineTheme();
   const slugger = new Slugger();
+  const [active, setActive] = useState(0);
   const filteredHeadings = headings.filter((heading) => heading.depth > 1);
+  const slugs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    slugger.reset();
+    slugs.current = filteredHeadings.map(
+      (heading) => document.getElementById(slugger.slug(heading.value)) as HTMLDivElement
+    );
+  }, [headings, filteredHeadings]);
+
+  const handleScroll = () => {
+    setTimeout(() => {
+      setActive(getActiveElement(slugs.current.map((d) => d?.getBoundingClientRect() || 1)));
+    }, 20);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setActive(getActiveElement(slugs.current.map((d) => d?.getBoundingClientRect() || 1)));
+    }, 20);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [slugger, slugs.current, active, headings, filteredHeadings]);
 
   if (filteredHeadings.length === 0) {
     return null;
@@ -26,20 +51,18 @@ function TableOfContents(props: TableOfContentsProps) {
         if (heading.value === '參考資料' || heading.value === 'References') {
           return null;
         }
-
         const slug = slugger.slug(heading.value);
         return (
           <Text<'a'>
             key={`${slug}-${index}`}
             component="a"
             size="sm"
-            className={classes.link}
+            className={cx(classes.link, { [classes.linkActive]: active === index })}
             href={`#${slug}`}
             sx={{ paddingLeft: (heading.depth - 1) * theme.spacing.lg }}
             onClick={async (event) => {
               event.preventDefault();
-              const url = CSS.escape(`#${slug}`);
-              document.querySelector(url)?.scrollIntoView({
+              document.querySelector(`#${CSS.escape(slug)}`)?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start',
                 inline: 'nearest',
