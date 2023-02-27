@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { User } from 'types/user';
-import { IconChevronRight } from '@tabler/icons';
+import { IconChevronRight } from '@tabler/icons-react';
 import { UnstyledButton, UnstyledButtonProps, Group, Text } from '@mantine/core';
 import Avatar from '../Avatar';
 import useStyles from './UserButton.styles';

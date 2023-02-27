@@ -1,6 +1,6 @@
 import { memo, forwardRef } from 'react';
-import { IconLink } from '@tabler/icons';
 import { ActionIcon } from '@mantine/core';
+import { IconLink } from '@tabler/icons-react';
 import { createLink } from '../utils';
 
 type Props = {

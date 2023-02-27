@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { LinkItem } from 'types/link';
 import { memo, useMemo } from 'react';
 import { Menu, Center } from '@mantine/core';
-import { IconChevronDown } from '@tabler/icons';
+import { IconChevronDown } from '@tabler/icons-react';
 import useStyles from './NavItem.styles';
 
 type Props = { link: LinkItem };

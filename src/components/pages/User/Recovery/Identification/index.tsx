@@ -5,7 +5,7 @@ import { User } from 'types/user';
 import useForm from '@hooks/Form';
 import Route from '@config/routes';
 import { useRouter } from 'next/router';
-import { IconArrowLeft } from '@tabler/icons';
+import { IconArrowLeft } from '@tabler/icons-react';
 import identify from '@services/user/recovery/identify';
 import { Group, Anchor, Center, Box } from '@mantine/core';
 import useStyles from './Identification.styles';

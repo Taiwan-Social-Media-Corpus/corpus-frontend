@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { decodeURL } from '@utils/url/corpus';
-import { IconReportSearch } from '@tabler/icons';
+import { IconReportSearch } from '@tabler/icons-react';
 import { Group, Text, ThemeIcon, Paper, List } from '@mantine/core';
 import { ConcordanceParams, ConcordanceRequestBody } from 'types/corpus';
 import { HelperButtonProps } from '../../../types';

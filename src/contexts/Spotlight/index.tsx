@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { memo, ReactNode } from 'react';
-import { IconSearch } from '@tabler/icons';
 import { useMediaQuery } from '@mantine/hooks';
+import { IconSearch } from '@tabler/icons-react';
 import { SpotlightProvider as MantineSpotlightProvider } from '@mantine/spotlight';
 import createActions from './actions';
 

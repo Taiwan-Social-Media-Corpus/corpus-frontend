@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { IconSearch } from '@tabler/icons';
+import { IconSearch } from '@tabler/icons-react';
 import { UnstyledButton, Text, Group, DefaultProps, ActionIcon } from '@mantine/core';
 import useStyles from './SearchControl.styles';
 

@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form';
 import FormController from '@components/common/ui/Form';
-import { IconUser, IconMail, IconLock } from '@tabler/icons';
+import { IconUser, IconMail, IconLock } from '@tabler/icons-react';
 
 function NameStep() {
   const { formState } = useFormContext();

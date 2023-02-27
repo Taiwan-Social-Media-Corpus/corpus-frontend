@@ -2,7 +2,7 @@ import Route from '@config/routes';
 import { useRouter } from 'next/router';
 import { ChangeEvent, memo } from 'react';
 import { ConcordanceParams } from 'types/corpus';
-import { IconCheck, IconX } from '@tabler/icons';
+import { IconCheck, IconX } from '@tabler/icons-react';
 import { Switch, useMantineTheme } from '@mantine/core';
 import { HelperButtonProps } from '../../types';
 

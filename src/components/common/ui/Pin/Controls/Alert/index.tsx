@@ -5,7 +5,7 @@ import {
 } from '@mantine/core';
 import { Optional } from 'types';
 import { useColorScheme } from '@mantine/hooks';
-import { IconAlertCircle } from '@tabler/icons';
+import { IconAlertCircle } from '@tabler/icons-react';
 
 type Props = { content: string; type: string } & Optional<MantineAlertProps, 'children'>;
 

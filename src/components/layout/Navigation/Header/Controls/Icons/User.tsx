@@ -5,7 +5,7 @@ import Route from '@config/routes';
 import { memo, useMemo } from 'react';
 import Avatar from '@components/common/ui/Avatar';
 import { Menu, ActionIcon, Tooltip } from '@mantine/core';
-import { IconLogout, IconSettings, IconApi } from '@tabler/icons';
+import { IconLogout, IconSettings, IconApi } from '@tabler/icons-react';
 
 type Props = Optional<Pick<User, 'firstName' | 'lastName'>, 'firstName' | 'lastName'>;
 type MenuItemProps = Parameters<typeof Menu.Item<typeof Link | 'button'>>[0];

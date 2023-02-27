@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import dynamic from 'next/dynamic';
-import { IconTrash } from '@tabler/icons';
 import { ActionIcon } from '@mantine/core';
+import { IconTrash } from '@tabler/icons-react';
 import { openModal, closeAllModals } from '@mantine/modals';
 import { HelperButtonProps } from '../types';
 

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 import Route from '@config/routes';
 import { Button } from '@mantine/core';
-import { IconArrowBackUp } from '@tabler/icons';
+import { IconArrowBackUp } from '@tabler/icons-react';
 
 function ReturnButton() {
   return (

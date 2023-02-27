@@ -2,7 +2,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 import Route from '@config/routes';
 import { Navbar } from '@mantine/core';
-import { IconLogout } from '@tabler/icons';
+import { IconLogout } from '@tabler/icons-react';
 import useStyles from './LogoutSection.styles';
 
 function LogoutSection() {

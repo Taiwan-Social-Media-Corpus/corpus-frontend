@@ -7,7 +7,7 @@ import {
   IconDashboard,
   IconInfoCircle,
   IconReportSearch,
-} from '@tabler/icons';
+} from '@tabler/icons-react';
 import Route from '@config/routes';
 import { NextRouter } from 'next/router';
 import { SpotlightAction } from '@mantine/spotlight';

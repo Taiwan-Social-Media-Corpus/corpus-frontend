@@ -3,7 +3,7 @@ import useForm from '@hooks/Form';
 import { User } from 'types/user';
 import { memo, useState } from 'react';
 import { useRouter } from 'next/router';
-import { IconCircleCheck } from '@tabler/icons';
+import { IconCircleCheck } from '@tabler/icons-react';
 import resetEmail from '@services/user/activation/email';
 import { Button, Text, Group, Stack, useMantineTheme } from '@mantine/core';
 

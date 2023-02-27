@@ -4,7 +4,7 @@ import { User } from 'types/user';
 import Route from '@config/routes';
 import { memo, useState } from 'react';
 import { useRouter } from 'next/router';
-import { IconCircleCheck } from '@tabler/icons';
+import { IconCircleCheck } from '@tabler/icons-react';
 import { useAPITokens } from '@services/user/apiToken/read';
 import deleteAPIToken from '@services/user/apiToken/delete';
 import { Group, Button, Stack, useMantineTheme, Text } from '@mantine/core';

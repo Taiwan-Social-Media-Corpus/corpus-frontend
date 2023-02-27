@@ -1,5 +1,5 @@
 import { NavbarLink } from 'types/link';
-import { IconChevronRight } from '@tabler/icons';
+import { IconChevronRight } from '@tabler/icons-react';
 import { memo, useState, useMemo, Dispatch, SetStateAction } from 'react';
 import { UnstyledButton, Group, Box, ThemeIcon, Collapse } from '@mantine/core';
 import useLinkComponent from './utils';

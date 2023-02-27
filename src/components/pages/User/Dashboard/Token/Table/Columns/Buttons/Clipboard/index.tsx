@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { ActionIcon } from '@mantine/core';
 import { useClipboard } from '@mantine/hooks';
-import { IconClipboard, IconClipboardCheck } from '@tabler/icons';
+import { IconClipboard, IconClipboardCheck } from '@tabler/icons-react';
 import { HelperButtonProps } from '../types';
 
 function ClipboardButton(props: HelperButtonProps) {

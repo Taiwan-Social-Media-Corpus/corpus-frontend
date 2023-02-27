@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { IconCircleCheck } from '@tabler/icons';
+import { IconCircleCheck } from '@tabler/icons-react';
 import AlertAction from './actions';
 import { ActionType, AlertContextInitialState } from './types';
 

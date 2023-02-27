@@ -2,7 +2,7 @@ import { memo } from 'react';
 import dynamic from 'next/dynamic';
 import { Button } from '@mantine/core';
 import { openModal } from '@mantine/modals';
-import { IconClipboardCheck } from '@tabler/icons';
+import { IconClipboardCheck } from '@tabler/icons-react';
 
 const RequestForm = dynamic(() => import('./Form'));
 

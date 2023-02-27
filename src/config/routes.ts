@@ -6,7 +6,7 @@ import {
   IconServer,
   IconInfoCircle,
   IconReportSearch,
-} from '@tabler/icons';
+} from '@tabler/icons-react';
 import urlJoin from 'url-join';
 import { DEFAULT_THEME } from '@mantine/core';
 import { LinkItem, MenuLink, NavbarLink } from 'types/link';

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Button } from '@mantine/core';
 import { openModal } from '@mantine/modals';
-import { IconReportSearch } from '@tabler/icons';
+import { IconReportSearch } from '@tabler/icons-react';
 import ReportContent from './Content';
 import { HelperButtonProps } from '../../types';
 

@@ -1,8 +1,8 @@
 import Slugger from 'github-slugger';
-import { IconList } from '@tabler/icons';
 import { MdxPageProps } from 'types/mdx';
+import { IconList } from '@tabler/icons-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Text, ScrollArea, useMantineTheme } from '@mantine/core';
-import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import getActiveElement from './utils';
 import useStyles from './TableOfContents.styles';
 
@@ -93,4 +93,4 @@ function TableOfContents(props: TableOfContentsProps) {
   );
 }
 
-export default memo(TableOfContents);
+export default TableOfContents;

@@ -1,4 +1,4 @@
-import { TablerIcon } from '@tabler/icons';
+import { Icon } from '@tabler/icons-react';
 
 export type NestedLinks = { link: string; label: string }[];
 
@@ -8,12 +8,12 @@ export type LinkItem = {
   links?: NestedLinks;
 };
 
-export type MenuLink = LinkItem & { icon: TablerIcon };
+export type MenuLink = LinkItem & { icon: Icon };
 
 export type NavbarLink = {
   link?: string;
   label: string;
   color: string;
-  icon: TablerIcon;
+  icon: Icon;
   links?: NestedLinks;
 }[];

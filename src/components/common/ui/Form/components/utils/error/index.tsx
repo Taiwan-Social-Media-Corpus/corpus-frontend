@@ -1,4 +1,4 @@
-import { IconAlertCircle } from '@tabler/icons';
+import { IconAlertCircle } from '@tabler/icons-react';
 import { Group, Text, TextProps } from '@mantine/core';
 
 type Props = TextProps & { children?: string };

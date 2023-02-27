@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { NestedLinks } from 'types/link';
-import { IconChevronRight } from '@tabler/icons';
+import { IconChevronRight } from '@tabler/icons-react';
 import { memo, useState, ReactNode, useMemo } from 'react';
 import { Box, Group, Collapse, UnstyledButton, Text, Menu } from '@mantine/core';
 import useStyles from './CollapseMenuItem.styles';

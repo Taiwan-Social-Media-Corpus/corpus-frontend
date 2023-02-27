@@ -1,5 +1,5 @@
 import { PartialBy } from 'types';
-import { TablerIcon } from '@tabler/icons';
+import { Icon } from '@tabler/icons-react';
 
 export type NestedLinks = { link: string; label: string }[];
 
@@ -11,7 +11,7 @@ export type LinkItem = {
 
 // --------- menu ---------
 
-export type MenuLink = PartialBy<LinkItem, 'link'> & { icon: TablerIcon };
+export type MenuLink = PartialBy<LinkItem, 'link'> & { icon: Icon };
 
 // -------- navbar --------
 
@@ -19,6 +19,6 @@ export type NavbarLink = {
   link?: string;
   label: string;
   color: string;
-  icon: TablerIcon;
+  icon: Icon;
   links?: NestedLinks;
 };

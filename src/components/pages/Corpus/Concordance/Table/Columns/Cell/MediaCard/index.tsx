@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { DocInfos } from 'types/corpus';
-import { IconDeviceAnalytics } from '@tabler/icons';
+import { IconDeviceAnalytics } from '@tabler/icons-react';
 import { HoverCard, ActionIcon, Avatar, Text, Group, Anchor, Stack, List } from '@mantine/core';
 import PostLink from './Link';
 import { getBoard, createLink } from './utils';
