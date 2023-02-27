@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import useForm from '@hooks/Form';
 import Route from '@config/routes';
+import { memo, useState } from 'react';
 import { useRouter } from 'next/router';
 import { IconCircleCheck } from '@tabler/icons';
 import { closeAllModals } from '@mantine/modals';
-import { memo, useState, useEffect } from 'react';
 import createAPIToken from '@services/user/apiToken/create';
 import { useAPITokens } from '@services/user/apiToken/read';
 import { Stack, Text, useMantineTheme } from '@mantine/core';
@@ -14,7 +14,6 @@ type FieldValues = { confirmText: string };
 function RequestForm() {
   const router = useRouter();
   const { mutate } = useAPITokens();
-  const [disabled, setDisabled] = useState(true);
   const [success, setSuccess] = useState(false);
   const theme = useMantineTheme();
   const color = theme.colors.blue[9];
@@ -29,13 +28,23 @@ function RequestForm() {
         control: 'text-input',
         name: 'confirmText',
         label: (
-          <Text span sx={{ cursor: 'text' }} size="md">
-            Please type{' '}
-            <Text component="span" fw={700} sx={{ cursor: 'text' }} size="md">
-              Corpus/api-token
-            </Text>{' '}
-            to confirm.
-          </Text>
+          <>
+            <Text mb={10} size="md">
+              Please keep your token{' '}
+              <Text component="span" fw={700} size="md">
+                private
+              </Text>
+              ! Do not store your token in publicly available code or repositories that are
+              accessible to the public.
+            </Text>
+            <Text span sx={{ cursor: 'text' }} size="md">
+              Please type{' '}
+              <Text component="span" fw={700} sx={{ cursor: 'text' }} size="md">
+                Corpus/api-token
+              </Text>{' '}
+              to confirm.
+            </Text>
+          </>
         ),
         placeholder: 'Corpus/api-token',
         autoFocus: true,
@@ -64,30 +73,27 @@ function RequestForm() {
     },
   });
 
-  useEffect(() => {
-    if (methods.watch('confirmText') === 'Corpus/api-token') {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  }, [methods.watch('confirmText')]);
-
   const hasInputError = methods.formState.errors.confirmText !== undefined;
+  const shouldDisable = methods.watch('confirmText') !== 'Corpus/api-token';
 
-  return success ? (
-    <Stack align="center" spacing={10}>
-      <IconCircleCheck size={80} stroke={1.5} color={theme.colors.teal[7]} />
-      <Text color={color} weight="bold" size="xl">
-        已成功建立！
-      </Text>
-    </Stack>
-  ) : (
+  if (success) {
+    return (
+      <Stack align="center" spacing={10}>
+        <IconCircleCheck size={80} stroke={1.5} color={theme.colors.teal[7]} />
+        <Text color={color} weight="bold" size="xl">
+          已成功建立！
+        </Text>
+      </Stack>
+    );
+  }
+
+  return (
     <Form>
       <Form.Button
         loading={methods.formState.isSubmitting}
         fullWidth
         mt={hasInputError ? 35 : 'md'}
-        disabled={disabled}
+        disabled={shouldDisable}
       >
         確認
       </Form.Button>
