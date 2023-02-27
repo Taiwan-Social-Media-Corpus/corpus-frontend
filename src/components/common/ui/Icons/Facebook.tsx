@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { IconProps } from 'types';
 
 function FacebookIcon(props: IconProps) {
@@ -22,4 +21,4 @@ function FacebookIcon(props: IconProps) {
   );
 }
 
-export default memo(FacebookIcon);
+export default FacebookIcon;

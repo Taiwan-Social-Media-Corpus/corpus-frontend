@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { User } from 'types/user';
 import { IconChevronRight } from '@tabler/icons-react';
 import { UnstyledButton, UnstyledButtonProps, Group, Text } from '@mantine/core';
@@ -30,4 +29,4 @@ function UserButton(props: Props) {
   );
 }
 
-export default memo(UserButton);
+export default UserButton;

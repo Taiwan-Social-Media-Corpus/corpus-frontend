@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { useMantineTheme } from '@mantine/core';
 import { IconControllerProps } from 'types';
 
@@ -2969,4 +2968,4 @@ function LopenIcon(props: LopenIconProps) {
   );
 }
 
-export default memo(LopenIcon);
+export default LopenIcon;

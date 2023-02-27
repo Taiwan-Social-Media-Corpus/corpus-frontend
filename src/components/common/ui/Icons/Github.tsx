@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { IconProps } from 'types';
 
 function GithubIcon(props: IconProps) {
@@ -21,4 +20,4 @@ function GithubIcon(props: IconProps) {
   );
 }
 
-export default memo(GithubIcon);
+export default GithubIcon;

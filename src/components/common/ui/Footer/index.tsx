@@ -1,17 +1,11 @@
 import Link from 'next/link';
+import { useMemo } from 'react';
 import Route from '@config/routes';
-import dynamic from 'next/dynamic';
-import { memo, useMemo } from 'react';
 import { Container, Text, Group } from '@mantine/core';
 import IconController from '@components/common/ui/Icons';
 import useStyles from './Footer.styles';
-import { links } from './LinksGroup';
-
-const LinksGroup = dynamic(() => import('./LinksGroup'));
-const FacebookButton = dynamic(() =>
-  import('./SocialButtons').then((module) => module.FacebookButton)
-);
-const GithubButton = dynamic(() => import('./SocialButtons').then((module) => module.GithubButton));
+import LinksGroup, { links } from './LinksGroup';
+import { GithubButton, FacebookButton } from './SocialButtons';
 
 type Props = { withNavbar?: boolean };
 
@@ -73,4 +67,4 @@ function Footer(props: Props) {
   );
 }
 
-export default memo(Footer);
+export default Footer;

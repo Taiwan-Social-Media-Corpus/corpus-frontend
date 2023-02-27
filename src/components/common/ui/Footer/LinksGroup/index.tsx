@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import { useMemo } from 'react';
 import { Text } from '@mantine/core';
-import { memo, useMemo } from 'react';
 import links from './links';
 import { LinksGroupProps } from './types';
 import useStyles from './LinksGroup.styles';
@@ -32,5 +32,5 @@ function LinksGroup(props: LinksGroupProps) {
   );
 }
 
-export default memo(LinksGroup);
+export default LinksGroup;
 export { links };

@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { IconProps } from 'types';
 
 function NoResultIcon(props: IconProps) {
@@ -37,4 +36,4 @@ function NoResultIcon(props: IconProps) {
   );
 }
 
-export default memo(NoResultIcon);
+export default NoResultIcon;
