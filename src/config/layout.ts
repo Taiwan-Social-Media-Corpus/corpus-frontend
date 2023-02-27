@@ -7,14 +7,8 @@ const layoutConfig = {
   github: {
     lopen: 'https://github.com/lopentu',
     organization: 'https://github.com/Taiwan-Social-Media-Corpus',
-    discussions: {
-      backend: 'https://github.com/Taiwan-Social-Media-Corpus/corpus-backend/discussions',
-      frontend: 'https://github.com/Taiwan-Social-Media-Corpus/corpus-frontend/discussions',
-    },
-    releases: {
-      backend: 'https://github.com/Taiwan-Social-Media-Corpus/corpus-backend/releases',
-      frontend: 'https://github.com/Taiwan-Social-Media-Corpus/corpus-frontend/releases',
-    },
+    discussion: 'https://github.com/Taiwan-Social-Media-Corpus/corpus-frontend/discussions',
+    releases: 'https://github.com/Taiwan-Social-Media-Corpus/corpus-frontend/releases',
   },
 
   mdx: {
