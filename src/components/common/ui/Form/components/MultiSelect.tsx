@@ -1,5 +1,6 @@
-import { useController } from 'react-hook-form';
+import { useState } from 'react';
 import { MultiSelectProps } from 'types/form';
+import { useController } from 'react-hook-form';
 import { MultiSelect as MantineMultiSelect } from '@mantine/core';
 import ErrorMessage from './utils/error';
 
@@ -10,6 +11,7 @@ function MultiSelect(props: MultiSelectProps) {
     fieldState: { error: fieldError },
     formState: { defaultValues },
   } = useController({ name });
+  const [data, setData] = useState(options);
 
   const error = fieldError ? (
     <ErrorMessage>{fieldError.message?.toString()}</ErrorMessage>
@@ -20,7 +22,7 @@ function MultiSelect(props: MultiSelectProps) {
   return (
     <MantineMultiSelect
       label={label}
-      data={options}
+      data={data}
       onChange={(value) => {
         onChange(value ?? defaultValues?.[value]);
       }}
@@ -29,7 +31,7 @@ function MultiSelect(props: MultiSelectProps) {
       onCreate={(query) => {
         const capitalized = query.charAt(0).toUpperCase() + query.substring(1);
         const item = { label: capitalized, value: query };
-        options.push(item);
+        setData((current) => [...current, item]);
         return item;
       }}
       {...rest}
