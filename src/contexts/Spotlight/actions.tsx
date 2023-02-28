@@ -1,9 +1,9 @@
 import {
   IconApi,
   IconHome,
-  IconUser,
   IconSocial,
   IconServer,
+  IconSettings,
   IconDashboard,
   IconInfoCircle,
   IconReportSearch,
@@ -62,7 +62,7 @@ function createActions(hasSession: boolean, router: NextRouter) {
         title: 'Account Settings',
         description: 'Account Settings',
         onTrigger: () => router.push(Route.dashboard.account),
-        icon: <IconUser size={18} />,
+        icon: <IconSettings size={18} />,
         keywords: ['dashboard'],
       },
       {

@@ -4,6 +4,7 @@ import {
   IconLogout,
   IconSocial,
   IconServer,
+  IconSettings,
   IconInfoCircle,
   IconReportSearch,
 } from '@tabler/icons-react';
@@ -105,7 +106,7 @@ export const navbarLinks: { about: NavbarLink[]; dashboard: NavbarLink[] } = {
       link: Route.dashboard.account,
       label: 'Account',
       color: DEFAULT_THEME.colors.green[8],
-      icon: IconUser,
+      icon: IconSettings,
     },
     {
       link: Route.dashboard.token,
