@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import { PageControl } from 'types';
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 import { useUser } from '@contexts/User';
 import Loader from '@components/common/ui/Loader';
 import SpotlightProvider from '@contexts/Spotlight';
 import ServerError from '../../pages/500';
 import NavigationLayout from './Navigation';
 
-type Props = { children: ReactNode } & Pick<PageControl, 'Layout'>;
+type Props = { children: ReactElement } & Pick<PageControl, 'Layout'>;
 
 function _Layout(props: Props) {
   const { children, Layout: CustomLayout } = props;
