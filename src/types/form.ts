@@ -60,13 +60,17 @@ export type ControllerProps =
   | ({ control: 'segmented-control' } & SegmentedControlProps)
   | ({ control: 'pin-input' } & PinInputProps);
 
-export type FormControllerProps<TFieldValues extends FieldValues = FieldValues, TContext = any> = {
-  controllers: {
-    [key in keyof TFieldValues]: ControllerProps & { name: key } & {
-      col?: ColProps;
-      after?: ReactNode | ((ctx: UseFormReturn<TFieldValues, TContext>) => ReactNode);
-    };
+export type Controllers<TFieldValues extends FieldValues, TContext> = {
+  [key in keyof TFieldValues]: ControllerProps & { name: key } & {
+    col?: ColProps;
+    after?: ReactNode | ((ctx: UseFormReturn<TFieldValues, TContext>) => ReactNode);
   };
+};
+
+export type FormControllerProps<TFieldValues extends FieldValues = FieldValues, TContext = any> = {
+  controllers:
+    | Controllers<TFieldValues, TContext>
+    | ((context: UseFormReturn<TFieldValues, TContext>) => Controllers<TFieldValues, TContext>);
 };
 
 export type PinCode = { code: { [key: number]: string } };
