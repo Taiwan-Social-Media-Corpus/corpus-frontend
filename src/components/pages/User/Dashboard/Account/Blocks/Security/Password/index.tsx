@@ -50,7 +50,6 @@ function Password() {
     },
     onSubmit: async (data) => {
       const { oldPassword, newPassword } = data;
-      const { setError } = methods;
       const [result, error] = await resetPassword({ oldPassword, newPassword });
 
       if (result == null || error) {
@@ -60,9 +59,11 @@ function Password() {
       if (result.status === 'failed') {
         switch (result.msg) {
           case 'unchanged':
-            return setError('oldPassword', { message: '您最近用過這個密碼，請改用其他密碼。' });
+            return methods.setError('oldPassword', {
+              message: '您最近用過這個密碼，請改用其他密碼。',
+            });
           default:
-            return setError('oldPassword', { message: '請輸入有效的密碼，然後再試一次。' });
+            return methods.setError('oldPassword', { message: '請輸入有效的密碼，然後再試一次。' });
         }
       }
 

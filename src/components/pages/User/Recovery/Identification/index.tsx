@@ -24,7 +24,6 @@ function Identification() {
       email: z.string().min(1, '請填寫欄位以搜尋你的帳號！').email('請確認 email 格式'),
     }),
     onSubmit: async (data) => {
-      const { setError } = methods;
       const { email } = data;
       const [result, error] = await identify({ email });
 
@@ -36,22 +35,22 @@ function Identification() {
       if (result.status === 'failed') {
         switch (result.msg) {
           case 'exceeded sending rate': {
-            return setError('email', {
+            return methods.setError('email', {
               message: '超過信件寄送上限，請於 24 小時後再試。',
             });
           }
           case 'too much recovery': {
-            return setError('email', {
+            return methods.setError('email', {
               message: '由於安全性問題，目前該帳號已經鎖定。',
             });
           }
           case 'too many errors': {
-            return setError('email', {
+            return methods.setError('email', {
               message: '錯誤次數過多，請稍候再試。',
             });
           }
           default:
-            return setError('email', {
+            return methods.setError('email', {
               message: '你的搜尋未傳回任何結果，請用其他資訊再試一次。',
             });
         }

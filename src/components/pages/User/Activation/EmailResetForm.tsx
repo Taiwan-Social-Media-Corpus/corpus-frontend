@@ -22,7 +22,6 @@ function EmailResetForm(props: Props) {
     onSubmit: async (data) => {
       const { email } = data;
       const [result, error] = await resetEmail({ email });
-      const { setError } = methods;
 
       if (result == null || error) {
         return router.push('/500', { pathname: router.pathname });
@@ -31,13 +30,11 @@ function EmailResetForm(props: Props) {
       if (result.status === 'failed') {
         switch (result.msg) {
           case 'identical':
-            return setError('email', { message: '請輸入新的 email' });
-
+            return methods.setError('email', { message: '請輸入新的 email' });
           case 'email unavailable':
-            return setError('email', { message: '電子郵件無法使用或已經有人使用。' });
-
+            return methods.setError('email', { message: '電子郵件無法使用或已經有人使用。' });
           default:
-            return setError('email', { message: '超出寄信限制' });
+            return methods.setError('email', { message: '超出寄信限制' });
         }
       }
 
