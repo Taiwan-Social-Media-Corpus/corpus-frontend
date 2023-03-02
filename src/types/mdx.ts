@@ -8,7 +8,7 @@ export interface Frontmatter {
   updatedAt?: string;
 }
 
-export type MdxPageProps = {
+export type MdxLayoutProps = {
   post: {
     source: MDXRemoteSerializeResult;
     headings: { depth: number; value: string }[];
