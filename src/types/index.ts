@@ -41,7 +41,7 @@ export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 export type PageControl = {
   auth?: boolean;
-  Layout?: (props: { children?: React.ReactNode }) => JSX.Element;
+  Layout?: (props: { children?: React.ReactElement }) => JSX.Element;
 };
 
 export type NextPageWithControl<P = {}, IP = P> = NextPage<P, IP> & { control?: PageControl };
