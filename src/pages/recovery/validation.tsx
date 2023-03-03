@@ -1,19 +1,24 @@
 import Route from '@config/routes';
 import { sanitizeIP } from '@utils';
+import { NextPageWithControl } from 'types';
+import type { GetServerSideProps } from 'next';
 import verifyRecoveryJWT from '@utils/jwt/recover';
-import type { GetServerSideProps, NextPage } from 'next';
 import RecoveryBase from '@components/pages/User/Recovery/Base';
 import ValidationForm from '@components/pages/User/Recovery/Validation';
 
-const Validation: NextPage = () => (
-  <RecoveryBase
-    title="請輸入驗證碼"
-    subTitle="請查看你的電子郵件信箱中是否有包含驗證碼的信件。"
-    containerSize={460}
-  >
-    <ValidationForm />
-  </RecoveryBase>
-);
+const Validation: NextPageWithControl = () => <ValidationForm />;
+
+Validation.control = {
+  Layout: (props) => (
+    <RecoveryBase
+      title="請輸入驗證碼"
+      subTitle="請查看你的電子郵件信箱中是否有包含驗證碼的信件。"
+      containerSize={460}
+    >
+      {props.children}
+    </RecoveryBase>
+  ),
+};
 
 export default Validation;
 

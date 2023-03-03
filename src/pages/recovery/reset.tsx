@@ -1,19 +1,24 @@
 import Route from '@config/routes';
 import { sanitizeIP } from '@utils';
+import { NextPageWithControl } from 'types';
+import type { GetServerSideProps } from 'next';
 import verifyRecoveryJWT from '@utils/jwt/recover';
-import type { NextPage, GetServerSideProps } from 'next';
 import ResetForm from '@components/pages/User/Recovery/Reset';
 import RecoveryBase from '@components/pages/User/Recovery/Base';
 
-const Reset: NextPage = () => (
-  <RecoveryBase
-    title="選擇新密碼"
-    subTitle="請設定長度至少 8 個字元的新密碼，強度才夠"
-    containerSize={460}
-  >
-    <ResetForm />
-  </RecoveryBase>
-);
+const Reset: NextPageWithControl = () => <ResetForm />;
+
+Reset.control = {
+  Layout: (props) => (
+    <RecoveryBase
+      title="選擇新密碼"
+      subTitle="請設定長度至少 8 個字元的新密碼，強度才夠"
+      containerSize={460}
+    >
+      {props.children}
+    </RecoveryBase>
+  ),
+};
 
 export default Reset;
 
