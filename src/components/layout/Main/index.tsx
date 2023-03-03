@@ -6,7 +6,7 @@ type Props = {
   children: ReactNode;
   title: string;
   description?: string;
-  withAvatar: boolean;
+  withAvatar?: boolean;
 };
 
 function MainLayout(props: Props) {
