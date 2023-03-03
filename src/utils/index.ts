@@ -24,6 +24,18 @@ function isObjectsEqual(obj1: { [key: string]: any }, obj2: { [key: string]: any
   return true;
 }
 
+function compareObjects(prevObj: { [key: string]: any }, currObj: { [key: string]: any }) {
+  return Object.keys(currObj).reduce((prev, curr) => {
+    const temp = { ...prev };
+    if (Object.hasOwnProperty.call(currObj, curr) && prevObj[curr] !== currObj[curr]) {
+      temp[curr] = currObj[curr];
+    } else {
+      temp[curr] = undefined;
+    }
+    return temp;
+  }, {} as { [key: string]: any });
+}
+
 function sanitizeIP(ip: string) {
   return ip.replace('::ffff:', '');
 }
@@ -32,4 +44,11 @@ function getRouteFromPathname(pathname: string) {
   return pathname.replace(/^\/([^/]*).*$/, '$1');
 }
 
-export { isObject, isEmptyObject, isObjectsEqual, sanitizeIP, getRouteFromPathname };
+export {
+  isObject,
+  isEmptyObject,
+  isObjectsEqual,
+  compareObjects,
+  sanitizeIP,
+  getRouteFromPathname,
+};
