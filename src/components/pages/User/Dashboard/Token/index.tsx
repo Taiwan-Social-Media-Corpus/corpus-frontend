@@ -19,7 +19,7 @@ function APITokenPage() {
   }
 
   return (
-    <Group>
+    <Group pb={180}>
       <RequestButton />
       <Table data={apiTokens} />
     </Group>
