@@ -10,14 +10,13 @@ import DashboardBase from '@components/pages/User/Dashboard/Base';
 
 const APIToken: NextPageWithControl<FallbackProps> = (props) => (
   <SWRConfig value={{ fallback: props.fallback }}>
-    <DashboardBase title="API Token">
-      <APITokenPage />
-    </DashboardBase>
+    <APITokenPage />
   </SWRConfig>
 );
 
 APIToken.control = {
   auth: true,
+  Layout: (props) => <DashboardBase title="API Token">{props.children}</DashboardBase>,
 };
 
 export default APIToken;
