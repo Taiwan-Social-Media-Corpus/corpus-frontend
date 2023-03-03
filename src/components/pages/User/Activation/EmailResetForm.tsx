@@ -3,15 +3,14 @@ import useForm from '@hooks/Form';
 import { User } from 'types/user';
 import { memo, useState } from 'react';
 import { useRouter } from 'next/router';
+import { closeAllModals } from '@mantine/modals';
 import { IconCircleCheck } from '@tabler/icons-react';
 import resetEmail from '@services/user/activation/email';
 import { Button, Text, Group, Stack, useMantineTheme } from '@mantine/core';
 
 type FieldValues = Pick<User, 'email'>;
-type Props = { handleClose: () => void };
 
-function EmailResetForm(props: Props) {
-  const { handleClose } = props;
+function EmailResetForm() {
   const router = useRouter();
   const theme = useMantineTheme();
   const color = theme.colors.blue[9];
@@ -40,7 +39,7 @@ function EmailResetForm(props: Props) {
 
       setSuccess(true);
 
-      const timeout = setTimeout(() => handleClose(), 1000);
+      const timeout = setTimeout(() => closeAllModals(), 1000);
       clearTimeout(timeout);
 
       return null;
@@ -82,7 +81,7 @@ function EmailResetForm(props: Props) {
             backgroundColor: '#ccc',
             color: 'black',
           }}
-          onClick={handleClose}
+          onClick={() => closeAllModals()}
         >
           取消
         </Button>

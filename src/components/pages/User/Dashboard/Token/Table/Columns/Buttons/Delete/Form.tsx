@@ -4,17 +4,17 @@ import { User } from 'types/user';
 import Route from '@config/routes';
 import { memo, useState } from 'react';
 import { useRouter } from 'next/router';
+import { closeAllModals } from '@mantine/modals';
 import { IconCircleCheck } from '@tabler/icons-react';
 import { useAPITokens } from '@services/user/apiToken/read';
 import deleteAPIToken from '@services/user/apiToken/delete';
 import { Group, Button, Stack, useMantineTheme, Text } from '@mantine/core';
 import { HelperButtonProps } from '../types';
 
-type Props = HelperButtonProps & { handleClose: () => void };
 type FieldValues = Pick<User, 'password'>;
 
-function DeleteForm(props: Props) {
-  const { apiToken, handleClose } = props;
+function DeleteForm(props: HelperButtonProps) {
+  const { apiToken } = props;
   const router = useRouter();
   const { mutate } = useAPITokens();
   const [success, setSuccess] = useState(false);
@@ -50,7 +50,7 @@ function DeleteForm(props: Props) {
       setSuccess(true);
       setTimeout(() => {
         router.replace(router.asPath);
-        handleClose();
+        closeAllModals();
       }, 1000);
       return null;
     },
@@ -74,7 +74,7 @@ function DeleteForm(props: Props) {
             backgroundColor: '#ccc',
             color: 'black',
           }}
-          onClick={handleClose}
+          onClick={() => closeAllModals()}
         >
           取消
         </Button>
