@@ -8,15 +8,6 @@ const useStyles = createStyles((theme) => ({
     zIndex: 1,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     boxShadow: theme.colorScheme === 'dark' ? 'none' : theme.shadows.sm,
-    paddingBottom: 80,
-
-    [`@media (min-width: ${420}px)`]: {
-      paddingBottom: 280,
-    },
-
-    [`@media (max-width: ${420}px)`]: {
-      paddingBottom: 380,
-    },
   },
 
   wrapper: {
