@@ -2,7 +2,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useDisclosure } from '@mantine/hooks';
 import { memo, useState, useMemo } from 'react';
-import Route, { createMenuLinks } from '@config/routes';
+import { createMenuLinks } from '@config/routes';
 import { Burger, Menu as MantineMenu } from '@mantine/core';
 import { MenuProps } from './types';
 import useStyles from './Menu.styles';
@@ -48,9 +48,14 @@ function Menu(props: MenuProps) {
   const userButton = useMemo(
     () =>
       hasSession ? (
-        <MantineMenu.Item component={Link} href={Route.dashboard.account}>
-          <UserButton firstName={firstName} lastName={lastName} fullName={fullName} email={email} />
-        </MantineMenu.Item>
+        <UserButton
+          firstName={firstName}
+          lastName={lastName}
+          fullName={fullName}
+          email={email}
+          p={10}
+          shouldCollapse
+        />
       ) : null,
     [hasSession]
   );
