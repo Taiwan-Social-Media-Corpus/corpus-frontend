@@ -35,7 +35,7 @@ function MobileAccountPage(props: AccountPageProps) {
   return (
     <Group grow sx={{ width: '90%' }}>
       <Tabs
-        value={router.query.tab as string}
+        value={(router.query.tab as string) || 'general'}
         onTabChange={(value) =>
           router.push({ pathname: Route.dashboard.account, query: { tab: value } })
         }
