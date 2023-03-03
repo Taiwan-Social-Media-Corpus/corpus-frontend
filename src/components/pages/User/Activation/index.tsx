@@ -2,10 +2,10 @@ import { memo } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useUser } from '@contexts/User';
+import { openModal } from '@mantine/modals';
 import { Anchor, Title } from '@mantine/core';
 import AlertAction from '@contexts/Alert/actions';
 import PinContainer from '@components/common/ui/Pin';
-import { openModal, closeAllModals } from '@mantine/modals';
 import activateUser from '@services/user/activation/activate';
 import { combineToString } from '@components/common/ui/Form/components/utils/pin';
 import { handleResendCode, handleErrorCode } from './utils';
@@ -31,7 +31,7 @@ function ActivationForm() {
                 title: <Title order={2}>更改 Email 地址</Title>,
                 zIndex: 9999,
                 overlayOpacity: 0.55,
-                children: <EmailResetForm handleClose={closeAllModals} />,
+                children: <EmailResetForm />,
               })
             }
           >

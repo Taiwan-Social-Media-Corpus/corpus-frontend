@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import dynamic from 'next/dynamic';
 import { ActionIcon } from '@mantine/core';
+import { openModal } from '@mantine/modals';
 import { IconTrash } from '@tabler/icons-react';
-import { openModal, closeAllModals } from '@mantine/modals';
 import { HelperButtonProps } from '../types';
 
 const DeleteForm = dynamic(() => import('./Form'));
@@ -17,7 +17,7 @@ function DeleteButton(props: HelperButtonProps) {
           title: 'Delete API token',
           zIndex: 99999,
           overlayOpacity: 0.55,
-          children: <DeleteForm apiToken={props.apiToken} handleClose={closeAllModals} />,
+          children: <DeleteForm apiToken={props.apiToken} />,
         })
       }
     >
