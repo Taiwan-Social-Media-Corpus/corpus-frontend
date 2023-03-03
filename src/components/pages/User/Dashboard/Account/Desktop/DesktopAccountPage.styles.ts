@@ -8,7 +8,7 @@ const fadeId = keyframes({
 const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boolean }) => ({
   root: {
     paddingTop: 20,
-    paddingBottom: 400,
+    paddingBottom: 120,
 
     [theme.fn.smallerThan('sm')]: {
       paddingBottom: 60,
