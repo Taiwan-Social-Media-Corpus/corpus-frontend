@@ -1,8 +1,8 @@
 import Route from '@config/routes';
-import { memo, ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import layoutConfig from '@config/layout';
 import { useMediaQuery } from '@mantine/hooks';
+import { memo, useMemo, ReactNode } from 'react';
 import Navbar from './Navbar';
 import Header from './Header';
 import useStyles from './NavigationLayout.styles';
@@ -15,8 +15,9 @@ function shouldIncludeNavbar(path: string) {
 function NavigationLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const { classes, cx } = useStyles();
-  const navbarCollapsed = useMediaQuery(`(max-width: ${layoutConfig.navbar.breakpoint}px)`);
-  const shouldRenderNavbar = shouldIncludeNavbar(router.pathname) || navbarCollapsed;
+  const navbarCollapsed = useMediaQuery(`(min-width: ${layoutConfig.navbar.breakpoint}px)`);
+  const shouldRenderNavbar = shouldIncludeNavbar(router.pathname) && navbarCollapsed;
+  const navbar = useMemo(() => (shouldRenderNavbar ? <Navbar /> : null), [shouldRenderNavbar]);
 
   return (
     <div
@@ -25,7 +26,7 @@ function NavigationLayout({ children }: { children: ReactNode }) {
       })}
     >
       <Header />
-      {shouldRenderNavbar ? <Navbar /> : null}
+      {navbar}
       <main className={classes.main}>
         <div className={classes.content}>{children}</div>
       </main>
