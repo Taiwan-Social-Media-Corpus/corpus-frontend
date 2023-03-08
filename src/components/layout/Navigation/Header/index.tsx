@@ -2,6 +2,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useUser } from '@contexts/User';
+import layoutConfig from '@config/layout';
 import corePackageJson from 'package.json';
 import { useSpotlight } from '@mantine/spotlight';
 import { createHeaderLinks } from '@config/routes';
@@ -40,10 +41,7 @@ function Header() {
           </Group>
         </Link>
 
-        <Link
-          href="https://github.com/Taiwan-Social-Media-Corpus/corpus-backend"
-          className={classes.version}
-        >
+        <Link href={layoutConfig.github.organization} className={classes.version}>
           <Code>v {corePackageJson.version}</Code>
         </Link>
       </Group>
