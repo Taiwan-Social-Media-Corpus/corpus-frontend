@@ -24,7 +24,7 @@ function NestedItems(props: Props) {
   );
 
   return (
-    <Menu key={link.label} trigger="hover" exitTransitionDuration={0}>
+    <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }}>
       <Menu.Target>
         <Link href={link.link} className={classes.link} prefetch>
           <Center>
