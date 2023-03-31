@@ -9,7 +9,7 @@ const withSwitch = (Component: NextPageWithControl) => {
     const { user } = useUser();
     const { pathname, asPath } = useRouter();
     const isAuth = Component.control?.auth;
-    const { uid: hasSession, enabled } = user.data;
+    const { uid: hasSession, activated } = user.data;
     const query = new URLSearchParams(asPath.split('?')?.[1]);
     const nextUrl = query.get('next');
 
@@ -21,7 +21,7 @@ const withSwitch = (Component: NextPageWithControl) => {
       return <Component {...props} />;
     }
 
-    if (!enabled) {
+    if (!activated) {
       const permittedRoutes: string[] = [Route.home, Route.logout, Route.activation];
       const noNeedToRedirects: string[] = [
         Route.login,

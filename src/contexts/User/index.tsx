@@ -29,7 +29,7 @@ const UserProvider = ({ children }: ContextProviderProps) => {
       return dispatch({ type: Action.FETCH_SUCCESS });
     }
 
-    const { uid, email, firstName, lastName, enabled } = data;
+    const { uid, email, firstName, lastName, activated } = data;
 
     return dispatch({
       type: Action.FETCH_SUCCESS,
@@ -39,7 +39,7 @@ const UserProvider = ({ children }: ContextProviderProps) => {
         firstName,
         lastName,
         fullName: getFullName(firstName, lastName),
-        enabled,
+        activated,
       },
     });
   }, [isLoading]);

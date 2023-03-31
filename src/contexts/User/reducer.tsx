@@ -5,7 +5,7 @@ import { InitialState, ActionType } from './types';
 const initialState: InitialState = {
   pending: true,
   error: '',
-  data: { uid: '', enabled: false },
+  data: { uid: '', activated: false },
 };
 
 const reducer = (state: InitialState, action: ActionType) => {

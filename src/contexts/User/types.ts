@@ -3,7 +3,7 @@ import { User } from 'types/user';
 import { KeyedMutator } from 'swr';
 import { Action } from './actions';
 
-type ResData = Pick<User, 'uid' | 'email' | 'firstName' | 'lastName' | 'enabled'>;
+type ResData = Pick<User, 'uid' | 'email' | 'firstName' | 'lastName' | 'activated'>;
 
 export type UserData = Optional<ResData, 'email' | 'firstName' | 'lastName'> & {
   fullName?: string;

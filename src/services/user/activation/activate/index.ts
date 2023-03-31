@@ -5,7 +5,7 @@ import request from '@utils/request';
 
 type PayloadType = { code: string };
 
-type ResData = Pick<User, 'uid' | 'enabled'> & {
+type ResData = Pick<User, 'uid' | 'activated'> & {
   errorCount: number;
   resendCount: number;
 };

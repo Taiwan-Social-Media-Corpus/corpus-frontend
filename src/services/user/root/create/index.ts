@@ -3,7 +3,7 @@ import { User } from 'types/user';
 import request from '@utils/request';
 import { Response, Optional } from 'types';
 
-type PayloadType = Omit<User, 'uid' | 'enabled'>;
+type PayloadType = Omit<User, 'uid' | 'activated'>;
 type ResponseType = Response<Optional<User, 'email'>> | null;
 
 const createUser = async (payload: PayloadType): Promise<[ResponseType, any]> => {
