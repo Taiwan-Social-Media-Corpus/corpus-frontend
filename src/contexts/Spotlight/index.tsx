@@ -1,3 +1,4 @@
+import { rem } from '@mantine/core';
 import { useRouter } from 'next/router';
 import { memo, ReactNode } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
@@ -23,14 +24,17 @@ function SpotlightProvider(props: Props) {
       searchPlaceholder="Search posts"
       shortcut={['mod + K']}
       highlightQuery
-      transition={{
-        in: { transform: 'translateY(0)', opacity: 1 },
-        out: { transform: 'translateY(-20px)', opacity: 0 },
-        transitionProperty: 'transform, opacity',
+      transitionProps={{
+        duration: 150,
+        transition: {
+          in: { transform: 'translateY(0)', opacity: 1 },
+          out: { transform: `translateY(-${rem(20)})`, opacity: 0 },
+          transitionProperty: 'transform, opacity',
+        },
       }}
       limit={4}
       nothingFoundMessage="Nothing found..."
-      maxWidth={smallScreen ? 350 : 600}
+      style={{ maxWidth: smallScreen ? rem(350) : rem(600) }}
     >
       {children}
     </MantineSpotlightProvider>
