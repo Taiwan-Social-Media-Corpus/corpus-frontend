@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import NextImage from 'next/image';
 import { MDXComponents } from 'types/mdx';
-import { Text, Code } from '@mantine/core';
+import { Text, Code, rem } from '@mantine/core';
 import Pre from './Pre';
 import Image from './Image';
 import Table from './Table';
@@ -29,13 +29,13 @@ const components: MDXComponents = {
     return <p {...props} style={{ lineHeight: 1.55 }} />;
   },
   ul: (props: any) => (
-    <ul {...props} style={{ lineHeight: 1.65, marginBottom: 20, marginTop: 10 }} />
+    <ul {...props} style={{ lineHeight: 1.65, marginBottom: rem(20), marginTop: rem(10) }} />
   ),
-  li: (props: any) => <li {...props} style={{ marginTop: 4 }} />,
+  li: (props: any) => <li {...props} style={{ marginTop: rem(4) }} />,
   a: (props: any) => {
     const isHTTP: string = props.href.startsWith('http') && !props.href.startsWith('/');
     const newTabProps = isHTTP ? { target: '_blank', rel: 'noopener noreferrer' } : undefined;
-    const style = { fontSize: 15 };
+    const style = { fontSize: rem(15) };
     return (
       <Text style={style} component="a" variant="link" href={props.href} {...newTabProps}>
         {props.children}

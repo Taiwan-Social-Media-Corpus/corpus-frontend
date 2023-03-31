@@ -1,13 +1,13 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, getStylesRef, rem } from '@mantine/core';
 
-const useStyles = createStyles((theme, _params, getRef) => {
-  const icon = getRef('icon');
+const useStyles = createStyles((theme) => {
+  const icon = getStylesRef('icon');
 
   return {
     footer: {
-      paddingTop: theme.spacing.md,
+      paddingTop: rem(theme.spacing.md),
       marginTop: theme.spacing.md,
-      borderTop: `1px solid ${
+      borderTop: `${rem(1)} solid ${
         theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
       }`,
     },
@@ -19,7 +19,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
       textDecoration: 'none',
       fontSize: theme.fontSizes.sm,
       color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7],
-      padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
+      padding: `${rem(theme.spacing.xs)} ${rem(theme.spacing.sm)}`,
       borderRadius: theme.radius.sm,
       fontWeight: 500,
 

@@ -7,7 +7,7 @@ import { useMediaQuery } from '@mantine/hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
 import FormController from '@components/common/ui/Form';
 import { useForm, FormProvider } from 'react-hook-form';
-import { Paper, Button, Grid, Group } from '@mantine/core';
+import { rem, Paper, Button, Grid, Group } from '@mantine/core';
 import SelectItem from '@components/common/ui/Form/components/utils/select';
 import { FieldValues } from './types';
 import validationSchema from './schema';
@@ -70,7 +70,7 @@ function CorpusForm(props: Props) {
               <FormController control="text-input" name="word" label="Word" withAsterisk />
             </Grid.Col>
 
-            <Grid.Col xs={4} sm={4} md={4} lg={4} mt={smallScreen ? -5 : 28}>
+            <Grid.Col xs={4} sm={4} md={4} lg={4} mt={smallScreen ? rem(-5) : rem(28)}>
               <FormController
                 control="switch"
                 name="cqlEnable"

@@ -3,7 +3,7 @@ import { MdxLayoutProps } from 'types/mdx';
 import { IconList } from '@tabler/icons-react';
 import { useWindowScroll } from '@mantine/hooks';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Text, ScrollArea, useMantineTheme } from '@mantine/core';
+import { rem, Text, ScrollArea, useMantineTheme } from '@mantine/core';
 import getActiveElement from './utils';
 import useStyles from './TableOfContents.styles';
 
@@ -57,7 +57,7 @@ function TableOfContents(props: TableOfContentsProps) {
             size="sm"
             className={cx(classes.link, { [classes.linkActive]: active === index })}
             href={`#${slug}`}
-            sx={{ paddingLeft: (heading.depth - 1) * theme.spacing.lg }}
+            sx={{ paddingLeft: `calc(${heading.depth - 1} * ${theme.spacing.lg})` }}
             onClick={async (event) => {
               event.preventDefault();
               document.querySelector(`#${CSS.escape(slug)}`)?.scrollIntoView({
@@ -82,7 +82,7 @@ function TableOfContents(props: TableOfContentsProps) {
             <IconList size={20} stroke={1.5} />
             <Text className={classes.title}>Table of contents</Text>
           </div>
-          <ScrollArea.Autosize maxHeight="calc(100vh - 140px)" type="scroll" offsetScrollbars>
+          <ScrollArea.Autosize mah={`calc(100vh - ${rem(140)})`} type="scroll" offsetScrollbars>
             <div className={classes.items}>{items}</div>
           </ScrollArea.Autosize>
         </div>

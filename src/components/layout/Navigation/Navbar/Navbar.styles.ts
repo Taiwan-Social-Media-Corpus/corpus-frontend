@@ -1,14 +1,14 @@
 import layoutConfig from '@config/layout';
-import { createStyles } from '@mantine/core';
+import { createStyles, getStylesRef, rem } from '@mantine/core';
 
-const useStyles = createStyles((theme, _params, getRef) => {
-  const icon = getRef('icon');
+const useStyles = createStyles((theme) => {
+  const icon = getStylesRef('icon');
 
   return {
     navbar: {
       boxSizing: 'border-box',
       height: '100vh',
-      borderRight: `1px solid ${
+      borderRight: `${rem(1)} solid ${
         theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[2]
       }`,
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
@@ -19,7 +19,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
       left: 0,
       width: layoutConfig.navbar.width,
 
-      [`@media (max-width: ${layoutConfig.navbar.breakpoint}px)`]: {
+      [`@media (max-width: ${rem(layoutConfig.navbar.breakpoint)})`]: {
         display: 'none',
       },
     },
@@ -27,20 +27,20 @@ const useStyles = createStyles((theme, _params, getRef) => {
     userSection: {
       paddingRight: theme.spacing.md,
       paddingLeft: theme.spacing.md,
-      paddingTop: layoutConfig.header.height + theme.spacing.md,
+      paddingTop: `calc(${rem(layoutConfig.header.height)} + ${theme.spacing.md})`,
 
-      [`@media (max-width: ${layoutConfig.navbar.breakpoint}px)`]: {
+      [`@media (max-width: ${rem(layoutConfig.navbar.breakpoint)})`]: {
         paddingBottom: 120,
       },
     },
 
     section: {
       paddingRight: theme.spacing.md,
-      paddingBottom: theme.spacing.xs * 2,
+      paddingBottom: `calc(${theme.spacing.xs} * 2)`,
       paddingLeft: theme.spacing.md,
       paddingTop: theme.spacing.md,
 
-      [`@media (max-width: ${layoutConfig.navbar.breakpoint}px)`]: {
+      [`@media (max-width: ${rem(layoutConfig.navbar.breakpoint)})`]: {
         paddingBottom: 120,
       },
     },
@@ -48,7 +48,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
     footer: {
       paddingTop: theme.spacing.md,
       marginTop: theme.spacing.md,
-      borderTop: `1px solid ${
+      borderTop: `${rem(1)} solid ${
         theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
       }`,
     },
@@ -60,7 +60,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
       textDecoration: 'none',
       fontSize: theme.fontSizes.sm,
       color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7],
-      padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
+      padding: `${rem(theme.spacing.xs)} ${rem(theme.spacing.sm)}`,
       borderRadius: theme.radius.sm,
       fontWeight: 500,
 

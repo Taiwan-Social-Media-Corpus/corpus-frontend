@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   control: {
@@ -6,17 +6,17 @@ const useStyles = createStyles((theme) => ({
     width: '100%',
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
     fontSize: theme.fontSizes.sm,
-    paddingLeft: 2,
+    paddingLeft: rem(2),
   },
 
   link: {
     display: 'block',
     textDecoration: 'none',
-    paddingLeft: 20,
-    marginLeft: 10,
+    paddingLeft: rem(20),
+    marginLeft: rem(10),
     fontSize: theme.fontSizes.xs,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
-    borderLeft: `1px solid ${
+    borderLeft: `${rem(1)} solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
     }`,
 

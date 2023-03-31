@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   user: {
@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
   link: {
     display: 'block',
     textDecoration: 'none',
-    marginLeft: 10,
+    marginLeft: rem(10),
     fontSize: theme.fontSizes.xs,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
 

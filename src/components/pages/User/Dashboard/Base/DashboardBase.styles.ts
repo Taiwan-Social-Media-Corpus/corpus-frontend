@@ -1,9 +1,9 @@
 import layoutConfig from '@config/layout';
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   content: {
-    minHeight: 'calc(100vh - 350px)',
+    minHeight: `calc(100vh - ${rem(350)})`,
     position: 'relative',
     zIndex: 1,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
@@ -16,10 +16,10 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     position: 'relative',
     justifyContent: 'space-between',
-    paddingLeft: theme.spacing.xl * 2,
-    paddingRight: theme.spacing.xl * 2,
+    paddingLeft: `calc(${theme.spacing.xl} * 2)`,
+    paddingRight: `calc(${theme.spacing.xl} * 2`,
 
-    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
+    [`@media (max-width: ${rem(layoutConfig.mdx.breakpoint)})`]: {
       paddingLeft: theme.spacing.xs,
       paddingRight: theme.spacing.xs,
     },
@@ -28,18 +28,18 @@ const useStyles = createStyles((theme) => ({
   container: {
     marginTop: theme.spacing.xl,
     width: '100%',
-    maxWidth: layoutConfig.mdx.contentWidth + layoutConfig.mdx.tableOfContentsWidth,
+    maxWidth: rem(layoutConfig.mdx.contentWidth + layoutConfig.mdx.tableOfContentsWidth),
     marginLeft: theme.spacing.xl,
     marginRight: 'auto',
 
-    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
+    [`@media (max-width: ${rem(layoutConfig.mdx.breakpoint)})`]: {
       width: '100%',
       paddingRight: 0,
     },
   },
 
   title: {
-    marginTop: theme.spacing.xl * 1.2,
+    marginTop: `calc(${theme.spacing.xl} * 1.2)`,
     marginBottom: theme.spacing.md,
     wordBreak: 'break-word',
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,

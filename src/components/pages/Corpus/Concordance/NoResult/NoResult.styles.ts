@@ -1,13 +1,13 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   root: {
-    paddingTop: 60,
-    paddingBottom: 60,
+    paddingTop: rem(60),
+    paddingBottom: rem(60),
 
     [theme.fn.smallerThan('sm')]: {
-      paddingTop: 20,
-      paddingBottom: 40,
+      paddingTop: rem(20),
+      paddingBottom: rem(40),
     },
   },
 
@@ -18,19 +18,20 @@ const useStyles = createStyles((theme) => ({
   },
 
   image: {
-    width: 200,
-    height: 200,
+    width: rem(200),
+    height: rem(200),
+
     [theme.fn.smallerThan('sm')]: {
-      width: 100,
-      height: 100,
+      width: rem(100),
+      height: rem(100),
     },
   },
 
   description: {
-    maxWidth: 500,
+    maxWidth: rem(500),
     margin: 'auto',
     marginTop: theme.spacing.xl,
-    marginBottom: theme.spacing.xl * 1.5,
+    marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
   },
 }));
 

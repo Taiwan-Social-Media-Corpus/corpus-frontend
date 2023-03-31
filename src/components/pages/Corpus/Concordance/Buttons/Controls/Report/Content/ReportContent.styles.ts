@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 export const ICON_SIZE = 60;
 
@@ -7,13 +7,13 @@ const useStyles = createStyles((theme) => ({
     position: 'relative',
     overflow: 'visible',
     padding: theme.spacing.lg,
-    paddingTop: theme.spacing.xl * 1.5 + ICON_SIZE / 3,
+    paddingTop: `calc(${theme.spacing.xl} * 1.5 + ${ICON_SIZE} / 3)`,
   },
 
   icon: {
     position: 'absolute',
     top: -ICON_SIZE / 3,
-    left: `calc(50% - ${ICON_SIZE / 2}px)`,
+    left: `calc(50% - ${rem(ICON_SIZE / 2)})`,
   },
 
   title: {

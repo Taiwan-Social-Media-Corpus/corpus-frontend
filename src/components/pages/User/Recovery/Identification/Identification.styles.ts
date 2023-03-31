@@ -1,11 +1,12 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   controls: {
-    marginTop: 30,
+    marginTop: rem(30),
+
     [theme.fn.smallerThan('xs')]: {
       flexDirection: 'column-reverse',
-      marginTop: 32,
+      marginTop: rem(32),
     },
   },
   control: {

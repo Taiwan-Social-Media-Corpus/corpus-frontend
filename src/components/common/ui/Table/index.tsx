@@ -1,4 +1,5 @@
 import {
+  rem,
   ScrollArea,
   ScrollAreaProps,
   Table as MantineTable,
@@ -97,7 +98,7 @@ function Table<T extends RowData>(props: Props<T>) {
       <ScrollArea
         viewportRef={tableContainerRef}
         type="scroll"
-        style={{ height: height ?? 550 }}
+        style={{ height: rem(height ?? 550) }}
         onScrollPositionChange={({ x }) => setScrolled(x !== 0)}
         {...scrollAreaProps}
       >

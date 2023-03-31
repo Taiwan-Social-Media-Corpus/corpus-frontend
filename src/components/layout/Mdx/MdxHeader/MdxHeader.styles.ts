@@ -1,40 +1,40 @@
 import layoutConfig from '@config/layout';
-import { createStyles } from '@mantine/core';
+import { createStyles, rem, em } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   header: {
-    paddingTop: 50,
-    maxWidth: 1082,
+    paddingTop: rem(50),
+    maxWidth: rem(1082),
     marginLeft: 'auto',
     marginRight: 'auto',
 
-    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
+    [`@media (max-width: ${em(layoutConfig.mdx.breakpoint)})`]: {
       maxWidth: '100%',
       paddingRight: 0,
     },
   },
 
   title: {
-    fontSize: 44,
-    marginBottom: theme.spacing.xs / 2,
+    fontSize: rem(44),
+    marginBottom: `calc(${theme.spacing.xs} / 2)`,
     fontWeight: 900,
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     display: 'flex',
     alignItems: 'center',
     gap: theme.spacing.xl,
 
-    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
-      fontSize: 32,
+    [`@media (max-width: ${em(layoutConfig.mdx.breakpoint)})`]: {
+      fontSize: rem(32),
       lineHeight: 1.2,
     },
   },
 
   description: {
-    maxWidth: 450,
+    maxWidth: rem(450),
     color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[6],
     marginBottom: theme.spacing.xl,
 
-    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
+    [`@media (max-width: ${em(layoutConfig.mdx.breakpoint)})`]: {
       fontSize: theme.fontSizes.md,
     },
   },

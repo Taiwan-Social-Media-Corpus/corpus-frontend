@@ -1,5 +1,5 @@
 import layoutConfig from '@config/layout';
-import { createStyles } from '@mantine/core';
+import { createStyles, rem, em } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   container: {
@@ -8,10 +8,10 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     position: 'relative',
     justifyContent: 'space-between',
-    paddingLeft: theme.spacing.xl * 2,
-    paddingRight: theme.spacing.xl * 2,
+    paddingLeft: `calc(${theme.spacing.xl} * 2)`,
+    paddingRight: `calc(${theme.spacing.xl} * 2`,
 
-    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
+    [`@media (max-width: ${em(layoutConfig.mdx.breakpoint)})`]: {
       paddingLeft: theme.spacing.xl,
       paddingRight: theme.spacing.xl,
     },
@@ -20,29 +20,29 @@ const useStyles = createStyles((theme) => ({
   content: {
     marginTop: theme.spacing.xl,
     width: '100%',
-    maxWidth: layoutConfig.mdx.contentWidth + layoutConfig.mdx.tableOfContentsWidth,
+    maxWidth: rem(layoutConfig.mdx.contentWidth + layoutConfig.mdx.tableOfContentsWidth),
     marginLeft: 'auto',
     marginRight: 'auto',
 
-    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
+    [`@media (max-width: ${em(layoutConfig.mdx.breakpoint)})`]: {
       width: '100%',
       paddingRight: 0,
     },
   },
 
   wrapper: {
-    minHeight: 'calc(100vh - 350px)',
+    minHeight: `calc(100vh - ${rem(350)}})`,
     position: 'relative',
     zIndex: 1,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     boxShadow: theme.colorScheme === 'dark' ? 'none' : theme.shadows.sm,
-    paddingBottom: 80,
+    paddingBottom: rem(80),
   },
 
   tableOfContents: {
-    flex: `0 0 ${layoutConfig.mdx.tableOfContentsWidth}px`,
+    flex: `0 0 ${rem(layoutConfig.mdx.tableOfContentsWidth)}`,
 
-    [`@media (max-width: ${layoutConfig.mdx.breakpoint}px)`]: {
+    [`@media (max-width: ${em(layoutConfig.mdx.breakpoint)})`]: {
       display: 'none',
     },
   },

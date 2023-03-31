@@ -1,20 +1,20 @@
-import { createStyles, keyframes } from '@mantine/core';
+import { createStyles, keyframes, rem } from '@mantine/core';
 
 const fadeId = keyframes({
-  from: { opacity: 0, transform: 'translateY(-20px) scale(0.95) skewX(-2deg)' },
+  from: { opacity: 0, transform: `translateY(-${rem(20)}) scale(0.95) skewX(-2deg)` },
   to: { opacity: 1, transform: 'translateY(0) scale(1) rotate(0)' },
 });
 
 const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boolean }) => ({
   root: {
-    paddingTop: 20,
-    paddingBottom: 120,
+    paddingTop: rem(20),
+    paddingBottom: rem(120),
 
     [theme.fn.smallerThan('sm')]: {
-      paddingBottom: 60,
+      paddingBottom: rem(60),
     },
 
-    '@media (max-width: 991px)': {
+    [`@media (max-width: ${rem(991)})`]: {
       display: 'none',
     },
   },
@@ -29,7 +29,7 @@ const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boole
     left: 0,
     right: 0,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
-    border: `1px solid ${
+    border: `${rem(1)} solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
     }`,
     boxShadow: theme.shadows.md,
@@ -88,7 +88,7 @@ const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boole
   },
 
   block: {
-    paddingLeft: theme.spacing.xl * 2,
+    paddingLeft: `calc(${theme.spacing.xl} * 2)`,
     animation: shouldAnimate ? `${fadeId} 100ms ease` : 'none',
 
     [theme.fn.smallerThan('md')]: {

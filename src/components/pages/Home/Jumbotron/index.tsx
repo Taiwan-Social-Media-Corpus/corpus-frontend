@@ -3,7 +3,7 @@ import CountUp from 'react-countup';
 import layoutConfig from '@config/layout';
 import { Media, CorpusStats } from 'types/corpus';
 import IconController from '@components/common/ui/Icons';
-import { Container, Group, Button, Text, useMantineTheme, SimpleGrid } from '@mantine/core';
+import { rem, Container, Group, Button, Text, useMantineTheme, SimpleGrid } from '@mantine/core';
 import useStyles from './Jumbotron.styles';
 
 type Props = { media: Media; corpusStats: CorpusStats };
@@ -53,7 +53,7 @@ function Jumbotron(props: Props) {
         </Text>
         <SimpleGrid
           cols={3}
-          sx={{ maxWidth: 800 }}
+          sx={{ maxWidth: rem(800) }}
           spacing={30}
           mt={40}
           breakpoints={[{ maxWidth: 800, cols: 1 }]}
@@ -82,7 +82,7 @@ function Jumbotron(props: Props) {
             className={cx(classes.control, classes.githubControl)}
             color={theme.colorScheme === 'dark' ? 'gray' : 'dark'}
             leftIcon={<IconController control="github" size={22} />}
-            styles={{ leftIcon: { marginRight: 12 } }}
+            styles={{ leftIcon: { marginRight: rem(12) } }}
           >
             GitHub
           </Button>

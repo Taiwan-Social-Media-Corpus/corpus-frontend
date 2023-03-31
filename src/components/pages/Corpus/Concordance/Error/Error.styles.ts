@@ -1,23 +1,24 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   root: {
-    paddingTop: 80,
-    paddingBottom: 80,
+    paddingTop: rem(80),
+    paddingBottom: rem(80),
+
     [theme.fn.smallerThan('sm')]: {
-      paddingTop: 20,
-      paddingBottom: 40,
+      paddingTop: rem(20),
+      paddingBottom: rem(40),
     },
   },
 
   title: {
     fontWeight: 900,
-    fontSize: 34,
+    fontSize: rem(34),
     marginBottom: theme.spacing.md,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 
     [theme.fn.smallerThan('sm')]: {
-      fontSize: 32,
+      fontSize: rem(32),
     },
   },
 

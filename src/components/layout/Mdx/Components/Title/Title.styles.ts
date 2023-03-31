@@ -1,8 +1,8 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   title: {
-    marginTop: theme.spacing.xl * 1.2,
+    marginTop: `calc(${theme.spacing.xl} * 1.2)`,
     marginBottom: theme.spacing.md,
     wordBreak: 'break-word',
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
@@ -17,7 +17,7 @@ const useStyles = createStyles((theme) => ({
 
   offset: {
     position: 'relative',
-    top: -62,
+    top: rem(-62),
   },
 }));
 
