@@ -22,7 +22,13 @@ const withSwitch = (Component: NextPageWithControl) => {
     }
 
     if (!activated) {
-      const permittedRoutes: string[] = [Route.home, Route.logout, Route.activation];
+      const permittedRoutes: string[] = [
+        Route.home,
+        Route.logout,
+        Route.activation,
+        Route.corpus.root,
+        Route.corpus.concordance,
+      ];
       const noNeedToRedirects: string[] = [
         Route.login,
         Route.signUp,
