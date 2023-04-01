@@ -3,8 +3,8 @@ import { createStyles, rem } from '@mantine/core';
 const useStyles = createStyles((theme) => ({
   wrapper: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
-    paddingTop: rem(90),
-    height: '96vh',
+    paddingTop: rem(150),
+    height: '100vh',
   },
 
   title: {
