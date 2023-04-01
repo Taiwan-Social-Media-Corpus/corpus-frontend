@@ -23,7 +23,7 @@ function Identification() {
     schema: z.object({
       email: z.string().min(1, '請填寫欄位以搜尋你的帳號！').email('請確認 email 格式'),
     }),
-    onSubmit: async (data) => {
+    onSubmit: async (data): Promise<any> => {
       const { email } = data;
       const [result, error] = await identify({ email });
 

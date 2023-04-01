@@ -34,7 +34,7 @@ function DeleteForm(props: HelperButtonProps) {
         withAsterisk: true,
       },
     },
-    onSubmit: async (data) => {
+    onSubmit: async (data): Promise<any> => {
       const { password } = data;
       const [result, error] = await deleteAPIToken({ apiToken, password });
 

@@ -35,7 +35,7 @@ function Validation(props: Props) {
         withAsterisk: true,
       },
     },
-    onSubmit: async (data) => {
+    onSubmit: async (data): Promise<any> => {
       const [result, error] = await update({ ...payload, ...data });
 
       if (result == null || error) {

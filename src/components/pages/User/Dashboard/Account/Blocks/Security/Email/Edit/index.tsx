@@ -31,7 +31,7 @@ function Edit(props: Props) {
         withAsterisk: true,
       },
     },
-    onSubmit: async (data) => {
+    onSubmit: async (data): Promise<any> => {
       const { email, password } = data;
       const { setError, reset } = methods;
       const [result, error] = await identify({ email, password });

@@ -48,7 +48,7 @@ function Password() {
         label: '確認新密碼',
       },
     },
-    onSubmit: async (data) => {
+    onSubmit: async (data): Promise<any> => {
       const { oldPassword, newPassword } = data;
       const [result, error] = await resetPassword({ oldPassword, newPassword });
 

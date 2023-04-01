@@ -18,7 +18,7 @@ function EmailResetForm() {
 
   const [Form, methods] = useForm<FieldValues>({
     defaultValues: { email: '' },
-    onSubmit: async (data) => {
+    onSubmit: async (data): Promise<any> => {
       const { email } = data;
       const [result, error] = await resetEmail({ email });
 
