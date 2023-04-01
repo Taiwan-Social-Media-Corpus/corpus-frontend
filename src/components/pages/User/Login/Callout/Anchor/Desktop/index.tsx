@@ -15,7 +15,10 @@ function AnchorDesktop() {
         openModal({
           title: 'Sign up',
           zIndex: 99999,
-          overlayOpacity: 0.55,
+          overlayProps: {
+            opacity: 0.55,
+            blur: 3,
+          },
           children: (
             <Paper
               p={0}

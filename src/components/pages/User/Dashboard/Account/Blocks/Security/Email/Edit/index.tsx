@@ -70,7 +70,10 @@ function Edit(props: Props) {
           </>
         ),
         zIndex: 9999,
-        overlayOpacity: 0.55,
+        overlayProps: {
+          opacity: 0.55,
+          blur: 3,
+        },
         children: <Validation handleCloseModal={closeAllModals} />,
         onClose: () => {
           setModify(false);

@@ -16,7 +16,10 @@ function RequestButton() {
         openModal({
           title: 'Apply for an API token',
           zIndex: 99999,
-          overlayOpacity: 0.55,
+          overlayProps: {
+            opacity: 0.55,
+            blur: 3,
+          },
           children: <RequestForm />,
         })
       }

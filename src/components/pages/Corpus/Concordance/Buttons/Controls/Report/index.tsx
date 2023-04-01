@@ -17,7 +17,10 @@ function SearchReport(props: Props) {
       onClick={() =>
         openModal({
           zIndex: 9999,
-          overlayOpacity: 0.55,
+          overlayProps: {
+            opacity: 0.55,
+            blur: 3,
+          },
           children: <ReportContent numberofHits={numberofHits} />,
         })
       }

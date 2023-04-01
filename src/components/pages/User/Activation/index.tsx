@@ -30,7 +30,10 @@ function ActivationForm() {
               openModal({
                 title: <Title order={2}>更改 Email 地址</Title>,
                 zIndex: 9999,
-                overlayOpacity: 0.55,
+                overlayProps: {
+                  opacity: 0.55,
+                  blur: 3,
+                },
                 children: <EmailResetForm />,
               })
             }

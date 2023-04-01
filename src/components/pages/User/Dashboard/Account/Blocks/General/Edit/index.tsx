@@ -57,7 +57,10 @@ function Edit(props: Props) {
       openModal({
         title: '請輸入密碼來完成修改',
         zIndex: 99999,
-        overlayOpacity: 0.55,
+        overlayProps: {
+          opacity: 0.55,
+          blur: 3,
+        },
         children: <Validation payload={payload} />,
       });
       return null;

@@ -16,7 +16,10 @@ function DeleteButton(props: HelperButtonProps) {
         openModal({
           title: 'Delete API token',
           zIndex: 99999,
-          overlayOpacity: 0.55,
+          overlayProps: {
+            opacity: 0.55,
+            blur: 3,
+          },
           children: <DeleteForm apiToken={props.apiToken} />,
         })
       }
