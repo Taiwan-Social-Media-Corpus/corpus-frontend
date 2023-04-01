@@ -4,7 +4,7 @@ const useStyles = createStyles((theme) => ({
   root: {
     paddingTop: rem(180),
     paddingBottom: rem(80),
-    height: '96.5vh',
+    height: '100vh',
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
 
     [theme.fn.smallerThan('sm')]: {

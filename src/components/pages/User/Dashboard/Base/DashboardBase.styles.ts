@@ -3,6 +3,7 @@ import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   content: {
+    paddingTop: rem(80),
     minHeight: `calc(100vh - ${rem(350)})`,
     position: 'relative',
     zIndex: 1,
