@@ -40,7 +40,7 @@ const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boole
 
   control: {
     width: '100%',
-    padding: `${theme.spacing.md}px ${theme.spacing.lg}px`,
+    padding: `${theme.spacing.md} ${theme.spacing.lg}`,
     borderRadius: theme.radius.md,
     position: 'relative',
     height: 80,
@@ -54,7 +54,7 @@ const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boole
 
     [theme.fn.smallerThan('sm')]: {
       height: 60,
-      padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
+      padding: `${theme.spacing.xs} ${theme.spacing.md}`,
     },
   },
 
@@ -89,7 +89,7 @@ const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boole
 
   block: {
     paddingLeft: `calc(${theme.spacing.xl} * 2)`,
-    animation: shouldAnimate ? `${fadeId} 100ms ease` : 'none',
+    animation: shouldAnimate ? `${fadeId} 300ms ease` : 'none',
 
     [theme.fn.smallerThan('md')]: {
       paddingLeft: 0,
