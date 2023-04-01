@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   controls: {
@@ -11,7 +11,7 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('xs')]: {
       width: '100%',
       textAlign: 'center',
-      fontSize: 15,
+      fontSize: rem(15),
     },
   },
 }));
