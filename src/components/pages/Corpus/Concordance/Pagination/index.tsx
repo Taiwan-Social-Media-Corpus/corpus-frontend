@@ -29,7 +29,7 @@ function Pagination(props: Props) {
     <Center mt={30}>
       <MantinePagination
         total={Math.round(numberOfHits / fetchNumber) || 1}
-        initialPage={Number(page)}
+        defaultValue={Number(page)}
         withEdges
         size={size}
         onChange={async (value) => {
