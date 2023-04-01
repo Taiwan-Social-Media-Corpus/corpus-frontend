@@ -72,7 +72,7 @@ function Table<T extends RowData>(props: Props<T>) {
     <tbody>
       {paddingTop > 0 && (
         <tr>
-          <td style={{ height: `${paddingTop}px` }} />
+          <td style={{ height: `${rem(paddingTop)}` }} />
         </tr>
       )}
       {virtualRows.map((virtualRow) => {
@@ -87,7 +87,7 @@ function Table<T extends RowData>(props: Props<T>) {
       })}
       {paddingBottom > 0 && (
         <tr>
-          <td style={{ height: `${paddingBottom}px` }} />
+          <td style={{ height: `${rem(paddingBottom)}` }} />
         </tr>
       )}
     </tbody>

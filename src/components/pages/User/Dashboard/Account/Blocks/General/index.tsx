@@ -1,7 +1,7 @@
 import { useUser } from '@contexts/User';
 import { useMediaQuery } from '@mantine/hooks';
 import { memo, useMemo, useState } from 'react';
-import { Container, Title, Skeleton, Table, Box, Button } from '@mantine/core';
+import { em, Container, Title, Skeleton, Table, Box, Button } from '@mantine/core';
 import Edit from './Edit';
 import useStyles from './General.styles';
 
@@ -11,7 +11,7 @@ function General() {
   const { classes, theme } = useStyles();
   const [modify, setModify] = useState(false);
   const loading = <Skeleton height={20} mx="auto" />;
-  const controlSize = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`) ? 'sm' : 'lg';
+  const controlSize = useMediaQuery(`(max-width: ${em(theme.breakpoints.sm)})`) ? 'sm' : 'lg';
 
   const rows = useMemo(
     () =>

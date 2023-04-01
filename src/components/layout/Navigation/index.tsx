@@ -1,3 +1,4 @@
+import { em } from '@mantine/core';
 import Route from '@config/routes';
 import { useRouter } from 'next/router';
 import layoutConfig from '@config/layout';
@@ -15,7 +16,7 @@ function shouldIncludeNavbar(path: string) {
 function NavigationLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const { classes, cx } = useStyles();
-  const navbarCollapsed = useMediaQuery(`(min-width: ${layoutConfig.navbar.breakpoint}px)`);
+  const navbarCollapsed = useMediaQuery(`(min-width: ${em(layoutConfig.navbar.breakpoint)})`);
   const shouldRenderNavbar = shouldIncludeNavbar(router.pathname) && navbarCollapsed;
   const navbar = useMemo(() => (shouldRenderNavbar ? <Navbar /> : null), [shouldRenderNavbar]);
 

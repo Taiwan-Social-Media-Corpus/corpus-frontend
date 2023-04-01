@@ -2,7 +2,7 @@ import Route from '@config/routes';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@mantine/hooks';
 import { memo, useMemo, useState, useRef } from 'react';
-import { Grid, UnstyledButton, Text } from '@mantine/core';
+import { rem, em, Grid, UnstyledButton, Text } from '@mantine/core';
 import { AccountPageProps } from '../types';
 import useStyles from './DesktopAccountPage.styles';
 
@@ -15,7 +15,7 @@ function DesktopAccountPage(props: AccountPageProps) {
   const animationTimeout = useRef<number>();
   const startIndex = tab === undefined ? 0 : blocks.findIndex((x) => x.query === tab);
   const [active, setActive] = useState(startIndex);
-  const controlSize = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`) ? 60 : 80;
+  const controlSize = useMediaQuery(`(max-width: ${em(theme.breakpoints.sm)})`) ? 60 : 80;
 
   const handleActiveChange = (index: number) => {
     setActive(index);
@@ -42,7 +42,7 @@ function DesktopAccountPage(props: AccountPageProps) {
           className={classes.control}
         >
           <div className={classes.controlInner}>
-            <block.icon size={28} stroke={1.5} className={classes.controlIcon} />
+            <block.icon size={rem(28)} stroke={1.5} className={classes.controlIcon} />
             <div>
               <Text className={classes.controlTitle}>{block.name}</Text>
               <Text color="dimmed" size="sm" className={classes.controlDescription}>
@@ -64,7 +64,7 @@ function DesktopAccountPage(props: AccountPageProps) {
           <div className={classes.controls}>
             <div
               className={classes.controlsIndicator}
-              style={{ height: controlSize, transform: `translateY(${controlSize * active}px)` }}
+              style={{ height: controlSize, transform: `translateY(${rem(controlSize * active)})` }}
             />
             {controls}
           </div>

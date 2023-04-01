@@ -1,33 +1,33 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, rem, em } from '@mantine/core';
 
 const useStyles = createStyles(() => ({
   anchor: {
-    [`@media (min-width: ${420}px)`]: {
-      marginLeft: 127,
+    [`@media (min-width: ${em(420)})`]: {
+      marginLeft: rem(127),
     },
-    [`@media (max-width: ${419}px)`]: {
-      marginLeft: 120,
+    [`@media (max-width: ${em(419)})`]: {
+      marginLeft: rem(120),
     },
-    [`@media (max-width: ${415}px)`]: {
-      marginLeft: 118,
+    [`@media (max-width: ${em(415)})`]: {
+      marginLeft: rem(118),
     },
-    [`@media (max-width: ${410}px)`]: {
-      marginLeft: 110,
+    [`@media (max-width: ${em(410)})`]: {
+      marginLeft: rem(110),
     },
-    [`@media (max-width: ${405}px)`]: {
-      marginLeft: 107,
+    [`@media (max-width: ${em(405)})`]: {
+      marginLeft: rem(107),
     },
-    [`@media (max-width: ${400}px)`]: {
-      marginLeft: 93,
+    [`@media (max-width: ${em(400)})`]: {
+      marginLeft: rem(93),
     },
-    [`@media (max-width: ${375}px)`]: {
-      marginLeft: 80,
+    [`@media (max-width: ${em(375)})`]: {
+      marginLeft: rem(80),
     },
-    [`@media (max-width: ${360}px)`]: {
-      marginLeft: 65,
+    [`@media (max-width: ${em(360)})`]: {
+      marginLeft: rem(65),
     },
-    [`@media (max-width: ${280}px)`]: {
-      marginLeft: -13,
+    [`@media (max-width: ${em(280)})`]: {
+      marginLeft: rem(-13),
     },
   },
 }));
