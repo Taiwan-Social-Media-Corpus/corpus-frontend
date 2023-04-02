@@ -1,5 +1,5 @@
 import layoutConfig from '@config/layout';
-import { createStyles, getStylesRef, rem } from '@mantine/core';
+import { createStyles, getStylesRef, rem, em } from '@mantine/core';
 
 const useStyles = createStyles((theme) => {
   const icon = getStylesRef('icon');
@@ -19,7 +19,7 @@ const useStyles = createStyles((theme) => {
       left: 0,
       width: layoutConfig.navbar.width,
 
-      [`@media (max-width: ${rem(layoutConfig.navbar.breakpoint)})`]: {
+      [`@media (max-width: ${em(layoutConfig.navbar.breakpoint)})`]: {
         display: 'none',
       },
     },
@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => {
       paddingLeft: theme.spacing.md,
       paddingTop: `calc(${rem(layoutConfig.header.height)} + ${theme.spacing.md})`,
 
-      [`@media (max-width: ${rem(layoutConfig.navbar.breakpoint)})`]: {
+      [`@media (max-width: ${em(layoutConfig.navbar.breakpoint)})`]: {
         paddingBottom: 120,
       },
     },
@@ -40,7 +40,7 @@ const useStyles = createStyles((theme) => {
       paddingLeft: theme.spacing.md,
       paddingTop: theme.spacing.md,
 
-      [`@media (max-width: ${rem(layoutConfig.navbar.breakpoint)})`]: {
+      [`@media (max-width: ${em(layoutConfig.navbar.breakpoint)})`]: {
         paddingBottom: 120,
       },
     },

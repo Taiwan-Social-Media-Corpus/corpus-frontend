@@ -1,4 +1,4 @@
-import { rem } from '@mantine/core';
+import { rem, em } from '@mantine/core';
 import { useRouter } from 'next/router';
 import { memo, ReactNode } from 'react';
 import { useMediaQuery } from '@mantine/hooks';
@@ -15,7 +15,7 @@ function SpotlightProvider(props: Props) {
   const { hasSession, children } = props;
   const router = useRouter();
   const actions = createActions(hasSession, router);
-  const smallScreen = useMediaQuery('(max-width: 485px)');
+  const smallScreen = useMediaQuery(`(max-width: ${em(485)})`);
 
   return (
     <MantineSpotlightProvider
