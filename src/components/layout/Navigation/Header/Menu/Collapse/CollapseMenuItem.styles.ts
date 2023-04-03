@@ -12,7 +12,7 @@ const useStyles = createStyles((theme) => ({
   link: {
     display: 'block',
     textDecoration: 'none',
-    paddingLeft: rem(20),
+    paddingLeft: rem(10),
     marginLeft: rem(10),
     fontSize: theme.fontSizes.xs,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
