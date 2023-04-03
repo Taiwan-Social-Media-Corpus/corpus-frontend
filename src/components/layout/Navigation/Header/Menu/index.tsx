@@ -48,14 +48,17 @@ function Menu(props: MenuProps) {
   const userButton = useMemo(
     () =>
       hasSession ? (
-        <UserButton
-          firstName={firstName}
-          lastName={lastName}
-          fullName={fullName}
-          email={email}
-          p={10}
-          shouldCollapse
-        />
+        <>
+          <UserButton
+            firstName={firstName}
+            lastName={lastName}
+            fullName={fullName}
+            email={email}
+            p={10}
+            shouldCollapse
+          />
+          <MantineMenu.Divider />
+        </>
       ) : null,
     [hasSession]
   );
@@ -76,7 +79,6 @@ function Menu(props: MenuProps) {
 
       <MantineMenu.Dropdown>
         {userButton}
-        <MantineMenu.Divider />
         {items}
       </MantineMenu.Dropdown>
     </MantineMenu>
