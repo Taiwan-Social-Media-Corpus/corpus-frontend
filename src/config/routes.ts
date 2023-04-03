@@ -50,11 +50,10 @@ const Route = {
 
 const corpusLink = { link: Route.corpus.root, label: 'Corpus' };
 const aboutLink = { link: Route.about.intro, label: 'About' };
-const guideLink = { link: Route.guide, label: 'Guide' };
 const loginLink = { link: Route.login, label: 'Developer' };
 
 export function createHeaderLinks(hasSession: boolean): LinkItem[] {
-  const links = [corpusLink, aboutLink, guideLink];
+  const links = [corpusLink, aboutLink];
   if (!hasSession) return [...links, loginLink];
   return links;
 }
