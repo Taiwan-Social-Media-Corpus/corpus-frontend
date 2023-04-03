@@ -1,4 +1,4 @@
-import { createStyles, keyframes, rem } from '@mantine/core';
+import { createStyles, keyframes, rem, em } from '@mantine/core';
 
 const fadeId = keyframes({
   from: { opacity: 0, transform: `translateY(-${rem(20)}) scale(0.95) skewX(-2deg)` },
@@ -8,13 +8,12 @@ const fadeId = keyframes({
 const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boolean }) => ({
   root: {
     paddingTop: rem(20),
-    paddingBottom: rem(120),
 
     [theme.fn.smallerThan('sm')]: {
       paddingBottom: rem(60),
     },
 
-    [`@media (max-width: ${rem(991)})`]: {
+    [`@media (max-width: ${em(991)})`]: {
       display: 'none',
     },
   },
@@ -78,13 +77,13 @@ const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boole
 
   controlDescription: {
     [theme.fn.smallerThan('sm')]: {
-      fontSize: theme.fontSizes.xs,
+      fontSize: rem(theme.fontSizes.xs),
     },
   },
 
   controlIcon: {
     color: theme.colors.blue[6],
-    marginRight: theme.spacing.md,
+    marginRight: rem(theme.spacing.md),
   },
 
   block: {
@@ -93,7 +92,7 @@ const useStyles = createStyles((theme, { shouldAnimate }: { shouldAnimate: boole
 
     [theme.fn.smallerThan('md')]: {
       paddingLeft: 0,
-      paddingTop: theme.spacing.xl,
+      paddingTop: rem(theme.spacing.xl),
     },
   },
 }));

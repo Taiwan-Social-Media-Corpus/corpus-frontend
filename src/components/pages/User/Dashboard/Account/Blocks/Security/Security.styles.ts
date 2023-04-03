@@ -1,8 +1,28 @@
-import { createStyles, rem } from '@mantine/core';
+import { createStyles, rem, em } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    minHeight: 650,
+    minHeight: rem(380),
+
+    [`@media (max-width: ${em(990)})`]: {
+      minHeight: rem(340),
+    },
+
+    [`@media (max-width: ${em(800)})`]: {
+      minHeight: rem(250),
+    },
+
+    [`@media (max-width: ${em(768)})`]: {
+      minHeight: rem(300),
+    },
+
+    [`@media (max-width: ${em(650)})`]: {
+      minHeight: rem(430),
+    },
+
+    [`@media (max-width: ${em(370)})`]: {
+      minHeight: rem(385),
+    },
   },
 
   title: {

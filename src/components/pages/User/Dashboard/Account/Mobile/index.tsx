@@ -39,11 +39,11 @@ function MobileAccountPage(props: AccountPageProps) {
         onTabChange={(value) =>
           router.push({ pathname: Route.dashboard.account, query: { tab: value } })
         }
-        sx={{
-          '@media (min-width: 992px)': {
+        sx={(theme) => ({
+          [theme.fn.largerThan(992)]: {
             display: 'none',
           },
-        }}
+        })}
       >
         <Tabs.List grow>{tabsList}</Tabs.List>
         {tabsPanel}

@@ -8,6 +8,7 @@ type Props = { data: APIToken[] };
 
 function APITokenTable(props: Props) {
   const { data } = props;
+  const height = data.length < 3 ? rem(350) : '100vh';
 
   return (
     <Table
@@ -15,6 +16,7 @@ function APITokenTable(props: Props) {
       columns={columns}
       withColumnBorders
       withBorder
+      height={height}
       fontSize="md"
       horizontalSpacing="md"
       sx={{
