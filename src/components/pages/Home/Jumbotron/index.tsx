@@ -1,10 +1,12 @@
 import { useMemo } from 'react';
-import CountUp from 'react-countup';
+import dynamic from 'next/dynamic';
 import layoutConfig from '@config/layout';
 import { Media, CorpusStats } from 'types/corpus';
 import IconController from '@components/common/ui/Icons';
 import { rem, Container, Group, Button, Text, useMantineTheme, SimpleGrid } from '@mantine/core';
 import useStyles from './Jumbotron.styles';
+
+const CountUp = dynamic(() => import('react-countup'), { ssr: false });
 
 type Props = { media: Media; corpusStats: CorpusStats };
 
@@ -13,7 +15,10 @@ function Jumbotron(props: Props) {
   const { classes, cx } = useStyles();
   const { media, corpusStats } = props;
 
-  const totalPosts = media.dcard + media.ptt;
+  const dcardPosts = media.dcard !== undefined ? media.dcard : 0;
+  const pttPosts = media.ptt !== undefined ? media.ptt : 0;
+
+  const totalPosts = dcardPosts + pttPosts;
   const wordTypes = useMemo(() => Object.keys(corpusStats.word).length, [corpusStats.word]);
   const wordTokens = useMemo(
     () => Object.values(corpusStats.word).reduce((prev, cur) => prev + cur),
