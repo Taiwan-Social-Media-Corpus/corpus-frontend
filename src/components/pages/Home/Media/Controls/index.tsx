@@ -6,7 +6,6 @@ import useStyles from './MediaControls.styles';
 function MediaControls(props: Media) {
   const { ptt, dcard } = props;
   const { classes } = useStyles();
-  console.log('d', dcard);
 
   const items = useMemo(
     () =>
