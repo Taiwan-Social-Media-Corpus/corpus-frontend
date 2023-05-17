@@ -6,6 +6,7 @@ import useStyles from './MediaControls.styles';
 function MediaControls(props: Media) {
   const { ptt, dcard } = props;
   const { classes } = useStyles();
+  console.log('d', dcard);
 
   const items = useMemo(
     () =>
@@ -18,7 +19,7 @@ function MediaControls(props: Media) {
         },
         {
           title: 'Dcard',
-          stats: dcard,
+          stats: dcard !== undefined ? dcard : 0,
           logoSrc: '/dcard-logo.png',
           href: 'https://www.dcard.tw/f',
         },
