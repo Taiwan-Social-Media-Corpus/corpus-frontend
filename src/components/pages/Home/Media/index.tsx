@@ -12,7 +12,7 @@ function Media(props: Props) {
   return (
     <PageSection
       title="Taiwan Social Media"
-      description="We collect ...."
+      description="We primarily collected the following Taiwanese social media platforms："
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
       })}
