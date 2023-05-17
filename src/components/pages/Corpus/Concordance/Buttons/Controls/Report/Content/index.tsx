@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { decodeURL } from '@utils/url/corpus';
 import { IconReportSearch } from '@tabler/icons-react';
-import { Group, Text, ThemeIcon, Paper, List } from '@mantine/core';
+import { Group, Text, ThemeIcon, Paper, List, em } from '@mantine/core';
 import { ConcordanceParams, ConcordanceRequestBody } from 'types/corpus';
 import { HelperButtonProps } from '../../../types';
 import useStyles, { ICON_SIZE } from './ReportContent.styles';
@@ -42,7 +42,7 @@ function ReportContent(props: Props) {
         <IconReportSearch size={34} stroke={1.5} />
       </ThemeIcon>
 
-      <Text align="center" weight={700} className={classes.title}>
+      <Text align="center" weight={700} className={classes.title} mt={em(35)}>
         Search Report
       </Text>
 
